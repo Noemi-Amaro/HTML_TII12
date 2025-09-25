@@ -1,0 +1,113 @@
+ <!DOCTYPE html>
+ <html lang="pt-br">
+ <head>
+     <meta charset="UTF-8">
+     <title>Formulário</title>
+ </head>
+ <body>
+     <h1> Trabalhando con formulários</h1>
+     <p> Elementos de formulários são voltados para a interação do usuário, entrada de dados,
+     seleção de opções, processamento para a manipulação de dados entre outros.</p>
+     <p>
+     Para que um formulário funcione é necessário combiná-lo com uma <strong> linguagem de programação.</strong>
+     </p>
+     <hr>
+
+     <form action="" method="post" name="">
+        <p>
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome"
+            name="nome" required>
+        </p>
+
+         <p>
+            <label for="email">E-mail</label>
+            <input type="email" id="email"
+            name="email" required>
+        </p>
+
+        <p>
+            <label for="celular"> Celular</label>
+            <input type="tel" id="celular"
+            name="celular" placeholder="(00)00000-0000" required>
+        </p>
+<!-- required é para deixar o campo de preenchimento obrigatório-->
+        <p> É maior de idade?</p>
+        <P>
+        <input type="radio" id="sim" name="escolha">
+        <label for="sim">SIM</label>
+
+        <input type="radio" id="não" name="escolha">
+        <label for="não">NÃO</label>
+        </P>
+<!--PARA FICAR O NÃO EMBAIXO DO SIM É SÓ CRIAR OUTRO PARÁGRAFO-->
+        <p>
+        <input type="radio" id="sim" name="escolha">
+        <label for="sim">SIM</label></p>
+
+        <P><input type="radio" id="não" name="escolha">
+        <label for="não">NÃO</label>
+        </P>
+
+        <p> Interesses:</p>
+        <input type="checkbox" id="html" name="interesse">
+        <label for="html"> HTML</label>
+
+        <p>
+        <input type="checkbox" id="css" name="interesse">
+        <label for="css"> CSS</label>
+        </p>
+
+         <p>
+        <input type="checkbox" id="js" name="interesse">
+        <label for="js">JS</label>
+        </p>
+        <hr>
+
+        <P>
+            <label>Data de Nascimento</label>
+            <input type="date" id="nascimento" name="nascimento">
+        </P>
+
+         <P>
+            <label>Data de Nascimento</label>
+            <input type="datetime" id="nascimento" name="nascimento">
+        </P>
+         <P>
+            <label>Data de Nascimento</label>
+            <input type="datetime-local" id="nascimento" name="nascimento">
+        </P>
+
+        <p> 
+            <label for="cor"> Qual sua cor favorita?</label>
+            <input type="color" id="cor" name="cor">
+        </p>
+
+        <p>
+            <label for="idade"> Qual é sua idade?</label>
+            <input type="number" id="idade" name="idade">
+        </p>
+         <p>
+            <label for="assunto"> Assunto</label>
+            <select name="assunto" id="assunto">
+                <option value="">Escolha uma opção:</option>
+                <option value="elogio"> Elogios</option>
+                <option value="reclamacao"> Reclamações</option>
+                <option value="outro"> Outros</option>
+            </select>
+        </p>
+
+        <p> <!-- não precisa do type-->
+            <label for="mensagem"> Mensagem</label>
+            <textarea name="menasagem" id="mensagem" cols="50" rows="10"></textarea>
+        </p>
+
+        <p>
+            <label>Senha:</label>
+            <input type="password">
+            <button id="" onclick="">ENVIAR</button>
+        </p>
+     </form>
+
+</body>
+</html>

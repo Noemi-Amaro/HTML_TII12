@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>Trabalhando com links</title>
+    </head>
+<body>
+    <a id="topo"></a>
+    <a href="#final"> Ir para o final </a>
+    <h1>Links e seus atributos</h1>
+    <hr>
+    <h2>Tipos de links</h2>
+    <h3>Link absoluto</h3>
+    <p>É aquele que colocamos o endereço (URL)
+        completo da página para ser acessada. </p>
+
+        <!--Atributos prncipais:
+        href = indica o endereço
+        target= indica a maneira que o link será aberto. -->
+        <p>
+            Acesse o site do SENAC clicando 
+            <a href="https://www.sp.senac.br/"
+            target="_blank">aqui</a>.
+        </p>
+        <hr>
+        <h3>Link Relativo</h3>
+        <p>É aquele em que o endereço do arquivo / 
+            página  a ser acessado é realtivo ao próprio site em que 
+            estamos trabalhando. </p>
+            <!--exemplo-->
+        <p>Saiba tudo sobre listas clicando <a href="listas.html" target="_blank">aqui.</a></p>
+        <hr>
+        <h3>E-mail e telefone</h3>
+        <p><b>E-mail</b>: Link abre um programa de e-mail instalado na máquina
+            do usuário. Se o programa estiver configurado corretamente, ele 
+            poderá enviar uma mensagem para o endereço indicado.</p>
+
+        <p><b>Telefone</b>: Link de carregamento de um aplicativo que faz chamadas telefonicas.</p>
+
+        <p>Contato por e-mail: <a href="mailto:profluana@gmail.com">profluana@gmail.com</a></p>
+        <p>Contato por telefone: <a href="tel:5511987654321">55-11-987654321</a></p>
+
+        <hr>
+        <h3>Falso / vazio</h3>
+        <p>Utilizado para simular um comporamento de link.</p>
+        <p><a href="#">Nenhum lugar...</a></p>
+
+        <hr>
+        <h3>Link vertical</h3>
+        <p>Usado para a navegação por seções/áreas localozadas na mesma página</p>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, itaque autem? Perspiciatis quaerat doloribus iusto alias maiores magnam rerum, aperiam dolores velit veritatis ab nisi ullam magni? Pariatur, nesciunt optio?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, itaque autem? Perspiciatis quaerat doloribus iusto alias maiores magnam rerum, aperiam dolores velit veritatis ab nisi ullam magni? Pariatur, nesciunt optio?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, itaque autem? Perspiciatis quaerat doloribus iusto alias maiores magnam rerum, aperiam dolores velit veritatis ab nisi ullam magni? Pariatur, nesciunt optio?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, itaque autem? Perspiciatis quaerat doloribus iusto alias maiores magnam rerum, aperiam dolores velit veritatis ab nisi ullam magni? Pariatur, nesciunt optio?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, itaque autem? Perspiciatis quaerat doloribus iusto alias maiores magnam rerum, aperiam dolores velit veritatis ab nisi ullam magni? Pariatur, nesciunt optio?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, itaque autem? Perspiciatis quaerat doloribus iusto alias maiores magnam rerum, aperiam dolores velit veritatis ab nisi ullam magni? Pariatur, nesciunt optio?</p>
+        <p><a href="#topo"> Ir para o topo</a></p>
+        <a id="final"></a>
+
+        <hr>
+        <h3>Download</h3>
+        <p>Baixe a apostila web <a href="doc/apostila-web.pdf" download="">aqui.</a></p>
+        <!-- baixa automaticamente ao clicar-->
+
+        <p>Baixe a apostila web <a href="doc/apostila-web.pdf">aqui.</a></p>
+        <!-- abre na mesma página sem fazer o download, e fica opcional para o usuário fazer-->
+
+        <p>Baixe a apostila web <a href="doc/apostila-web.pdf" targer="_blank">aqui.</a></p>
+        <!-- abre em outra página sem fazer o download, e fica opcional para o usuário fazer-->
+         
+
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title> Mídias </title>
+    </head>
+    <body>
+         <h1>Trabalhando com mídias</h1>
+         <p> Para inserir uma música MP3 em sua página web, o arquivo DEVE
+            estar na pasta raiz do projeto (site).</p>
+         <audio controls>
+           <source src="midia/video/metalica_nothing.mp3">
+         </audio>
+         <br>
+         <p>Veja o vídeo a seguir: </p>
+         <video controls>
+            <source src="midia/video/london.mp4" 
+            type="video/mp4">
+         </video>
+        <br>
+        <hr>
+         <video controls>
+            <source src="midia/video/pink-floyd.mp4" 
+            type="video/mp4">
+        <track kind="subtitles" srclang= pt-br 
+        src="midia/video/legenda-ptbr.vtt" label="português-Brasil" default>
+         <track kind="subtitles" srclang= en 
+        src="midia/video/legenda-en.vtt" label="inglês" default>
+         </video>
+
+         <br>
+         <hr>
+         <iframe width="560" height="315" src="https://www.youtube.com/embed/Lgvc0l1UyaU?si=L0MKb159avkjWJK5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+    </body>
+</html>

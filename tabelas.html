@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>Tabelas</title>
+    </head>
+    <body>
+        <h1> Trabalhando com tabelas</h1>
+        <p> A elaboração de uma tabela consiste em combinar linhas e colunas de forma objetiva e ordenadas.</p>
+
+        <h2>Tabela simples</h2>
+        <!-- tr= representa a linha
+             td= representa a célula / tag usada é a table-->
+
+        <table border="1">
+           <tr>
+              <td>Violão</td>
+              <td>Guitarra</td>
+           </tr> 
+           <tr>
+              <td>Violino</td>
+              <td>Piano</td>
+           </tr>
+        </table>
+        <br>
+        <hr>
+        <h2>Tabela com célula de título:</h2>
+        <table border="1">
+            <!--A tabela é criada verticalmente, cada titulo do th é uma coluna, cada linha vai ser preenchida na tabela de acordo com a ordem do título, que será a mesma da linha representada-->
+             <tr>
+                <th>Instrumentos de corda</th>
+                <th>Instrumentos de sopro</th>
+                <th>Percussão</th>
+             </tr>
+
+             <tr>
+                <td>Violino</td>
+                <td>Flauta</td>
+                <td>Tambor</td>
+             </tr>
+
+             <tr>
+                <td>Cavaquinho</td>
+                <td>Oboé</td>
+                <td>Pandeiro</td>
+             </tr>
+
+             <tr>
+                <td>Guitarra</td>
+                <td>Clarinete</td>
+                <td>Triângulo</td>
+             </tr>
+        </table>
+        <br>
+        <hr>
+
+        <h2>Título Vertical</h2>
+        <table border="1">
+            <tr>
+            <th>Livros</th>
+            <td>Arte Moderna</td>
+            <td>HTML funcional</td>
+            <td>As protagonistas</td>
+            </tr>
+
+            <tr>
+                <th>QTD</th>
+                <td>4</td>
+                <td>10</td>
+                <td>100</td>
+            </tr>
+        </table>
+        <br>
+        <hr>
+
+        <h2>Cabeçalho,corpo e rodapé</h2>
+        <p>Estes elementos criam seções da tabela que podem ter uma formatação diferenciada ou muitos dados</p>
+        <table border="1">
+            <!-- caption como se fosse uma legenda/título fora da tabela-->
+ <caption> thead / tfoot / tbody </caption>
+ <thead>
+    <tr>
+        <th> Coluna 1 </th>
+        <th> Coluna 2 </th>
+    </tr>
+ </thead>
+
+ <tfoot> <!-- "É O RODAPÉ"-->
+    <tr>
+        <td>Resultado 1</td>
+        <td>Resultado 2</td>
+    </tr>
+ </tfoot>
+
+ <tbody>
+     <tr>
+        <td>Conteúdo A </td>
+        <td>Conteúdo B </td>
+    
+     </tr>
+
+     <tr>
+        <td>Conteúdo C </td>
+        <td>Conteúdo D</td>
+    
+     </tr>
+
+     <tr>
+        <td>Conteúdo E </td>
+        <td>Conteúdo F</td>
+    
+     </tr>
+
+     <tr>
+        <td>Conteúdo G </td>
+        <td>Conteúdo H</td>
+    
+     </tr>
+
+     <tr>
+        <td>Conteúdo I </td>
+        <td>Conteúdo J</td>
+    
+     </tr>
+ </tbody>
+
+        </table>
+    </body>
+
+</html>

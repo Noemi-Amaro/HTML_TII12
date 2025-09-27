@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>Trabalhando com Classe e ID </title>
+
+        <style>
+            #unico{
+                background-color: aqua;
+                height: 30px; (fundo)
+                width: 150px;
+                padding: 10px; /*afasta na lateral*/
+            }
+            .categoria{ 
+                background-color: blueviolet;
+                height: 30px;
+                width: 300px;
+                color:#fff;
+                padding: 10px;
+            
+            }
+            #meio{
+                background-color: darkgreen;
+                width: 500px;
+                border-bottom: red 5px solid;
+            }
+
+            .redonda{
+                border-radius: 10px;
+            }
+        </style>
+
+    </head>
+    <body>
+        <h1> Trabalhando com ID e Classe</h1>
+        <hr>
+        <h2> Seletores ID</h2>
+        <p> É usado um seletor de id em um elemento HTML para deixar ele único e específico.</p>
+        <p> Deve se usado uma única vez na página.</p>
+        <h3> Exemplo</h3>
+        <p id="unico"> USANDO UM ID</p>
+
+        <h2 class="categoria redonda"> Seletores de classe</h2>
+        <p> O seletor de classe seleciona elemento com um atributo de classe específico</p>
+        <p> Pode ser usado mais de uma vez na página.</p>
+        <h3> Exemplo:</h3>
+        <p class="categoria">USANDO CLASSE</p>
+        <p class="categoria redonda" id="meio">USANDO CLASSE</p>
+        <p class="categoria">USANDO CLASSE</p>
+        <!--classe é representado com ponto final e o nome da classe-->
+        <p>OUTRO TEXTO</p>
+
+    </body>
+</html>

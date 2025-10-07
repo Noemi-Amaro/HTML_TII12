@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+    <meta charset="utf-8" />
+    <title>Trabalhando com posição</title>
+    <style>
+        .box_position{
+            background-color: #e200ff;
+            width: 300px;
+            height: 50px;
+            color: white;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            padding: 20px;
+        }
+
+        #static{ position: static;}
+        #relativo{position: relative; left: 300px;}
+        #fixo{position: fixed; bottom: 0;right: 0;background-color: blueviolet;}
+        #relativo_2{position: relative;left: 200px; background-color: brown;}
+        #absoluto{position: absolute; top: 3px;right: 50px;background-color: burlywood;}
+    </style>
+</head>
+
+<body>
+    <h1>Propriedades de posição</h1>
+    <p>A position propriedade especifica o tipo de método de posicionamento usado para um elemento.(estático, relativo, fixo, absoluto ou pegajoso).</p>
+    <p>Os elementos são então posicionados usando as propriedades superior, inferior, esquerda e direita. No entanto, essas propriedades não funcionarão, a menos que a position propriedade seja configurada primeiro. Eles também funcionam de maneira diferente dependendo do valor da posição.</p>
+    <h3>position:static</h3>
+    <p>Elementos HTML são posicionados estáticos por padrão.</p>
+    <p>Elementos posicionados estáticos não são afetados pelas propriedades superior, inferior, esquerda e direita.</p>
+    <p>Um elemento com position: static; não está posicionado de maneira especial; está sempre posicionado de acordo com o fluxo normal da página:</p>
+    <p>Exemplo: </p>
+    <div class="box_position" id="static">position: static;</div>
+    <br>
+    <hr>
+
+    <h3>position:relative;</h3>
+    <p>Um elemento position: relative; está posicionado em relação à sua posição normal.</p>
+    <p>Definir as propriedades superior, direita, inferior e esquerda de um elemento relativamente posicionado fará com que seja ajustado para longe de sua posição normal. Outro conteúdo não será ajustado para caber em qualquer lacuna deixada pelo elemento.</p>
+    <p>Exemplo: </p>
+    <div class="box_position" id="relativo">position: relative;</div>
+    <br>
+    <hr>
+
+    <h3>position:fixed</h3>
+    <p>Um elemento com position: fixed;é posicionado em relação à viewport, o que significa que ele permanece sempre no mesmo local, mesmo que a página seja rolada. As propriedades superior, direita, inferior e esquerda são usadas para posicionar o elemento.</p>
+    <p>Um elemento fixo não deixa uma lacuna na página onde normalmente estaria localizado.</p>
+    <p>Exemplo: No canto inferior direito</p>
+    <div class="box_position" id="fixo">position: fixed;</div>
+    <br>
+    <hr>
+
+     <h3>position:absolute;</h3>
+    <p>Um elemento com position: absolute;é posicionado em relação ao ancestral posicionado mais próximo (em vez de posicionado em relação à viewport, como fixo).</p>
+    <p>Contudo; se um elemento posicionado absoluto não tiver antepassados posicionados, ele usará o corpo do documento e se moverá junto com a rolagem da página.</p>
+    <p><b>Nota:</b>Um elemento "posicionado" é aquele cuja posição é qualquer coisa exceto static.</p>
+    <p>Exemplo: </p>
+    <div class="box_position" id="relativo_2">position: relativo 2 / absolute;</div>
+    <div class="box_position" id="absoluto">position: absolute;</div>
+    <br>
+    <hr>
+    <!--para funcionar, obrigatoriamente o elemento mais próximo dele precisa ser relativo e posteriormente absoluto-->
+
+     <h3>position:pegajosa;</h3>
+    <p>Um elemento com position: sticky;é posicionado com base na posição de rolagem do usuário.</p>
+    <p>Um elemento adesivo alterna entre relativee fixed, dependendo da posição de rolagem. Ela é posicionada relativa até que uma determinada posição de deslocamento seja atendida no navegador - então ela "gruda" no lugar (como position: fixed).</p>
+    <p><b>Nota:</b>Internet Explorer, Edge 15 e versões anteriores não suportam posicionamento aderente. O Safari exige um prefixo -webkit- (veja o exemplo abaixo). Você também deve especificar pelo menos um de top, right, bottomou leftpara o posicionamento pegajoso para trabalhar.</p>
+    <!--precisa estar dentro do iframe, pode ter qualquer conteúdo,videos, barras de rolagem_pode determinar o tamanho do iframe com style=width-->
+    <p>Exemplo: </p>
+    <iframe src="tags_textual.html" style="width: 800px;"></iframe>
+</body>
+</html>

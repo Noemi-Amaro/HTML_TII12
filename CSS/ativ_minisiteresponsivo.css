@@ -1,0 +1,19 @@
+.justify-content{
+    display: flex;
+    background-color: rgb(247, 123, 41);
+    justify-content: center;
+  }
+
+  .justify-content>div{
+    width: 100px;
+    margin: 10px;
+    text-align:center;
+    line-height: 75px; 
+    font-size: 30px;
+  }
+
+ .align-items>div{
+    background-color: white;
+    width: 100px;
+    margin: 10px;
+    text-align: center;

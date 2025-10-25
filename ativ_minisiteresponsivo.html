@@ -1,34 +1,99 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-    <head>
+     <head>
         <meta charset="UTF-8">
         <title> Site Responsivo </title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="CSS/ativ_minisiteresponsivo.css">
-    </head>
-    <body>
-<header>
-    colocar o menu
-</header>
-<main>
-    <section>
-        <div></div>
-    </section>
-</main>
-   <div class="justify-content"> <!-- trabalha os elementos horizontalmente-->
-    <div>Sobre</div>
-    <div>Dicas</div>
-    <div>Contatos</div>
-  </div>
+        <link rel="stylesheet" href="ativ_minisiteresponsivo.css">
+     </head>
 
-  <h1> Qual a importância de uma alimentação saudável?</h1>
+<body>
+    <header> <!-- Colocar o menu / navegação-->
+        <nav class="nav">
+            <img src="logocomnome100px.gif" alt="logo">
+            <ul>
+            <li>  <a href="#">HOME</a></li>  <!-- Como não tem o link usamos "#" -->
+            <li><a href="#">SERVIÇOS</a></li>
+            <li> <a href="#">RECEITAS</a></li>
+            <li><a href="#">BLOG</a></li>
+            <li><a href="#">CONTATO</a></li>
+            </ul>
+            
+        </nav>
+
+    
+    </header>
+
+<main>
+     <section class="inicio">
+         <div>
+             <h2> A importância de uma alimentação saudável</h2>
+             <!--<p><img src="imgfundo.jpeg" alt="legumeseverduras"></p>-->
+             <p> <img id="banner" src="imgfundo.jpeg"></p>
+             <p><i>"Comer com consciência vai além de nutrir o físico, é valorizar o momento da refeição e as escolhas que você faz". </i></p>
+<!--colocar id na img para????-->
+        </div>
+    </section>
+
+
+
+    <section class="cards"> 
+        <div class="card"> 
+            <figure> <img src="card1_200px.png" alt="imagem de uma médica sorrindo e segurando uma maça">
+                <figcaption> Procure sempre um nutricionista para auxiliar</figcaption>
+                 <button>Saiba mais</button>
+            </figure>
+        
+            <figure> <img src="card2_255px.png" alt="legumes,verduras e proteinas">
+                <figcaption> Cuide da sua alimentação</figcaption>
+                <button>Saiba mais</button>
+            </figure>
+       
+            <figure> <img src="card3_283px.png" alt="legumes,verduras e proteinas">
+                <figcaption> Praticidade para o seu dia a dia</figcaption>
+                <button>Saiba mais</button>
+            </figure>
+       
+            <figure> <img src="card4_288px.gif" alt="alimentos saudaveis agrupados com formato da letra S">
+                <figcaption> Dedique-se à sua alimentação</figcaption>
+                <button>Saiba mais</button>
+            </figure>
+            </div>
+       
+
+    </section>
+
+
+
+</main>
   
-    <p><img src="imagens/qual-a-importancia-de-uma-alimentacao-saudavel-2-1024x576.jpg"  alt="pessoa com uma tigela de alimentos saudáveis" ></p>
-  
-colocar id na img para 
+    
     </body>
+    <br>
+    <br>
+
+    <footer>
+        <div class="logo">
+        <p><img src="logocomnome100px.gif"></p>
+        </div >
+
+        <div class="texto">
+         "Nutrição é autocuidado: a forma como você se alimenta é um reflexo do amor que 
+         <br>
+         você tem por si mesmo".
+        </div>
+
+        <div class="textoinferior">
+            <p> @2025 Ana Clara Nutricionista</p> 
+        </div>
+
+        <div class="suporte"> 
+            <p> <b>Precisa de suporte</p></b>
+            <p> <img src="email.svg" width="15px"> E-mail</p>
+            <p><img src="phone.svg" width="20px"> Telefone</p>
+            <p> Termos & condições</p>
+        </div>
+    </footer>
 </html>
-width:100%
-max-withd: 1000px
 
 

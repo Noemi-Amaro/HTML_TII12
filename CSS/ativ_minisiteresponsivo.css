@@ -1,19 +1,109 @@
-.justify-content{
-    display: flex;
-    background-color: rgb(247, 123, 41);
-    justify-content: center;
-  }
 
-  .justify-content>div{
-    width: 100px;
-    margin: 10px;
-    text-align:center;
-    line-height: 75px; 
-    font-size: 30px;
-  }
 
- .align-items>div{
-    background-color: white;
-    width: 100px;
-    margin: 10px;
-    text-align: center;
+body{
+  background-color:rgb(214, 245, 214);
+  margin: 0;
+}
+
+header{
+  background-color: white;
+  padding: 10px;
+  align-items: center;
+
+}
+
+.nav{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+ul{ 
+  display: flex;
+  flex-direction: row;
+}
+li{
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  padding: 10px;
+ 
+}
+
+.inicio{
+  display: flex;
+  justify-content:space-evenly;
+  text-align: center;
+
+}
+
+#banner{
+  width: 100%; 
+  max-width: 2000px;
+  
+}
+.cards{
+  background-color: white;
+  display: flex;
+justify-content: center;
+padding: 10px;
+}
+
+.card{
+  display: flex;
+  justify-self: center;
+  flex-wrap: wrap;
+  border-radius: 15px;
+  flex-direction: row;
+    
+
+}
+
+footer{
+  background-color: white;
+  margin: 0;
+  justify-content: space-around;
+  display: flex;
+  align-items: center;
+}
+
+
+.logo{
+  text-align: start
+
+}
+.texto{
+  display: flex;
+  justify-content: center;
+  
+}
+
+button{ 
+      background-color: #4CAF50; /* Cor de fundo */
+      color: black; /* Cor do texto */
+      padding: 10px 20px; /* Espaçamento interno */
+      border: none; /* Sem borda */
+      border-radius: 5px; /* Cantos arredondados */
+      cursor: pointer; /* Mostra o ponteiro do mouse */
+    }
+    button:hover{
+      background-color: orange;
+    }
+
+
+ @media only screen and (max-width: 425px)
+ 
+
+ /*.img{
+  width: 100%; max-width: 2000px;
+ }
+
+ @media only screen and (min-width: 425px) {
+                body{
+                        background-color:rgb(214, 245, 214);
+                    }
+
+                     @media only screen and (min-width: 1024px){
+                    body{ background-color: green;}
+                }

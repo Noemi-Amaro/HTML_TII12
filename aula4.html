@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>title</title>
+</head>
+<body>
+    
+</body>
+<script>
+
+//Variaveis são como caixas que inserem um tipo de valor dentro delas
+let minhaCarteira = 25;
+let alturaAluno = 1.80;
+
+
+//exemplos de variavel vazia:
+
+//Remova esse comentario e siga o exemplo da aula
+
+
+//variaveis podem ser chamadas para se inserir valores nelas;
+alturaAluno = 1.80;
+
+//Remova esse comentario e siga o exemplo da aula
+
+
+//..Ou para usar o valor delas
+let dinheiroTotal = minhaCarteira;
+//Remova esse comentario e siga o exemplo da aula
+
+
+//Os Valores possiveis para inserir em variaveis são:
+//String: string é literalmente texto, para criar uma string você tem que inserir "" 
+// e então adicionar o texto desejado dentro dela
+let nomeProfessor = "Carlos";
+
+//Remova esse comentario e siga o exemplo da aula
+
+
+//--desafio
+//colocar seu nome dentro da string
+
+let nomeAluno = "Noemi";
+
+
+//declarar uma string com a sua comida favorita
+let comidaFavorita = "Macarronada";
+
+
+//------------------------------------------------------------
+//Number: number é literalmente um numero, para declarar ele você só precisa colocar um 
+//numero, sem nada contendo ele. só o ;
+
+let numeroAulas = 28; //não precisa de "" porque não é um texto
+let horarioAula = 3;
+
+let numeroCaixa = 3;
+
+
+// desafios:
+
+// mudar o 0 pelo numero de alunos da sala
+
+let numeroAlunosSala = 12;
+
+
+// declarar um numero com a sua idade
+
+let minhaIdade = 30;
+
+
+//------------------------------------------------------------
+
+//Boolean: booleano é um interuptor, ele é importante pare valores de verdadeiro (true) 
+// ou falso (false)
+
+let estaAcessoALuz = true; //serve para decisões que requer resposta sim ou não.
+
+
+
+// desafios:
+
+// declare se seu computador esta ligado, usando true ou false 
+let estaLigado = true; //iniciar sempre com pergunta
+
+// let estaLigado = //insira aqui a resposta
+
+
+//  declare se você esta com fome
+let estouComFome = false;
+
+//------------------------------------------------------------
+
+//Array: array é uma lista (igual uma lista de compra) ele é importante para guardar 
+// varios valores
+
+let listasDeComprasDoMercado = ["Melancia", "Peito de Peru", "Pacoca"];
+
+
+// desafios:
+
+// Substituir as palavras "comida" pelos itens que você quiser comprar no mercado na sua 
+// lista de compras
+
+let listaDeCompras = ["Arroz", "Feijao", "Carne"];
+
+
+// inserir dentro de cada aspas, 1 tarefa do seu dia
+
+let listaDeTarefa = ["Lavar Roupas", "Trabalhar", "Cozinhar"]; //dentro da string pode haver espaços.
+
+
+// colocar 3 temperos dentro da lista(array) de temperos, lembre-se que texto tem que 
+// estar dentro de ""  (exemplo: "Sal") e separado do próximo item com "," 
+// (exemplo: "Sal","Alho")
+
+let listaDeTemperos = ["Ana Maria Braga", "Paprica Defumada","Edu Guedes"];
+
+
+// declare uma lista (array) com 3 molhos do zero
+
+let listaDeMolhos = ["Barbecue","Molho de Tomate","Molho Branco"];
+//propriedade: não precisa ser so strings , pode colocar outros valores 
+let listaMaluca = ["Passas ao rum", 25, true];
+
+//obs: pode colocar uma string dentro de outra string, true e false precisa estar minusculo
+let listaMaluca2 = ["passas ao rum",25,true,["Papel",40 ,50, [20, 40]]];
+listaMaluca[0];
+listaMaluca[3][3][1];
+
+let segundaList = [[1, 4, 16], "hamburguer", [4], 16, [40,30]];
+segundaList[0][2]; //16
+segundaList[2][0]; //4
+segundaList[4][1]; //30
+//ao chamar a variante as chaves precism estar encostadas com o nome, não pode dar espaços.
+//------------------------------------------------------------
+
+//Objeto: Objeto é como uma ficha (ele guarda valores e a descrição desses valores 
+// (chamados de chave))
+
+//Remova esse comentario e siga o exemplo da aula
+
+
+// desafios:
+
+// modificar a descrição dos valores (chaves 'x:', 'y:' e 'z:') por 'nome:', 'nota:' e 
+// 'turma:' respectivamente
+
+let fichaAluno = {x: "Giovanne", y: 10, sala:"Sala 20"};
+
+
+// inserir dentro do valor descrito como 'nome:' o seu nome (exemplo: nome: "Heitor"), 
+// dentro do valor descrito como 'nota:' coloque 10, e dentro do valor descrito 
+// como 'sala:' coloque "31"
+
+let suaFichaAluno = {nome: "", nota: "", sala: ""};
+
+// Inserir no objeto a descrição 'nome:' inserindo o valor dele como o seu nome, 
+// depois colocar a descrição 'sala' inserindo no valor dele a sua sala.
+
+let novaFichaAluno = {};
+
+
+
+
+//------------------------------------------------------------
+
+// so que tem uma coisa, e se nos quisermos que o nosso computador entenda 
+// que um valor não pode ser mudado ao longo do codigo? para isso podemos usar const!
+
+
+//exemplo:
+const TAXA_DE_JUROS = 0.25;
+
+const FICHA_QUE_NAO_PODE_MUDAR = {nome:"Ricardo", senha:"123"};
+
+// do contrario, se não é um problema nos mudamos esse valor depois no código, colocamos 
+// o 'let'
+
+// então denovo, let é para valores que queremos mudar depois no codigo
+
+// e const é para valores que queremos que se mantenham no código
+
+
+
+
+//------------------------------------------------------------
+
+// agora que nos aprendemos a definir valores, a gente tem que saber como mostrar eles,
+// para isso nos vamos usar o console.log()
+
+// console.log();
+
+// o que ele faz? ele pega, o que a gente jogar dentro dele, e mostra ele no console,
+// é como se por exemplo, eu pegasse a ficha e mostrasse para vocês
+
+let fichaPacienteDebora = {nome:"Debora", condicao:"virose"};
+
+//mostra o valor de fichaPaciente
+// console.log(fichaPaciente);
+
+
+// desafios:
+
+// mostre no console o valor do fichaAlunoJulia
+
+let fichaAlunoJulia = {nome:"Julia", sala:"12"};
+
+// console.log()
+
+
+
+// mostre no console o valor do fichaAlunoRicardo
+
+let fichaAlunoRicardo = {nome:"Ricardo", sala:"14"};
+
+
+
+//------------------------------------------------------------
+// operadores de comparação:
+
+// imagine que alguém chegou para você e perguntou se um aluno é maior que o outro 
+
+let viniciusAltura = 190;
+
+let jonathanAltura = 175;
+
+//console.log(viniciusAltura > jonathanAltura);
+
+// o comparador é uma pergunta, olhe o símbolo, tem um lado que é maior, e um que é menor, 
+// ele ta perguntando se o valor //que esta do lado maior do símbolo, é maior que o valor 
+// do lado menor
+
+let custoBaguete = 8;
+
+let custoPaoFrances = 1;
+
+//console.log(custoPaoFrances < custoBaguete)
+
+
+//desafios:
+
+//Compare o preço dessas duas variáveis (precoOuroGrama e precoPrataGrama) dentro do 
+//console.log de forma que ele apresente "true"
+
+let precoOuroGrama = 60;
+
+let precoPrataGrama = 14;
+
+//console.log() 
+
+//------------------------------------------------------------
+// operadores de logica
+
+// vamos supor que eu queira fazer um lanche de pão com manteiga, eu preciso de TODOS 
+// os ingredientes correto? vamos verificar se eu tenho todos os ingredientes usando &&
+
+// "E" (&&)
+
+tenhoPao = true; //tenho!
+
+tenhoMaionese = true; //tenho!
+
+tenhoSalame = true; //tenho!
+
+tenhoManteiga = false; //não tenho!
+
+
+// eu consigo fazer um pao com manteiga? vamos ver!
+
+//console.log(tenhoPao && tenhoMaionese)
+
+
+// e um pao com manteiga E salame
+
+//console.log(tenhoPao && tenhoManteiga && tenhoSalame)
+
+
+
+//Desafios:
+
+// verifique se é possível fazer um pão com maionese
+
+// agora verifique se é possível fazer um pão com maionese e salame
+
+// agora verifique se é possível fazer um pão com maionese, salame e manteiga
+
+
+
+// "OU" (||)
+
+// o ou é usado quando ter qualquer uma das opções é o bastante
+
+tenhoSuco = false; // Eu tenho!
+
+tenhoAgua = true; // Eu tenho!
+
+tenhoCerveja = true; // Eu tenho!
+
+tenhoVinho = false; //Não tenho!
+
+
+//vamos supor que eu esteja com sede, e quero beber Agua ou Vinho, eu consigo? vamos ver
+
+//console.log(tenhoAgua || tenhoVinho);
+
+
+//vamos supor que eu esteja com sede, e quero beber Suco OU Cerveja OU Vinho, eu consigo? 
+//vamos ver!
+
+//console.log(tenhoSuco || tenhoCerveja || tenhoVinho);
+
+
+// desafios:
+
+// estou com sede, quero que vocês vejam se eu posso beber Agua OU cerveja
+
+// estou com sede, quero que vocês vejam se eu posso beber Vinho OU Suco
+
+// estou com sede, quero que vocês vejam se eu posso beber Suco Ou vinho OU agua
+
+//------------------------------------------------------------
+// if() e else
+
+// if() e uma forma de rodar um bloco de codigo CASO a condiçao que voce tenha colocado 
+// nele seja verdadeira
+
+//Remova esse comentario e siga o exemplo da aula
+
+
+// else e uma forma de voce rodar um bloco de codigo caso a condicao do if NAO SEJA 
+// verdadeira
+
+//Remova esse comentario e siga o exemplo da aula
+
+
+//e uma forma muito util de rodar um codigo apenas em certos casos
+
+//Remova esse comentario e siga o exemplo da aula
+
+//desafios
+
+//verifique se o baldeAzul tem mais agua que o baldeVermelho, caso ele tenha, apresente no 
+//console "baldeAzul tem mais agua!"
+
+let baldeAzul = 15;
+let baldeVermelho = 12;
+
+
+//verifique se o baldeVerde tem mais agua que o baldeAmarelo, caso ele tenha, apresente no 
+//console "baldeVerde tem mais agua!", do contrario apresente no console "baldeAmarelo 
+//tem mais agua!"
+
+let baldeVerde = 17;
+let baldeAmarelo = 22;
+
+
+//Desafio Extra para quem já domina logica de programação em javascript
+
+//requer conhecimento de Loops condicionais, Estruturas condicionais
+//e operadores de logica, aritmetica e comparação
+
+//Um cliente pediu para que você desenvolva um sistema de 
+//classificação das notas dos alunos de uma escola (informações
+//providenciadas abaixo).
+//O sistema deve contemplar a capacidade de verificar se cada aluno
+//passou ou não em cada materia baseado na media geral das notas das 
+//provas do alunos em determinada materia (tem que ser maior que 6),
+//imprimindo no console o nome do aluno, o nome da materia e se 
+//ele reprovou ou não, por fim o sistema deve devolver a media geral 
+//da sala em cada materia
+
+const escola = [
+  {
+    nomeSala: "Sala 1",
+    alunos: [
+      {
+        nome: "Ana",
+        materias: {
+          matematica: [8, 7, 9],
+          artes: [6, 5, 7],
+          quimica: [9, 8, 10]
+        }
+      },
+      {
+        nome: "Bruno",
+        materias: {
+          matematica: [5, 6, 4],
+          artes: [8, 9, 7],
+          quimica: [6, 7, 5]
+        }
+      },
+      {
+        nome: "Carla",
+        materias: {
+          matematica: [9, 10, 8],
+          artes: [7, 8, 9],
+          quimica: [10, 9, 10]
+        }
+      }
+    ]
+  },
+  {
+    nomeSala: "Sala 2",
+    alunos: [
+      {
+        nome: "Diego",
+        materias: {
+          matematica: [6, 7, 5],
+          artes: [9, 8, 9],
+          quimica: [7, 6, 8]
+        }
+      },
+      {
+        nome: "Eduarda",
+        materias: {
+          matematica: [10, 9, 10],
+          artes: [6, 7, 8],
+          quimica: [9, 10, 9]
+        }
+      },
+      {
+        nome: "Felipe",
+        materias: {
+          matematica: [4, 5, 6],
+          artes: [5, 6, 5],
+          quimica: [6, 5, 7]
+        }
+      }
+    ]
+  }
+];
+
+</script>
+</html>

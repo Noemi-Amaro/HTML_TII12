@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>aula 6</title>
+
+</head>
+<body>
+    
+</body>
+<script>
+
+//------------------------------------------------------------
+// Laços Condicionais/loops Condicionais (while e for)
+// Loops são usados para repetir um bloco de código várias vezes.
+
+// 1. while (enquanto)
+// O 'while' repete o código ENQUANTO uma condição for verdadeira.
+
+let contador = 0;
+while (contador < 5){
+  console.log("ola")
+  contador++;
+}
+
+
+// while (contador < 5) { 
+//   console.log("O contador (while) é: " + contador);
+//   contador = contador + 1; // Importante! Se não atualizar, o loop é infinito!
+// }
+// O que aconteceu?
+// 1. contador é 0, zero é menor que cinco? Sim. Roda o código. contador vira 1.
+// 2. contador é 1, um é menor que cinco? Sim. Roda o código. contador vira 2.
+// ...
+// 5. contador é 4, quatro é menor que cinco? Sim. Roda o código. contador vira 5.
+// 6. contador é 5, cinco é menor que cinco? Não. O loop para.
+
+// for(let i = 0; i<5; i= i+2){
+//   console.log("loop" + i)
+// }
+
+// for(let i = 0; i<5; i= ++){
+//   console.log("loop" + i)
+// }
+
+
+// for(let d = 7; d>3; d-- ){
+//   console.log("Loop" + d)
+// }
+// 2. for (para)
+// O 'for' é uma forma mais compacta e "completa" de escrever um loop,
+// juntando a inicialização, a condição e o incremento em uma linha.
+
+// for ( [1. inicialização] ; [2. condição] ; [4. incremento] ) {
+//   [3. código a ser executado]
+// }
+
+// for (let i = 0; i < 5; i = i + 1) {
+//   console.log("O valor de i (for) é: " + i);
+// }
+
+
+//desafios
+
+// 1. Crie um loop 'while' que comece com a variavel 'minhaVez' em 10
+// e conte REGRESSIVAMENTE (10, 9, 8...) até 1.
+// Dentro do loop, mostre no console "Contagem regressiva: " + minhaVez
+
+
+
+// escreva seu loop while aqui
+let minhaVez = 10;
+
+while (minhaVez > 1){
+  console.log("contagem regressiva " + minhaVez)
+  minhaVez--;
+}
+console.log(minhaVez)
+
+// 2. Usando um loop 'for', crie um contador 'j' que comece em 0
+// e vá até 3 (mostrando 0, 1, 2, 3).
+// Mostre o valor de 'j' no console.
+
+// escreva seu loop for aqui
+
+for(let j = 0; j<4; j++){
+  console.log("loop" + j)
+}
+
+//0 a 40 aumentando de 2 em 2
+ for(let n = 0; n<41 ; n = n+2){
+  console.log("loop" + n)
+ }
+
+//comece com uma variavel com valor -50 e cheguem até 50 subindo de 5 em 5
+//mostrando no console o valor de cada loop
+
+for(let z = -50; z<51; z= z + 5){
+  console.log("loop" + z)
+}
+
+//------------------------------------------------------------
+// Callback Functions (Funções como parâmetros)
+// "Callback" é um nome chique para uma função que passamos como
+// parâmetro (argumento) de outra função.
+
+// Lembre-se, funções são "lógicas que podemos copiar e colar".
+// Agora, vamos passar essa "lógica" para outra função executar.
+
+// 1. Vamos criar nossas lógicas de operação:
+function somar(a, b) {
+  return a + b;
+}
+
+function subtrair(a, b) {
+  return a - b;
+}
+
+
+// 2. Agora, uma função "principal" que RECEBE uma dessas lógicas:
+function calculadora(num1, num2, operacao) {
+  // 'operacao' aqui é um parâmetro, que esperamos que seja uma função!
+  let resultado = operacao(num1, num2); // Executamos a função que recebemos
+  console.log("O resultado do cálculo é: " + resultado);
+}
+
+// 3. Vamos usar!
+// Passamos a 'somar' (a própria função, não o resultado dela!) como argumento.
+// calculadora(10, 5, somar);
+
+// E agora com a subtração?
+// calculadora(10, 5, subtrair);
+
+
+//desafios
+
+// 1. Crie uma função chamada 'multiplicar' que receba 'a' e 'b' e retorne a * b.
+
+// crie a função 'multiplicar' aqui:
+function multiplicacao(x ,y){
+  return x * y;
+}
+
+
+//1.1 Crie uma função de divisão, que receba 'a' e 'b' que retorne a / b, aqui:
+function divisao (x, y){
+  return x / y
+}
+
+//chame a função CALCULADORA, e passe uma vez multiplicar e divisão como parametros dele
+//ex: calculadora(parametro, parametro, operacao)
+function teste1(x ,y, operacao){
+  let resultado = operacao (x,y);
+  console.log(resultado)
+}
+
+teste1(20,3,divisao)
+
+// 2. Chame a função 'calcular' usando os números 20 e 3, 
+// e passe a sua nova função 'multiplicar' como callback.
+// chame a função com esses dados 'calcular' aqui:
+
+
+
+//------------------------------------------------------------
+// Escopo de Funções (Onde elas existem)
+// Escopo define onde variáveis e funções podem ser acessadas.
+
+// 1. Declaração de Função (Function Declaration)
+// O JavaScript "lê" as funções declaradas primeiro, antes de tudo.
+// Por isso, podemos chamá-las ANTES de onde elas foram escritas.
+// Isso é chamado de "Hoisting" (ou içamento em portugues).
+
+// tente descomentar a linha abaixo, ela funciona!
+// digaOla(); 
+            
+function digaOla() {
+  console.log("Olá!");
+}
+
+// 2. Expressão de Função (Function Expression)
+// Aqui, atribuímos uma função a uma VARIÁVEL (seja let, const ou var).
+// Como é uma variável, ela só existe DEPOIS que a linha é executada.
+
+// tente descomentar a linha abaixo, vai dar ERRO!
+// digaTchau();
+
+const digaTchau = function() {
+  console.log("Tchau!");
+};
+
+// Mas aqui, DEPOIS de declarada, ela funciona:
+// digaTchau();
+
+
+// 3. Escopo de Bloco (let/const)
+// Um "bloco" é qualquer coisa dentro de chaves { ... } (como um if, for, while)
+// 'let' e 'const' SÓ existem dentro do bloco onde foram criadas.
+// mas 'var' existe dentro e fora do bloco onde foi criado, sendo nao recomendado o uso
+// pois pode ocasionar bugs e comportamentos imprevistos
+            
+if (true) {
+  let dentroDoBloco = "Eu só existo aqui dentro.";
+  // console.log(dentroDoBloco); // Funciona
+  // var dentroEFora = "Eu existo fora tambem"
+}
+            
+// tente descomentar a linha abaixo, vai dar ERRO!
+// console.log(dentroDoBloco); // Não funciona
+// console.log(dentroEFora); // Funciona!
+
+//desafios
+
+// 1. Mova a chamada da função 'cumprimentar' para ANTES da sua declaração
+// e veja se funciona
+            
+// chame a função 'cumprimentar' aqui em cima
+            
+function cumprimentar() {
+  console.log("Bom dia!");
+}
+            
+            
+// 2. Tente chamar a função 'despedir' fora do bloco 'if'.
+// (Ela vai dar erro, e isso é o esperado!)
+
+if (true) {
+  const despedir = function() {
+    console.log("Até mais!");
+  }
+  // despedir(); // chamada dentro
+}
+            
+// tente chamar 'despedir()' aqui fora:
+
+
+
+//------------------------------------------------------------
+// Arrow Functions (Funções de Seta)
+// É uma forma mais curta e moderna de escrever funções.
+            
+// Forma tradicional (Function Expression):
+const somarTradicional = function(a, b) {
+  return a + b;
+};
+
+// Forma moderna (Arrow Function):
+const somarModerna = (a, b) => {
+  return a + b;
+};
+
+// Se a função só tem UMA linha e essa linha é um 'return',
+// podemos deixar ainda mais curto!
+const somarMaisCurta = (a, b) => a + b;
+
+// console.log("Tradicional: " + somarTradicional(5, 5));
+// console.log("Moderna: " + somarModerna(5, 5));
+// console.log("Mais Curta: " + somarMaisCurta(5, 5));
+
+// E se tiver só UM parâmetro, nem precisa de parênteses:
+const dobrar = numero => numero * 2;
+// console.log(dobrar(10));
+
+
+//desafios
+
+// 1. Converta a função 'subtrairTradicional' em uma Arrow Function
+// chamada 'subtrairModerna'.
+            
+const subtrairTradicional = function(a, b) {
+  return a - b;
+};
+            
+// escreva a função de 'subtrairModerna' aqui:
+// const subtrairModerna = 
+
+            
+// 2. Crie uma arrow function 'dividir' que use a sintaxe mais curta
+// (sem chaves {} e sem escrever 'return') para dividir a por b.
+            
+// escreva a 'dividir' aqui:
+// const dividir = 
+
+
+// 3. Descomente a linha abaixo para testar sua função 'dividir'
+// console.log(dividir(100, 4)); // Deve mostrar 25
+
+
+//------------------------------------------------------------
+// Nullish Coalescing Operator (??) e atribuir determinados valores a variaveis 
+// usando operadores de comparação
+
+// O operador '??' (coalescência nula) é uma forma de definir um
+// valor padrão, APENAS CASO o valor da esquerda seja 'null' ou 'undefined'.
+
+let nomeUsuario = null;
+let nomePadrao = "Visitante";
+            
+// Se 'nomeUsuario' for null OU undefined, use 'nomePadrao'.
+let nomeExibido = nomeUsuario ?? nomePadrao;
+// console.log(nomeExibido); // Mostra "Visitante"
+
+let idadeUsuario = 25;
+let idadePadrao = 18;
+            
+let idadeExibida = idadeUsuario ?? idadePadrao;
+// console.log(idadeExibida); // Mostra 25 (porque 25 não é null)
+
+
+// Qual a diferença de usar '||' (OU)?
+// O '||' (OU) considera '0', 'false' e "" (string vazia) como "falsos".
+            
+let quantidadeEstoque = 0; // 0 é uma quantidade válida!
+            
+let mostrarEstoqueOU = quantidadeEstoque || 50; // O '||' acha que 0 é falso
+// console.log("Com || : " + mostrarEstoqueOU); // Mostra 50 (ERRADO!)
+
+let mostrarEstoqueNullish = quantidadeEstoque ?? 50; // O '??' só checa null/undefined
+// console.log("Com ?? : " + mostrarEstoqueNullish); // Mostra 0 (CORRETO!)
+
+
+// E o que faz E (&&)?
+//verifica se o da esquerda é verdadeiro, caso seja ele roda o valor da direita
+//caso não seja, retorna o primeiro valor falso (valor da esquerda) (Seja ele vazio, falso, nulo, '' ou undefined)
+
+
+// let teste1 = true
+
+// let teste15 = false 
+
+// let teste2 = "b"
+// console.log(teste1&&teste15&&teste2)
+
+//desafios
+
+// 1. Temos uma variavel chamada 'configuracaoVolume'. Se ela for 'undefined', queremos usar o 'volumePadrao'.
+// Use o '??' para definir a 'volumeFinal'.
+            
+let configuracaoVolume = undefined;
+let volumePadrao = 75;
+            
+// let volumeFinal = // complete aqui
+// console.log(volumeFinal); // Deve mostrar 75
+
+
+// 2. Agora, 'configuracoesPontos' é 0. Use o '??' para garantir que o 0 seja
+// mantido, e não substituído pelo 'pontosPadrao'.
+            
+let configuracoesPontos = 0;
+let pontosPadrao = 100;
+            
+// let pontosFinais = // complete aqui
+// console.log(pontosFinais); // Deve mostrar 0
+            
+
+//------------------------------------------------------------
+// Introducao a Metodos - Interação (alert, confirm, prompt)
+// São formas de interagir com o usuário diretamente no navegador.
+            
+// ATENÇÃO: Descomente UM de cada vez para testar, pois eles
+// pausam a execução do código!
+
+            
+// 1. alert() - Mostra uma mensagem de alerta.
+// alert("Isso é um alerta!");
+         
+
+// 2. confirm() - Pede uma confirmação (OK ou Cancelar), e retorna uma booleana de verdadeiro
+// ou falso dependendo da resposta
+// let resposta = confirm("Você realmente deseja excluir este item?");
+
+// if (resposta) {
+//   console.log("Item excluído com sucesso!");
+//   // O código para excluir o item vai aqui
+// } else {
+//   console.log("Ação cancelada pelo usuário.");
+// }
+
+
+// 3. prompt() - Pede uma resposta
+// function anoBissexto() {
+  
+//   //texto padrao passado como parametro, prompt ira pedir que o usuario escreva
+//   //algo, e entao armazena essa string no 'a'
+//   var a = prompt("Insira um ano"); 
+
+//     //calculo para verificar se o ano inserido e bissexto
+//     var eBissexto = (a % 4 === 0) && ((a % 100 !== 0) || (a % 400 === 0));
+//     if (eBissexto) {
+//         window.alert("é um ano bissexto");
+//     } else {
+//         window.alert("é um ano bissexto");
+//     }
+// }   
+// anoBissexto()
+
+
+//Desafios
+
+// Crie um contador regressivo (ex: i=i-1 ou i--) que começa de um número fornecido pelo usuário depois dele confirmar a contagem,
+// Se o usuário cancelar a caixa de diálogo, o contador deve assumir um valor padrão.
+
+
+// Você vai criar duas novas operações (com Arrow Functions) para a calculadora de exercicios passados.
+// uma operação para potencia (a ** b) e uma para resto da divisao (a % b) e usar o confirm para confirmar se o calculo escolhido esta adequado com o usuario
+
+
+//Pedir ao usuário um número e, em seguida, usar um loop for para somar todos os números
+//de 1 até o número que ele digitou.
+
+
+//Crie um sistema de defesa de login que fica pedindo a senha ao usuário até que ele acerte a senha correta
+//(exemplo:"senha123") ou clique em "Cancelar".
+
+</script>

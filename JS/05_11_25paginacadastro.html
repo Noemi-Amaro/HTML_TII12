@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>SISTEMA DE CADASTRO</title>
+    </head>
+    <body>
+    
+    </body>
+
+    <script>
+//Crie um sistema de cadastro de usuario, onde o sistema pede o nome do usuario e depois uma senha,
+//pede uma confirmacao se o nome e a senha estao corretos, caso o usuario sinalize que NAO estão, ele 
+//retorna para o pedido de nome, e caso o usuario sinalize que ESTÃO CORRETOS ele então pede para o 
+//usuario logar usando o nome de usuario e depois a senha, enfim mostre uma mensagem para caso o usuario use a combinação 
+//correta de nome e senha e uma mensagem para a combinação errada, que retornar para a tentativa de login com nome e senha.
+
+//PS: Todas as funçoes devem ser feitas com arrow functions, o mais gramaticalmente curtas possiveis para o proposito delas.
+//CASO O USUARIO não coloque nenhuma informação na seção nome, o sistema ira considerar que o nome é "VISITANTE".
+
+
+let usuario;
+let senha;
+
+function cadastroUsuario(){
+    usuario = prompt("nome de usuario")
+    senha = prompt("insira sua senha")
+
+}
+
+cadastroUsuario()
+
+let respostaLogin = confirm("Os dados estão corretos?" + "Nome:"+ usuario + "Senha:" + senha)
+
+if (respostaLogin){
+console.log("nome de usuario" + usuario + "senha" + senha)
+
+
+}else{
+
+    cadastroUsuario()
+}
+
+
+
+    </script>
+</html>

@@ -10,7 +10,7 @@
 </body>
 <script>
 
-//------------------------------------------------------------
+//03/11 e 04/11/2025-----------------------------------------------------------
 // Laços Condicionais/loops Condicionais (while e for)
 // Loops são usados para repetir um bloco de código várias vezes.
 
@@ -76,6 +76,8 @@ while (minhaVez > 1){
   minhaVez--;
 }
 console.log(minhaVez)
+
+
 
 // 2. Usando um loop 'for', crie um contador 'j' que comece em 0
 // e vá até 3 (mostrando 0, 1, 2, 3).
@@ -154,12 +156,15 @@ function teste1(x ,y, operacao){
   console.log(resultado)
 }
 
-teste1(20,3,divisao)
 
 // 2. Chame a função 'calcular' usando os números 20 e 3, 
 // e passe a sua nova função 'multiplicar' como callback.
 // chame a função com esses dados 'calcular' aqui:
+teste1(20,3,divisao);
+teste1(20,3,multiplicacao);
 
+//java scritp le linha por linha, de cima para baixo
+//excecao na funcao declarativa
 
 
 //------------------------------------------------------------
@@ -202,12 +207,12 @@ const digaTchau = function() {
 if (true) {
   let dentroDoBloco = "Eu só existo aqui dentro.";
   // console.log(dentroDoBloco); // Funciona
-  // var dentroEFora = "Eu existo fora tambem"
+  var dentroEFora = "Eu existo fora tambem" //obs: propenca a dar bugs e adicionar coisas que nao foi pensado
 }
             
 // tente descomentar a linha abaixo, vai dar ERRO!
-// console.log(dentroDoBloco); // Não funciona
-// console.log(dentroEFora); // Funciona!
+//console.log(dentroDoBloco); // Não funciona  obs: esta so conectando
+console.log(dentroEFora); // Funciona!
 
 //desafios
 
@@ -219,7 +224,7 @@ if (true) {
 function cumprimentar() {
   console.log("Bom dia!");
 }
-            
+ console.log("Bom dia")          
             
 // 2. Tente chamar a função 'despedir' fora do bloco 'if'.
 // (Ela vai dar erro, e isso é o esperado!)
@@ -230,9 +235,9 @@ if (true) {
   }
   // despedir(); // chamada dentro
 }
-            
-// tente chamar 'despedir()' aqui fora:
 
+// tente chamar 'despedir()' aqui fora:
+//despedir()
 
 
 //------------------------------------------------------------
@@ -253,6 +258,7 @@ const somarModerna = (a, b) => {
 // podemos deixar ainda mais curto!
 const somarMaisCurta = (a, b) => a + b;
 
+// => abrevia a palavra funcao
 // console.log("Tradicional: " + somarTradicional(5, 5));
 // console.log("Moderna: " + somarModerna(5, 5));
 // console.log("Mais Curta: " + somarMaisCurta(5, 5));
@@ -272,18 +278,21 @@ const subtrairTradicional = function(a, b) {
 };
             
 // escreva a função de 'subtrairModerna' aqui:
-// const subtrairModerna = 
+const subtrairModerna = (a, b) => {
+  return a - b;
+}
 
             
 // 2. Crie uma arrow function 'dividir' que use a sintaxe mais curta
 // (sem chaves {} e sem escrever 'return') para dividir a por b.
             
 // escreva a 'dividir' aqui:
-// const dividir = 
+const dividir = ( a , b) => a / b
+
 
 
 // 3. Descomente a linha abaixo para testar sua função 'dividir'
-// console.log(dividir(100, 4)); // Deve mostrar 25
+console.log(dividir(100, 4)); // Deve mostrar 25
 
 
 //------------------------------------------------------------
@@ -339,8 +348,8 @@ let mostrarEstoqueNullish = quantidadeEstoque ?? 50; // O '??' só checa null/un
 let configuracaoVolume = undefined;
 let volumePadrao = 75;
             
-// let volumeFinal = // complete aqui
-// console.log(volumeFinal); // Deve mostrar 75
+let volumeFinal = configuracaoVolume ?? volumePadrao
+console.log(volumeFinal); // Deve mostrar 75
 
 
 // 2. Agora, 'configuracoesPontos' é 0. Use o '??' para garantir que o 0 seja
@@ -349,8 +358,8 @@ let volumePadrao = 75;
 let configuracoesPontos = 0;
 let pontosPadrao = 100;
             
-// let pontosFinais = // complete aqui
-// console.log(pontosFinais); // Deve mostrar 0
+let pontosFinais = configuracoesPontos ?? pontosPadrao
+console.log(pontosFinais); // Deve mostrar 0
             
 
 //------------------------------------------------------------
@@ -362,18 +371,19 @@ let pontosPadrao = 100;
 
             
 // 1. alert() - Mostra uma mensagem de alerta.
-// alert("Isso é um alerta!");
+//alert("Isso é um alerta!")
          
 
 // 2. confirm() - Pede uma confirmação (OK ou Cancelar), e retorna uma booleana de verdadeiro
 // ou falso dependendo da resposta
-// let resposta = confirm("Você realmente deseja excluir este item?");
+//let resposta = confirm("Você realmente deseja excluir este item?");
+//console.log(resposta)
 
-// if (resposta) {
-//   console.log("Item excluído com sucesso!");
+//if (resposta) {
+// console.log("Item excluído com sucesso!");
 //   // O código para excluir o item vai aqui
-// } else {
-//   console.log("Ação cancelada pelo usuário.");
+//} else {
+ //  console.log("Ação cancelada pelo usuário.");
 // }
 
 
@@ -382,7 +392,7 @@ let pontosPadrao = 100;
   
 //   //texto padrao passado como parametro, prompt ira pedir que o usuario escreva
 //   //algo, e entao armazena essa string no 'a'
-//   var a = prompt("Insira um ano"); 
+ //  var a = prompt("Insira um ano"); 
 
 //     //calculo para verificar se o ano inserido e bissexto
 //     var eBissexto = (a % 4 === 0) && ((a % 100 !== 0) || (a % 400 === 0));
@@ -393,12 +403,14 @@ let pontosPadrao = 100;
 //     }
 // }   
 // anoBissexto()
-
+//let b = prompt("insira seu none")
+//alert ("Seja-bem vindo + b")
 
 //Desafios
 
 // Crie um contador regressivo (ex: i=i-1 ou i--) que começa de um número fornecido pelo usuário depois dele confirmar a contagem,
 // Se o usuário cancelar a caixa de diálogo, o contador deve assumir um valor padrão.
+
 
 
 // Você vai criar duas novas operações (com Arrow Functions) para a calculadora de exercicios passados.

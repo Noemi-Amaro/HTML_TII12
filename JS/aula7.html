@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Aula 4 - Métodos Importantes</title>
+</head>
+<body>
+    
+</body>
+<script>
+// O que são Métodos?
+// Métodos são "funções especiais" que estão associadas a certos
+// tipos de valores (como Strings, Arrays, Objetos) e objetos do
+// sistema (como o a windom do navegador). Eles servem como ferramentas
+// para realizar tarefas comuns. Nós chamamos um método usando
+// um ponto (.) depois da variável e escrevendo o nome do metodo.
+
+// Exemplo: minhaVariavel.metodo()
+
+
+//------------------------------------------------------------
+// Métodos de String (Texto)
+// Usados para manipular e verificar textos.
+
+let minhaFrase = " JavaScript é divertido! ";
+
+// .length (Técnicamente é uma "propriedade", e não um método, por 
+// isso não usa '()')
+// Retorna a quantidade de caracteres na string.
+console.log("Tamanho da frase: " + minhaFrase.length); // 25 (conta os espaços!)
+
+// .toUpperCase() e .toLowerCase()
+// Convertem a string para maiúsculas ou minúsculas.
+//console.log(minhaFrase.toUpperCase());
+//console.log(minhaFrase.toLowerCase());
+
+// .trim()
+// Remove os espaços em branco do COMEÇO e do FIM da string.
+//console.log("Sem espaços: '" + minhaFrase.trim() + "'");
+
+// .includes(texto)
+// Verifica se a string contém um determinado pedaço de texto. Retorna true ou false.
+//console.log("Contém 'JavaScript'? " + minhaFrase.includes("JavaScript"));
+//console.log("Contém 'Python'? " + minhaFrase.includes("Python"));
+
+// .replace(textoParaAchar, textoParaSubstituir)
+// Substitui a PRIMEIRA ocorrência de um texto por outro.
+//console.log(minhaFrase.replace("divertido", "sensacional!"));
+
+
+//desafios
+
+let emailUsuario = "  exemplo@email.com  ";
+
+// 1. Verifique se o 'emailUsuario' inclui o caractere "@". Mostre no console.
+console.log ("Contém '@'? " + emailUsuario.includes("emailUsuario"))
+
+// 2. Converta o 'emailUsuario' para minúsculas E remova os espaços do
+//    início e fim. (Dica: você pode usar varios métodos em uma mesma
+//    linha! ex: minhaFrase.toUpperCase().trim())
+//    Guarde na variável 'emailLimpo' e mostre no console.
+console.log(emailUsuario.toLowerCase() + emailUsuario.trim());
+
+
+
+
+// 3. Crie uma variável 'fraseDesafio' com o valor "Eu gosto de Java".
+//    Use e então troque "Java" por "JavaScript" usando um metodo adequado
+//    Mostre no console.
+
+let fraseDesafio = " Eu gosto de Java "
+console.log(fraseDesafio.replace("Java", "JavaScript"));
+
+
+//------------------------------------------------------------
+// Métodos de Array - Parte 1 (Adicionar e Remover)
+// Estes métodos MODIFICAM o array original.
+
+let minhaLista = ["Arroz", "Feijão"];
+// console.log("Original: " + minhaLista);
+
+// .push(item)
+// Adiciona um ou mais itens no FIM do array.
+minhaLista.push("Macarrão");
+minhaLista.push("Bife", "Salada");
+console.log("Como ficou depois do push: " + minhaLista);
+
+let arrayHolder = []
+
+for(let i=0; i<15; i++){
+  arrayHolder.push("Cliente"+i);
+ }
+ console.log(arrayHolder)
+
+// .pop()
+// Remove o ÚLTIMO item do array e retorna ele.
+//let itemRemovido = minhaLista.pop();
+//console.log("Item removido: " + itemRemovido);
+//console.log("Depois do pop: " + minhaLista);
+
+
+// .splice()
+// remove itens de um array selecionando a partir de onde você ira
+// começar a remover eles (primeiro item) e quantos itens serão removidos
+// pra frente dele
+
+//exemplo:
+let fruits = ['maca', 'banana', 'cereja', 'tamara', 'mirtilo'];
+// Remove 3 elementos começando a partir do segundo item 
+// (removendo banana, cereja e tamara)
+fruits.splice(1, 3);
+console.log(fruits); // Output: ['maca', 'mirtilo']
+
+//desafios
+
+let carrinhoDeCompras = ["Mouse"];
+
+// 1. Adicione "Teclado" ao 'carrinhoDeCompras' 
+carrinhoDeCompras.push(" Teclado ");
+
+// 2. Adicione "Monitor" e "Headset" ao 'carrinhoDeCompras' na mesma chamada.
+carrinhoDeCompras.push(" Monitor", "Headset");
+
+// 3. Mostre o 'carrinhoDeCompras' no console.
+console.log("Resultado depois do push: " + carrinhoDeCompras);
+
+// 4. Use um metodo para remover o último item ("Headset").
+//    Guardando o item removido numa variável 'itemDevolvido'.
+let itemRemovido1 = carrinhoDeCompras.pop();
+
+// 5. Mostre no console o 'itemDevolvido' e o 'carrinhoDeCompras' 
+// atualizado.
+
+console.log(itemRemovido1);
+
+//------------------------------------------------------------
+// Métodos de Array - Parte 2 (Iteração com .forEach)
+// O .forEach() é uma forma moderna de fazer um loop 'for'.
+// Ele executa uma função usando CADA item do array como o 
+// parametro dela.
+
+let nomes = ["Ana", "Bruno", "Carla"];
+
+function mostrarNome(nome) {
+  console.log("Olá, " + nome);
+}
+
+// Passamos a *função* como argumento
+// nomes.forEach(mostrarNome);
+
+
+// É mais comum usar uma Arrow Function direto:
+// nomes.forEach( (item) => {
+//   console.log("Convidado(a): " + item);
+// } );
+
+
+//desafios
+
+let numeros = [10, 20, 30];
+
+// 1. Use .forEach() no array 'numeros' para mostrar no console
+//    O dobro de cada numero do array.
+
+
+
+//------------------------------------------------------------
+// Métodos de Array - Parte 3 (Transformação com .map)
+// O .map() é um dos métodos mais poderosos!
+// Ele CRIA UM NOVO ARRAY transformando cada item do array original.
+// Ele NÃO modifica o array original.
+
+let notas = [5, 8, 10];
+
+// Queremos um NOVO array com as notas dobradas.
+let notasDobro = notas.map( (nota) => {
+  return nota * 2; // O que for retornado aqui, vai para o novo array
+} );
+
+// console.log("Notas originais: " + notas);
+// console.log("Notas dobradas: " + notasDobro);
+
+// A principal diferença do .map pro .forEach é que o map retorna um array
+// enquanto o forEach apenas executa a função para cada um dos itens do 
+// array
+
+//desafios
+
+let precos = [10, 45, 120];
+
+// 1. Use .map() para criar um novo array 'precosComImposto'
+//    onde cada preço é multiplicado por 1.1 (aumento de 10%).
+//    Use a sintaxe curta da arrow function (sem return e sem chaves).
+
+// let precosComImposto = 
+
+
+// 2. Mostre o array 'precosComImposto' no console.
+
+
+
+//------------------------------------------------------------
+// Métodos de Array - Parte 4 (Filtragem com .filter)
+// O .filter() também CRIA UM NOVO ARRAY.
+// Ele "filtra" o array original e coloca no novo array apenas os itens
+// que "passarem no teste". O teste é uma função que retorna true
+// (mantém o item) ou false (descarta o item).
+
+let idades = [12, 18, 25, 7, 40];
+
+// Queremos um NOVO array só com os maiores de idade (>= 18).
+let maioresDeIdade = idades.filter( (idade) => {
+  return idade >= 18; // Se for true, o item 'idade' entra no novo array
+} );
+
+// console.log("Idades originais: " + idades);
+// console.log("Maiores de idade: " + maioresDeIdade);
+
+
+//desafios
+
+let palavras = ["casa", "carro", "bicicleta", "sol", "lua"];
+
+// 1. Use .filter() para criar um novo array 'palavrasLongas'
+//    apenas com as palavras que têm 5 ou mais letras.
+//    (Dica: use palavra.length >= 5)
+
+// let palavrasLongas = 
+
+
+// 2. Mostre o array 'palavrasLongas' no console.
+
+
+//------------------------------------------------------------
+// Métodos de Object (keys e values)
+// Objetos não têm .forEach() ou .map() diretamente.
+// Mas podemos usar estes métodos para transformar um objeto em um array!
+
+let aluno = {
+  nome: "Giovanne",
+  nota: 10,
+  turma: "31"
+};
+
+// Object.keys(meuObjeto)
+// Retorna um array com as CHAVES (descrições) do objeto.
+let chavesDoAluno = Object.keys(aluno);
+// console.log(chavesDoAluno); // ["nome", "nota", "turma"]
+
+
+// Object.values(meuObjeto)
+// Retorna um array com os VALORES do objeto.
+let valoresDoAluno = Object.values(aluno);
+// console.log(valoresDoAluno); // ["Giovanne", 10, "31"]
+
+
+// Agora podemos, por exemplo, usar .forEach() nas chaves!
+// chavesDoAluno.forEach( (chave) => {
+//   console.log("A chave é: " + chave);
+//   console.log("O valor é: " + aluno[chave]); // Usamos [] para acessar valor por uma variável
+// } );
+
+
+//desafios
+
+let produto = {
+  nome: "Notebook",
+  preco: 4500,
+  estoque: 25
+};
+
+// 1. Use Object.keys() para pegar as chaves do 'produto'
+//    e use .forEach() nesse array de chaves para mostrar no console
+//    cada chave em MAIÚSCULAS.
+
+
+// 2. Use Object.values() para pegar os valores do 'produto'
+//    e mostre-os no console.
+
+
+</script>
+</html>

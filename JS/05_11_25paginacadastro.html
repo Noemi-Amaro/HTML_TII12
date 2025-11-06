@@ -19,8 +19,8 @@
 //CASO O USUARIO não coloque nenhuma informação na seção nome, o sistema ira considerar que o nome é "VISITANTE".
 
 
-let usuario;
-let senha;
+let usuario = "Noemi";
+let senha = "xyz";
 
 function cadastroUsuario(){
     usuario = prompt("nome de usuario")
@@ -34,7 +34,7 @@ let respostaLogin = confirm("Os dados estão corretos?" + "Nome:"+ usuario + "Se
 
 if (respostaLogin){
 console.log("nome de usuario" + usuario + "senha" + senha)
-
+alert("cadastro realizado com sucesso")
 
 }else{
 

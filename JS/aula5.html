@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>title</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //------------------------------------------------------------
+//function()
+//funcoes sao uma forma de "copiar e colar" uma logica quantas vezes quiser
+
+
+function bomDiaTurma(){
+  console.log("bom dia turma!")
+}
+
+//bomDiaTurma()
+
+
+
+//funcoes tem a capacidade de esperar que voce insira variaveis nela, e entao realizar
+//acoes com as variaveis inseridas nele
+
+let pao = "pao"
+let manteiga = "manteiga"
+let geleia = "geleia"
+
+function juntarIngredientes(ingrediente1, ingrediente2){
+
+  console.log("hoje eu fiz" + ingrediente1 + " com " + ingrediente2)
+
+}
+
+//juntarIngredientes(pao,geleia)
+
+
+
+//funcoes tambem tem a capacidade de retornar valores de dentro dela
+
+let valorA = 23
+
+let valorB = 42
+
+let valorC = 55
+
+function somarNumeros(numero1,numero2){
+  return numero1+numero2
+}
+
+//console.log(somarNumeros(valorB, valorC))
+
+
+//desafios
+
+
+//modifique a frase "Boa noite", para mostrar "Bom dia" e entao chame ela 3 vezes
+let fraseManha = "Boa noite"
+
+function goodMorning(){
+ console.log(frase)
+}
+
+
+//Crie uma funcao que apresente com o console.log() a frase
+//Ola mundo!, entao chame a funcao uma vez
+
+
+
+//Crie uma funcao que receba 2 numeros, divida um numero pelo outro, retorne a divisao entao 
+//mostre o valor da divisao quando a funcao for chamada dentro de um console.log() 
+// (exemplo console.log(dividirNumeros(numero1, numero2))) 
+
+
+
+
+
+//Desafio Extra para quem já domina logica de programação em javascript
+
+//requer conhecimento de Loops condicionais, Estruturas condicionais
+//e operadores de logica, aritmetica e comparação
+
+//Um cliente pediu para que você desenvolva um sistema de 
+//classificação das notas dos alunos de uma escola (informações
+//providenciadas abaixo).
+//O sistema deve contemplar a capacidade de verificar se cada aluno
+//passou ou não em cada materia baseado na media geral das notas das 
+//provas do alunos em determinada materia (tem que ser maior que 6),
+//imprimindo no console o nome do aluno, o nome da materia e se 
+//ele reprovou ou não, por fim o sistema deve devolver a media geral 
+//da sala em cada materia
+
+const escola = [
+  {
+    nomeSala: "Sala 1",
+    alunos: [
+      {
+        nome: "Ana",
+        materias: {
+          matematica: [8, 7, 9],
+          artes: [6, 5, 7],
+          quimica: [9, 8, 10]
+        }
+      },
+      {
+        nome: "Bruno",
+        materias: {
+          matematica: [5, 6, 4],
+          artes: [8, 9, 7],
+          quimica: [6, 7, 5]
+        }
+      },
+      {
+        nome: "Carla",
+        materias: {
+          matematica: [9, 10, 8],
+          artes: [7, 8, 9],
+          quimica: [10, 9, 10]
+        }
+      }
+    ]
+  },
+  {
+    nomeSala: "Sala 2",
+    alunos: [
+      {
+        nome: "Diego",
+        materias: {
+          matematica: [6, 7, 5],
+          artes: [9, 8, 9],
+          quimica: [7, 6, 8]
+        }
+      },
+      {
+        nome: "Eduarda",
+        materias: {
+          matematica: [10, 9, 10],
+          artes: [6, 7, 8],
+          quimica: [9, 10, 9]
+        }
+      },
+      {
+        nome: "Felipe",
+        materias: {
+          matematica: [4, 5, 6],
+          artes: [5, 6, 5],
+          quimica: [6, 5, 7]
+        }
+      }
+    ]
+  }
+];
+</script>
+</html>

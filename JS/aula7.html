@@ -146,12 +146,12 @@ function mostrarNome(nome) {
 }
 
 // Passamos a *função* como argumento
-// nomes.forEach(mostrarNome);
+ nomes.forEach(mostrarNome);
 
 
 // É mais comum usar uma Arrow Function direto:
-// nomes.forEach( (item) => {
-//   console.log("Convidado(a): " + item);
+//nomes.forEach( (item) => {
+ //  console.log("Convidado(a): " + item);
 // } );
 
 
@@ -162,8 +162,10 @@ let numeros = [10, 20, 30];
 // 1. Use .forEach() no array 'numeros' para mostrar no console
 //    O dobro de cada numero do array.
 
-
-
+function mostrarNumeros (numeros){
+  console.log(numeros*2)
+}
+numeros.forEach(mostrarNumeros);
 //------------------------------------------------------------
 // Métodos de Array - Parte 3 (Transformação com .map)
 // O .map() é um dos métodos mais poderosos!

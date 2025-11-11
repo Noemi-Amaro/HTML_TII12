@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Aula 9 - Aprofundamento em DOM</title>
+    <style>
+        /* CSS para nossos exemplos */
+        body { font-family: sans-serif; }
+        
+        .container {
+            border: 2px solid blue;
+            padding: 10px;
+            margin-top: 15px;
+        }
+
+        .box {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 5px;
+        }
+
+        /* Classe para destacar elementos */
+        .destaque {
+            background-color: yellow;
+            font-weight: bold;
+        }
+
+        #lista-delegacao li {
+            cursor: pointer; /* Indica que é clicável */
+            padding: 5px;
+        }
+        #div-desafio {
+            padding: 16px;
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>Aula 9: Eventos Avançados</h1>
+
+    <div class="container">
+        <h2>Seção de Travessia</h2>
+        <div class="box">
+            <p>Caixa 1</p>
+            <button class="botao-teste">Clique (para Travessia)</button>
+        </div>
+        <div class="box">
+            <p>Caixa 2 (irmão)</p>
+        </div>
+    </div>
+
+    <hr>
+
+    <h2>Seção de Delegação (Clique nos itens)</h2>
+    <ul id="lista-delegacao">
+        <li>Item A</li>
+        <li>Item B</li>
+        <li>Item C</li>
+        <li>Item D</li>
+    </ul>
+
+    <hr>
+
+    <h2>Seção de preventDefault</h2>
+    <a id="link-teste" href="https://www.google.com">Link para o Google (será bloqueado)</a>
+    
+    <form id="meu-formulario">
+        <input type="text" placeholder="Formulário (será bloqueado)">
+        <button type="submit">Enviar (recarrega a página)</button>
+    </form>
+
+</body>
+
+<script>
+
+//10/11
+//------------------------------------------------------------
+// VISUALIZAÇÃO DO DOM DO NOSSO HTML
+//
+// <body>
+//   ├── <h1> (Aula 9: Eventos Avançados)
+//   |
+//   ├── <div class="container">
+//   |     ├── <h2> (Seção de Travessia)
+//   |     ├── <div class="caixa">
+//   |     |     ├── <p> ("Caixa 1")
+//   |     |     └── <button class="botao-teste"> )
+//   |     |
+//   |     └── <div class="caixa">
+//   |           └── <p> ("Caixa 2")
+//   |
+//   ├── <hr>
+//   |
+//   ├── <h2> (Seção de Delegação (Clique nos itens))
+//   |
+//   ├── <ul id="lista-delegacao">
+//   |     ├── <li> ("Item A")
+//   |     ├── <li> ("Item B")
+//   |     ├── <li> ("Item C")
+//   |     └── <li> ("Item D")
+//   |
+//   ├── <hr>
+//   |
+//   ├── <h2> (Seção de preventDefault)
+//   |
+//   ├── <a id="link-teste" href="..."> (Link para o Google )
+//   |
+//   └── <form id="meu-formulario">
+//         ├── <input type="text" placeholder="...">
+//         └── <button type="submit"> (Enviar (recarrega a página))
+
+
+//------------------------------------------------------------
+// 1. DOM Traversal (Travessia no DOM)
+// 'Traversal' (ou travessia) é a habilidade de "andar" pelo DOM
+// a partir de um elemento que já selecionamos.
+// Em vez de usar querySelector para tudo, podemos navegar atravez de 
+// pais, filhos e irmãos.
+
+// Vamos pegar o botão
+let botao = document.querySelector(".botao-teste");
+
+// .parentElement
+// Sobe um nível, pegando o elemento "pai" direto.
+// let paiDoBotao = botao.parentElement;
+// console.log("Pai do botão:", paiDoBotao); // (será o div.box)
+console.log(botao)
+
+
+// .children
+// Desce um nível, pegando nesse caso uma lista dos "filhos"
+let container = document.querySelector(".container");
+// console.log("Filhos do container:", container.children); // (serão os 2 div.box)
+
+console.log(container.children)
+console.log(container.children[0])
+
+
+// .nextElementSibling / .previousElementSibling
+// Anda para o "lado", pegando o próximo irmão ou o irmão anterior.
+// let caixa1 = document.querySelector(".box"); // Pega o primeiro .box
+// console.log("Próximo irmão da Caixa 1:", caixa1.nextElementSibling); // (será o div.box 2)
+//obs: selecionar o irmao
+console.log(container.nextElementSibling)
+console.log(container.previousElementSibling)
+
+//desafios
+
+// 1 Capture o parentElement, o seu proximo irmão e seu irmão anterior do li 
+// selecionado nesse exercicio usando 'DOM traversal' 
+
+let botaoSelecionado = document.querySelector('#lista-delegacao').childNodes[3]
+
+let botao5 = botaoSelecionado.parentElement //pai dele botao5
+console.log(botaoSelecionado.nextElementSibling)
+console.log(botaoSelecionado.previousElementSibling)
+
+//resolução 2
+let listaDelegacao = document.querySelector('#lista-delegacao').childNodes[1]
+let paiDalista
+
+
+// 2 Capture o botão (classe "botao-teste").
+//   Adicione um "addEventListener" de "click" a ele.
+//   Dentro do clique, use o 'parentElement' para pegar a 'div.box'
+//   em que o botão está.
+//   Adicione a classe "destaque" (veja o <style>) a essa 'div.box'.
+
+/*let botaoA = document.querySelector(".botao-teste");
+botaoA.addEventListener("click", ()=>{
+    console.log(botaoA.parentElement)
+    botaoA.parentElement.classList.add("destaque")
+})*/
+
+//resolucao2
+let botaoTeste = document.querySelector(".botao-teste")
+botaoTeste.addEventListener("click", ()=>{
+    botaoTeste.parentElement.classList.add("destaque");
+})
+
+
+
+//------------------------------------------------------------
+// 2. O Objeto 'event' e 'e.target'
+// Quando você adiciona um 'addEventListener', sua função (callback)
+// pode receber um parâmetro. Por convenção, chamamos ele de 'event' ou 'e'.
+// Esse objeto 'e' contém TODAS as informações sobre o evento que aconteceu
+// (onde o mouse clicou, qual tecla foi apertada, etc.)
+
+// A propriedade MAIS IMPORTANTE é o 'e.target'.
+// 'e.target' é O ELEMENTO EXATO que originou o evento.
+
+let listaToda = document.querySelector("#lista-delegacao");
+lista.addEventListener("click",()=>{
+    incompleto
+} )
+
+
+// Vamos adicionar um listener na LISTA INTEIRA (no <ul>)
+ //let listaToda = document.querySelector("#lista-delegacao");
+
+listaToda.addEventListener("click", (e) => {
+
+    //'e' é o objeto do evento de clique.
+    //Aqui todas as informações que ele pode puxar
+    console.log(e)
+
+    //'e.currentTarget' é o elemento que está "ouvindo" (o <ul>)
+    console.log("currentTarget (quem ouviu):", e.currentTarget);
+    
+    //'e.target' é o elemento que foi REALMENTE clicado (o <li> específico)
+    console.log("target (quem foi clicado):", e.target);
+
+    //Agora podemos fazer coisas com o alvo!
+    e.target.textContent = "Eu fui clicado!";
+});
+
+
+//desafios
+
+// 1. faça com que a seção "Seção de travessia" tenha a mesma funcionalidade
+//   ao clicar nas caixas
+
+let travessia = document.querySelector("Secao de travessia");
+listaToda.value = "Secao de travessia";
+
+//------------------------------------------------------------
+// 3. Delegação de Eventos (Juntando tudo)
+// Este é um padrão de design (uma "técnica") que usa 'e.target'.
+
+// O PROBLEMA:
+// Se temos uma lista com 100 itens (<li>), adicionar 100 'addEventListener'
+// (um para cada <li>) é muito ineficiente e lento.
+// Além disso, se você adicionar um <li> novo com JS, ele não terá o 'listener'.
+
+// A SOLUÇÃO (DELEGAÇÃO):
+// Adicionamos UM ÚNICO 'addEventListener' no elemento PAI (o <ul>).
+// Quando um <li> é clicado, o evento "sobe" até o <ul>.
+// Nós "pegamos" o evento lá em cima e usamos 'e.target' para saber
+// qual <li> EXATO foi clicado.
+
+// e uma logica semelhante a da secao de eventos mas para explicar o conceito de Delegação de Eventos
+ let listaPai = document.querySelector("#lista-delegacao");
+
+ listaPai.addEventListener("click", (e) => {
+    // 1. O 'listener' está no <ul>
+    
+    // 2. Verificamos se o 'e.target' (quem foi clicado) é um <li>
+    // (Isso evita que o clique no espaço vazio do <ul> faça algo)
+    
+     if (e.target.tagName === 'LI') {
+        // 3. Sim, foi um <li>! Agora podemos agir nele.
+         console.log("Um item da lista foi clicado:", e.target.textContent);
+        
+        // 4. Vamos aplicar a classe 'destaque' SÓ nele:
+         e.target.classList.toggle("destaque");
+     }
+ });
+
+// Vantagens:
+// 1. Performance: Só 1 'listener' para 100, 1000, ou 1 milhão de itens.
+// 2. Funciona para itens futuros: Se você adicionar um "Item E" com JS,
+//    este código JÁ FUNCIONA para ele, sem precisar adicionar um novo listener!
+
+
+
+//------------------------------------------------------------
+// 4. event.preventDefault()
+// Alguns elementos HTML têm um "comportamento padrão".
+// - Clicar em um link (<a>) te leva para outra página.
+// - Clicar em um botão "submit" de um formulário (<form>) recarrega a página.
+
+// 'e.preventDefault()' é o comando que diz ao navegador:
+// "Pare! Não faça o comportamento padrão. Deixe o JavaScript cuidar disso."
+
+// Exemplo 1: Bloqueando um link
+// let link = document.querySelector("#link-teste");
+// link.addEventListener("click", (e) => {
+//    console.log("Evento de clique no link!");
+//    e.preventDefault(); // Bloqueia a navegação
+//    alert("Link bloqueado pelo JavaScript!");
+// });
+
+
+//desafios
+
+//Tente bloquear o recarregamento de pagina causado pelo Envio (submit) do formulario
+
+// let formulario = document.querySelector("#meu-formulario");
+// O evento para formulários não é 'click', é 'submit'
+
+
+</script>
+</html>

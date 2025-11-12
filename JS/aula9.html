@@ -191,9 +191,7 @@ botaoTeste.addEventListener("click", ()=>{
 // 'e.target' é O ELEMENTO EXATO que originou o evento.
 
 let listaToda = document.querySelector("#lista-delegacao");
-lista.addEventListener("click",()=>{
-    incompleto
-} )
+
 
 
 // Vamos adicionar um listener na LISTA INTEIRA (no <ul>)
@@ -221,8 +219,12 @@ listaToda.addEventListener("click", (e) => {
 // 1. faça com que a seção "Seção de travessia" tenha a mesma funcionalidade
 //   ao clicar nas caixas
 
-let travessia = document.querySelector("Secao de travessia");
-listaToda.value = "Secao de travessia";
+let travessia = document.querySelector(".container");
+
+travessia.addEventListener("click", (e)=>{
+    e.target.textContent = "Estou aqui!";
+})
+
 
 //------------------------------------------------------------
 // 3. Delegação de Eventos (Juntando tudo)

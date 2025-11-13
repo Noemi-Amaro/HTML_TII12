@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>title</title>
+    <div class="mePegue">
+        <div class="filho">textoTeste</div>
+    </div>
+</head>
+<body>
+    
+</body>
+<script>
+
+
+//desafios
+
+
+//Declare uma variavel constante, seguindo o padrão
+//de nomenclatura adequado a uma constante
+
+
+//operadores (comparação, logica (>, <, ==, ===, >=, <=, &&, || ))
+
+//Considere os valores de peso a seguir
+
+let baldeDeAgua = 2;
+
+let bolaDeBolicheAzul = 10;
+
+let bolaDeBolicheVermelha = 10;
+
+let televisao = 50;
+
+let piano = 1000
+
+//deixe a resposta comentada abaixo da pergunta
+
+//exemplo:
+//é verdadeira!
+
+//é falsa!
+
+// a comparação
+// piano > baldeDeAgua é verdadeira?
+     //true
+
+// a comparação
+// bolaDeBolicheAzul < baldeDeAgua é verdadeira?
+     //false
+
+// a comparação
+// bolaDeBolicheAzul <= bolaDeBolicheVermelha é verdadeira?
+     //true
+
+// a comparação
+// bolaDeBolicheAzul == bolaDeBolicheVermelha é verdadeira?
+     //true
+
+// a comparação
+// piano >= baldeDeAgua && bolaDeBolicheAzul == bolaDeBolicheVermelha  é verdadeira?
+     //false (f && t)
+
+// a comparação
+// bolaDeBolicheAzul < baldeDeAgua || piano > televisao  é verdadeira?
+     //true (f || t)
+
+//if else
+
+//utilize 'if', para rodar o codigo
+//'console.log("pessoasNaFila1 tem mais pessoas!")'
+//caso a comparação "pessoasNaFila1 > pessoasNaFila2"
+//seja verdadeira
+
+let pessoasNaFila1 = 35;
+let pessoasNaFila2 = 27;
+
+if(pessoasNaFila1 > pessoasNaFila2){
+    console.log("pessoasNaFila1 tem mais pessoas!")
+}
+
+
+//utilize 'if', para rodar o codigo
+//'console.log("pessoasNaFila3 tem mais pessoas!")'
+//caso a comparação "pessoasNaFila3 > pessoasNaFila4"
+//seja verdadeira, e utilize 'else' para rodar
+//'console.log("pessoasNaFila4 tem mais pessoas!")'
+//caso a comparação realizada no 'if' seja falsa 
+
+let pessoasNaFila3 = 30;
+let pessoasNaFila4 = 35;
+
+if(pessoasNaFila3 > pessoasNaFila4){
+    console.log("pessoasNaFila3 tem mais pessoas!")
+} 
+
+else{
+   console.log("pessoasNaFila4 tem mais pessoas")
+}
+
+
+//------'for'
+
+//faça um loop usando 'for' que conta de 0 a 5 no
+//console 
+//exemplo: 
+//"contagem 1"
+//"contagem 2"
+//"contagem 3"
+//"contagem 4"
+//"contagem 5"
+
+// for (let contagem = 0 ; contagem<5; contagem++){
+//     console.log("loop" + contagem)
+// }
+
+//faça um loop usando 'for' que conta de 0 a 16 no
+//console, mas que mostra apenas os numeros pares
+//(aqui esta a comparação que mostra se um numero
+// é par 'a % 2 == 0')
+
+for (let a= 0 ; a<=16 ; a++){
+    if(a % 2 === 0){
+    console.log("loop" + a)
+    }
+    
+}
+
+
+//selecione a div com a classe "mePegue" 
+let div = document.querySelector(".mePegue");
+console.log(div)
+//selecione o filho da div "mePegue"
+let divFilho = document.querySelector(".filho")
+
+//mostre o texto da div com a classe "filho"
+console.log(divFilho.textContent)
+
+//mude o texto da div com a classe "filho"
+//para "texto novo"
+divFilho.textContent = " Tio "
+
+
+
+
+
+</script>
+</html>

@@ -378,13 +378,15 @@ travessia.addEventListener("click", (e)=>{
 // O evento para formulários não é 'click', é 'submit'
 
 //2- Tente bloquear a mudança de pagina do link com id "link-teste"
-
+let incrementacao = 0
 let link = document.querySelector("#link-teste");
 link.addEventListener("click" , (e)=>{
     e.preventDefault()
-    if(link <=2){
-         link.after("Link não esta funcionando");
-
+    linkElemento = document.createElement("p")
+    linkElemento.textContent ="Link não esta funcionando"
+    if(incrementacao <=0){
+         link.after(linkElemento);
+        incrementacao=1;
     }
 })
 

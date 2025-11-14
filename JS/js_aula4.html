@@ -281,11 +281,13 @@ tenhoManteiga = false; //não tenho!
 //Desafios:
 
 // verifique se é possível fazer um pão com maionese
+console.log(tenhoPao && tenhoMaionese);
 
 // agora verifique se é possível fazer um pão com maionese e salame
+console.log(tenhoPao && tenhoMaionese && tenhoSalame);
 
 // agora verifique se é possível fazer um pão com maionese, salame e manteiga
-
+console.log(tenhoPao && tenhoMaionese && tenhoSalame && tenhoManteiga);
 
 
 // "OU" (||)
@@ -303,22 +305,26 @@ tenhoVinho = false; //Não tenho!
 
 //vamos supor que eu esteja com sede, e quero beber Agua ou Vinho, eu consigo? vamos ver
 
-//console.log(tenhoAgua || tenhoVinho);
+console.log(tenhoAgua || tenhoVinho);
 
 
 //vamos supor que eu esteja com sede, e quero beber Suco OU Cerveja OU Vinho, eu consigo? 
 //vamos ver!
 
-//console.log(tenhoSuco || tenhoCerveja || tenhoVinho);
+console.log(tenhoSuco || tenhoCerveja || tenhoVinho);
 
 
 // desafios:
 
 // estou com sede, quero que vocês vejam se eu posso beber Agua OU cerveja
+console.log( tenhoAgua || tenhoCerveja);
 
 // estou com sede, quero que vocês vejam se eu posso beber Vinho OU Suco
+console.log(tenhoVinho || tenhoSuco);
 
 // estou com sede, quero que vocês vejam se eu posso beber Suco Ou vinho OU agua
+
+console.log(tenhoSuco || tenhoVinho || tenhoAgua);
 
 //------------------------------------------------------------
 // if() e else

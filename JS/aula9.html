@@ -190,28 +190,28 @@ botaoTeste.addEventListener("click", ()=>{
 // A propriedade MAIS IMPORTANTE é o 'e.target'.
 // 'e.target' é O ELEMENTO EXATO que originou o evento.
 
-let listaToda = document.querySelector("#lista-delegacao");
+//let listaToda = document.querySelector("#lista-delegacao");
 
 
 
 // Vamos adicionar um listener na LISTA INTEIRA (no <ul>)
  //let listaToda = document.querySelector("#lista-delegacao");
 
-listaToda.addEventListener("click", (e) => {
+//listaToda.addEventListener("click", (e) => {
 
     //'e' é o objeto do evento de clique.
     //Aqui todas as informações que ele pode puxar
-    console.log(e)
+    //console.log(e)
 
     //'e.currentTarget' é o elemento que está "ouvindo" (o <ul>)
-    console.log("currentTarget (quem ouviu):", e.currentTarget);
+    //console.log("currentTarget (quem ouviu):", e.currentTarget);
     
     //'e.target' é o elemento que foi REALMENTE clicado (o <li> específico)
-    console.log("target (quem foi clicado):", e.target);
+    //console.log("target (quem foi clicado):", e.target);
 
     //Agora podemos fazer coisas com o alvo!
-    e.target.textContent = "Eu fui clicado!";
-});
+    //e.target.textContent = "Eu fui clicado!";
+//});
 
 
 //desafios
@@ -283,14 +283,121 @@ travessia.addEventListener("click", (e)=>{
 //    alert("Link bloqueado pelo JavaScript!");
 // });
 
+//let formulario = document.querySelector("#meu-formulario");
+// let botaoFilho = formulario.children[0];
+//console.log(formulario.children[1]); //pega o button
+
+// formulario.addEventListener("submit",(e)=>{
+//    e.preventDefault();
+//    console.log("sim");
+ 
+ 
+  //formulario.addEventListener("submit",(e)=>{
+  // e.preventDefault();
+  //  let mensagemDeEnvio = document.createElement("p")
+  // mensagemDeEnvio.textContent = "você enviou o formulario!"
+  // formulario.appendChild(mensagemDeEnvio)
+ //esse envia varias vezes o texto
+
+
+
+   //formulario.addEventListener("submit",(e)=>{
+   //e.preventDefault();
+   //if(formulario.children.length <= 2){
+   // let mensagemDeEnvio = document.createElement("p")
+   //  mensagemDeEnvio.textContent = "você enviou o formulario!"
+   //  mensagemDeEnvio.classList.add("texto-envio")
+   //formulario.appendChild(mensagemDeEnvio)
+//esse envia uma vez o texto :  você enviou o formulario
+
+
+//outra solucao
+//formulario.addEventListener("submit",(e)=>{
+   //e.preventDefault();
+
+    //let mensagemDeEnvio = document.createElement("p")
+     //mensagemDeEnvio.textContent = "você enviou o formulario!"
+     //mensagemDeEnvio.classList.add("texto-envio")
+   //formulario.appendChild(mensagemDeEnvio)
+
+   //if(formulario.children.length > 3){
+    //mensagemDeEnvio.remove()
+   //}
+
+   //outra solucao
+//formulario.addEventListener("submit",(e)=>{
+  // e.preventDefault();
+
+   //if(!formulario.querySelector("p")){
+   // let mensagemDeEnvio = document.createElement("p")
+   //  mensagemDeEnvio.textContent = "você enviou o formulario!"
+   //  mensagemDeEnvio.classList.add("texto-envio")
+   //formulario.appendChild(mensagemDeEnvio)
+//}
+
+
+ //outra solucao
+   //formulario.addEventListener("submit",(e)=>{
+   //e.preventDefault();
+
+   //if(!formulario.innerHTML.includes("texto-enviado")){
+    //let mensagemDeEnvio = document.createElement("p")
+    // mensagemDeEnvio.textContent = "Você enviou o formulario!"
+    // mensagemDeEnvio.classList.add("texto-enviado")
+   //formulario.appendChild(mensagemDeEnvio)
+   //}
+
+
+   //outra solucao
+   //formulario.addEventListener("submit",(e)=>{
+   //e.preventDefault();
+
+   //console.log(formulario.querySelector(".texto-enviado"))
+
+   //if(!formulario.innerHTML.includes("texto-enviado")){
+   // let mensagemDeEnvio = document.createElement("p")
+    // mensagemDeEnvio.textContent = "Você enviou o formulario!"
+    // mensagemDeEnvio.classList.add("texto-enviado")
+   //formulario.appendChild(mensagemDeEnvio)
+   //}
+
+// })
+
+
 
 //desafios
 
-//Tente bloquear o recarregamento de pagina causado pelo Envio (submit) do formulario
+//1- Tente bloquear o recarregamento de pagina causado pelo Envio (submit) do formulario
 
-// let formulario = document.querySelector("#meu-formulario");
+ let formulario = document.querySelector("#meu-formulario");
+ formulario.addEventListener("submit",(e)=>{
+   e.preventDefault();
+
+ })
+
 // O evento para formulários não é 'click', é 'submit'
 
+//2- Tente bloquear a mudança de pagina do link com id "link-teste"
 
+let link = document.querySelector("#link-teste");
+link.addEventListener("click" , (e)=>{
+    e.preventDefault()
+    if(link <=2){
+         link.after("Link não esta funcionando");
+
+    }
+})
+
+//faça com que o evento de clique do link , além de bloquear o 
+//redirecionamento, adicione um elemento "p" com a mensagem 
+// "Link não esta funcionando" , embaixo do proprio link.
+//não permita que ele adicione mais de uma mensagem!
+
+//let funcionalidade = document.createElement("p")
+        //funcionalidade.textContent = "Link não está funcionando"
+
+//ao inves de elementoDeReferencia.append(elementoNovo),
+//use elementoDeReferencia.after(elementoNovo)
+//assim o elementoNovo sera irmão do elementoReferencia
 </script>
 </html>

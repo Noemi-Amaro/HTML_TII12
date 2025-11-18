@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Prova Prática: Dashboard de Projetos</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #212529;
+            padding: 20px;
+        }
+        header, section {
+            background-color: #ffffff;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        h1, h2 {
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+        }
+        
+        
+        #lista-projetos li {
+            padding: 10px;
+            margin-bottom: 8px;
+            border-radius: 5px;
+            list-style: none;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .projeto-atrasado {
+            background-color: #fff3cd;
+            border-left: 5px solid #ffc107;
+            font-weight: bold;
+        }
+        .selecionado {
+            background-color: #d1e7fd !important;
+            box-shadow: 0 0 5px rgba(0,123,255,0.5);
+        }
+
+        #form-novo-projeto input[type="text"] {
+            width: 300px;
+            padding: 8px;
+            margin-right: 10px;
+        }
+        #form-novo-projeto button {
+            padding: 8px 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        
+        #painel-ajuda {
+            display: none; 
+            border: 1px dashed #ccc;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        #painel-ajuda.visivel {
+            display: block; 
+        }
+        
+        
+        #log-status {
+            margin-top: 15px;
+            font-style: italic;
+            color: #6c757d;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1 id="titulo-principal">Painel de Gerenciamento</h1>
+        <p>Visão geral de projetos.</p>
+        <p>Total de Projetos: <span id="stat-total">3</span></p>
+    </header>
+
+    <main>
+        <section id="secao-projetos">
+            <h2>Projetos Atuais</h2>
+            <ul id="lista-projetos">
+                <li class="projeto" data-status="ativo">Projeto Alpha (Migração de Servidor)</li>
+                <li class="projeto" data-status="atrasado">Projeto Beta (Novo App Mobile)</li>
+                <li class="projeto" data-status="ativo">Projeto Gamma (Redesign do Site)</li>
+            </ul>
+        </section>
+
+        <section id="secao-admin">
+            <h2>Adicionar Novo Projeto</h2>
+            <form id="form-novo-projeto">
+                <input id="input-nome-projeto" type="text" placeholder="Nome do novo projeto">
+                <button type="submit">Adicionar Projeto</button>
+            </form>
+            <div id="log-status">(Nenhuma ação executada)</div>
+        </section>
+        
+        <section id="secao-ajuda">
+            <h2>Ajuda e Recursos</h2>
+            <button id="btn-toggle-ajuda" aria-expanded="false" aria-controls="painel-ajuda">
+                Mostrar/Ocultar Ajuda
+            </button>
+            <div id="painel-ajuda" role="region">
+                <p>Instrução 1: Clique nos projetos para selecioná-los.</p>
+                <p>Instrução 2: Use o formulário acima para adicionar novos projetos.</p>
+            </div>
+        </section>
+
+    </main>
+
+</body>
+
+<script>
+// ===================================================================
+// PROVA PRÁTICA - MANIPULAÇÃO DO DOM
+// ===================================================================
+// INSTRUÇÕES:
+// 1. Leia cada questão com atenção.
+// 2. Escreva seu código JavaScript APENAS na área designada.
+//    abaixo de cada questão.
+// 3. Não modifique o arquivo HTML ou o CSS diretamente.
+// 4. Não podera recebar ajuda de um colega ou da internet/IA.
+// 5. Não é permitido colar
+// 6. É permitido consultar as aulas passadas.
+// 7. Questões respondidas parcialmente serão consideradas baseadas no quão proximo você esteve de resolve-las por completo.
+// 8. NÃO DESISTA!!!
+// ===================================================================
+
+
+// --- Questão 1:--
+// Selecione o <h1> com id "titulo-principal".
+// Mude o texto dele para "Dashboard de Projetos".    
+// Selecione o <span> com id "stat-total" e mude a cor dele para azul.
+
+// Escreva o código da Questão 1 aqui:
+let titulo = document.querySelector("#titulo-principal");
+titulo.textContent = "Dashboard de Projetos"
+
+let span = document.querySelector("#stat-total");
+span.style.color = "blue";
+
+// --- Questão 2: ---
+// Selecione TODOS os elementos <li> que têm a classe "projeto".
+// Use um loop (como .forEach ou for()) para verificar cada item.
+// Dentro do loop, leia o atributo 'data-status' de cada item.
+// Se o status for "atrasado", adicione a classe "projeto-atrasado"
+// a esse <li>.
+
+// Escreva o código da Questão 2 aqui:
+
+let projetosLista = document.querySelectorAll(".projeto");
+for(projetosLista){
+    if (data-status === "atrasado"){
+   item.classList.add ("projeto-atrasado")}
+}
+
+
+
+// --- Questão 3: ---
+// Queremos que o usuário possa "selecionar" um projeto ao clicar.
+// Faça com que os projetos ao serem clicados recebam a classe 'selecionado' caso não a possuam, e removam ela caso a tenham
+// PS: Só pode adicionar/remover a classe do projeto clicado, não de todos ou de outro que não seja o projeto clicado.
+
+// Escreva o código da Questão 3 aqui:
+let projetoClicado = document.querySelector("#lista-projeto")
+projetoClicado.addEventListener("click", (e)=> {
+    if(e.target.tagName === "li") {
+    //e.target.textContent = "Selecionado";
+    console.log("Selecionado", e.target.textContent);
+    projetoClicado.parentElement.classList.add("selecionado");
+}
+
+})
+
+
+
+// --- Questão 4: ---
+// Faça o formulário "Adicionar Novo Projeto" funcionar.
+// O formulario deve adicionar um novo projeto ao clicar no botão do formulario com id "form-novo-projeto", 
+// o qual vai criar um elemento <p>, inserir o texto que estava dentro do input com id "input-nome-projeto" dentro do 'p' e enfim
+// inserir esse 'p' com texto dentro da ul com id "lista-projetos".
+// ao inserir um elemento dentro da ul, você deve remover o texto (Nenhuma ação executada) e substituir ele com "Projeto adicionado!"
+// Faça com que o span com id "stat-total" mostre o numero atual de projetos dentro da ul com id "lista-projetos"
+
+// Escreva o código da Questão 4 aqui:
+
+
+
+// --- Questão 5: ---
+// Faça o botão "Mostrar/Ocultar Ajuda" (acordeão) funcionar.
+// Ao clicar no botão, ele precisa fazer com que o painel fique visivel caso esteja invisivel e invisivel caso esteja visivel
+
+// Escreva o código da Questão 5 aqui:
+
+
+
+
+
+</script>
+</html>

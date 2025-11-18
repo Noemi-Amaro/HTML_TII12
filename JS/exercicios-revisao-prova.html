@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Desafios DOM - Painel Corporativo</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            padding: 20px; 
+            line-height: 1.6; 
+            background-color: #f4f7f6;
+        }
+        header, section {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            background-color: #ffffff;
+        }
+        h1, h2 { 
+            margin-top: 0; 
+            color: #333;
+            border-bottom: 2px solid #005a9c;
+            padding-bottom: 5px;
+        }
+        ul { padding-left: 20px; }
+        
+        /* Estilos para o diretório de funcionários */
+        .funcionario {
+            list-style: none;
+            padding: 10px;
+            margin-bottom: 8px;
+            border: 1px solid #eee;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+        }
+        .funcionario-destaque {
+            background-color: #fffbe6;
+            border-left: 5px solid #f0ad4e;
+            font-weight: bold;
+        }
+
+        /* Estilos para o formulário */
+        #form-rh label {
+            display: inline-block;
+            width: 100px;
+            margin-bottom: 10px;
+        }
+        #form-rh input {
+            padding: 8px;
+            width: 200px;
+            margin-right: 10px;
+        }
+        #form-rh button {
+            padding: 8px 15px;
+            background-color: #005a9c;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        
+        /* Estilos para mensagens de status */
+        .status-message {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 4px;
+            display: none; /* Escondido por padrão */
+        }
+        .status-sucesso {
+            display: block;
+            background-color: #dff0d8;
+            color: #3c763d;
+        }
+        .status-erro {
+            display: block;
+            background-color: #f2dede;
+            color: #a94442;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1 id="titulo-principal">Painel da Intranet</h1>
+        <p id="subtitulo">Visão geral da empresa.</p>
+    </header>
+
+    <main>
+        <section id="secao-comunicados">
+            <h2>Comunicados Urgentes</h2>
+            <div id="ultimo-comunicado">
+                <p>Nenhuma atualização no momento.</p>
+            </div>
+            <a href="#" id="link-comunicados">Ver todos os comunicados</a>
+        </section>
+
+        <section id="secao-funcionarios">
+            <h2>Diretório de Funcionários</h2>
+            <ul id="lista-funcionarios">
+                <li class="funcionario" data-id="101">Ana Silva (TI)</li>
+                <li class="funcionario" data-id="102">Bruno Costa (Marketing)</li>
+                <li class="funcionario" data-id="103">Carla Dias (RH)</li>
+            </ul>
+        </section>
+
+        <section id="secao-rh">
+            <h2>Formulário do RH: Adicionar Funcionário</h2>
+            <form id="form-rh">
+                <label for="input-nome">Nome:</label>
+                <input id="input-nome" type="text" placeholder="Nome completo">
+                <label for="input-depto">Depto:</label>
+                <input id="input-depto" type="text" placeholder="Departamento">
+                <button id="btn-adicionar" type="submit">Adicionar</button>
+            </form>
+            <div id="msg-status" class="status-message"></div>
+        </section>
+    </main>
+
+</body>
+
+<script>
+// ===================================================================
+// DESAFIOS DOM - PAINEL CORPORATIVO
+// ===================================================================
+// Complete cada desafio escrevendo seu código na seção indicada.
+// ===================================================================
+
+
+// --- Desafio 1: Seleção e Manipulação de Conteúdo ---
+// 1. Selecione o <h1> (id "titulo-principal").
+let titulo = document.querySelector("#titulo-principal");
+ 
+// 2. Mude o .textContent dele para "Intranet Corp".
+titulo.textContent = "Intranet Corp"
+
+// 3. Selecione o <p> dentro do 'ultimo-comunicado'.
+// 4. Mude o .textContent dele para "Manutenção agendada para sexta-feira às 18h.".
+// 5. Mude o estilo (style.color) deste mesmo <p> para "red".
+
+// Escreva o código do Desafio 1 aqui:
+
+
+
+// --- Desafio 2: Manipulação de Atributos e Classes ---
+// 1. Selecione o funcionário "Bruno Costa (Marketing)".
+//    (Dica: você pode usar querySelectorAll e um loop, ou ser mais específico)
+// 2. Adicione a classe "funcionario-destaque" a ele.
+// 3. Selecione o link (id "link-comunicados").
+// 4. Mude o atributo 'href' dele para "#" e o 'target' para "_blank"
+//    usando .setAttribute().
+
+// Escreva o código do Desafio 2 aqui:
+
+
+
+// --- Desafio 3: Eventos (addEventListener) ---
+// 1. Selecione o <h1> (id "titulo-principal").
+// 2. Adicione um 'addEventListener' de 'click' nele.
+// 3. Dentro do evento, mostre um 'alert()' com a mensagem "Painel clicado!".
+
+// Escreva o código do Desafio 3 aqui:
+
+
+
+// --- Desafio 4: Criação de Elementos (createElement e appendChild) ---
+// O formulário de RH ainda não funciona. Vamos fazer isso manualmente
+// para testar a criação de elementos.
+// 1. Crie um novo elemento <li> (document.createElement).
+// 2. Defina o .textContent dele para "Daniel Moreira (Vendas)".
+// 3. Adicione a classe "funcionario" a este novo <li>.
+// 4. Defina o atributo 'data-id' dele para "104".
+// 5. Selecione a lista (id "lista-funcionarios").
+// 6. Adicione (appendChild) o novo <li> à lista.
+
+// Escreva o código do Desafio 4 aqui:
+
+
+
+// --- Desafio 5: Juntando Tudo (Formulário, Eventos, Criação) ---
+// Este é o desafio principal! Faça o formulário do RH funcionar.
+//    Selecione o formulário (id "form-rh"), os inputs (nome e depto)
+//    , o botão (id "btn-adicionar"), a lista (id "lista-funcionarios")
+//    e a div de status (id "msg-status").
+//    Adicione um 'addEventListener' de 'submit' ao *formulário*.
+
+//    Dentro do evento:
+//    a. Chame 'e.preventDefault()' para impedir o recarregamento da página.
+//    b. Pegue os valores (.value) dos inputs de nome e depto.
+//    c. **Validação:** Se 'nome' OU 'depto' estiverem vazios:
+//       i. Mude o .textContent da 'msg-status' para "Erro: Preencha todos os campos."
+//      ii. Adicione a classe "status-erro" e remova "status-sucesso".
+//    d. **Sucesso:** Se ambos estiverem preenchidos:
+//       i. Crie um novo <li> (como no Desafio 4).
+//      ii. Defina o .textContent para "Nome (Depto)". (Ex: "Joana Lima (TI)")
+//     iii. Adicione a classe "funcionario".
+//      iv. Adicione (appendChild) o <li> à 'lista-funcionarios'.
+//       v. Limpe os inputs (.value = "").
+//      vi. Mude o .textContent da 'msg-status' para "Funcionário adicionado!".
+//     vii. Adicione "status-sucesso" e remova "status-erro".
+
+// Escreva o código do Desafio 5 aqui:
+
+
+
+// --- Desafio 6 (Bônus): Delegação de Eventos e 'remove()' ---
+// 1. Adicione um 'click' listener na 'lista-funcionarios' (Delegação).
+// 2. Dentro do listener, verifique se o 'e.target' (o que foi clicado)
+//    é um <li> com a classe "funcionario".
+// 3. Se for, pergunte ao usuário se ele quer remover (use 'confirm()').
+//    (Ex: if (confirm("Remover este funcionário?")) { ... })
+// 4. Se o usuário confirmar, remova o item clicado (e.target.remove()).
+
+// Escreva o código do Desafio 6 aqui:
+
+
+</script>
+</html>

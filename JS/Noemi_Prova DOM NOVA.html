@@ -155,11 +155,11 @@ span.style.color = "blue";
 // Escreva o código da Questão 2 aqui:
 
 //resolução incompleta
-let elementos = document.querySelectorall("#lista-projetos")
-for(elementos.setAttribute(data-status)
-if (data-status = "atrasado"){
-    classList.add = "projeto-atrasado"
-} 
+//let elementos = document.querySelectorall("#lista-projetos")
+//for(elementos.setAttribute(data-status)
+//if (data-status = "atrasado"){
+ //   classList.add = "projeto-atrasado"
+//} 
 
 
 
@@ -179,21 +179,24 @@ if (data-status = "atrasado"){
 // PS: Só pode adicionar/remover a classe do projeto clicado, não de todos ou de outro que não seja o projeto clicado.
 
 // Escreva o código da Questão 3 aqui:
-let projetoClicado = document.querySelector("#lista-projeto")
-projetoClicado.addEventListener("click", (e)=> {
-    if(e.target.tagName === "li") {
+//let projetoClicado = document.querySelector("#lista-projeto")
+//projetoClicado.addEventListener("click", (e)=> {
+    //if(e.target.tagName === "li") {
     //e.target.textContent = "Selecionado";
-    console.log("Selecionado", e.target.textContent);
-    projetoClicado.parentElement.classList.add("selecionado");
-}
+    //console.log("Selecionado", e.target.textContent);
+    //projetoClicado.parentElement.classList.add("selecionado");
+//}
 
-})
+//})
 
 
 
 // --- Questão 4: ---
 // Faça o formulário "Adicionar Novo Projeto" funcionar.
-// O formulario deve adicionar um novo projeto ao clicar no botão do formulario com id "form-novo-projeto", 
+// O formulario deve adicionar um novo projeto 
+
+//ao clicar no botão do formulario com id "form-novo-projeto",
+
 // o qual vai criar um elemento <p>, inserir o texto que estava dentro do input com id "input-nome-projeto" dentro do 'p' e enfim
 // inserir esse 'p' com texto dentro da ul com id "lista-projetos".
 // ao inserir um elemento dentro da ul, você deve remover o texto (Nenhuma ação executada) e substituir ele com "Projeto adicionado!"
@@ -201,16 +204,41 @@ projetoClicado.addEventListener("click", (e)=> {
 
 // Escreva o código da Questão 4 aqui:
 
+let botaoFormulario = document.querySelector("#form-novo-projeto").children[1]
+let listaProjetos = document.querySelector("#lista-projetos")
+let seguraOInput = document.querySelector("#input-nome-projeto")
+
+botaoFormulario.addEventListener("click", (e)=> {
+    e.preventDefault();
+    let elementoP = document.createElement("p")
+    elementoP.textContent = seguraOInput.value;
+    listaProjetos.appendChild(elementoP)
+    textoARemover.textContent = "Projeto adicionado!"
+    statusTotal.textContent = listaProjetos.children.length
+
+    console.log(elementoP)
+})
+
 
 
 // --- Questão 5: ---
 // Faça o botão "Mostrar/Ocultar Ajuda" (acordeão) funcionar.
-// Ao clicar no botão, ele precisa fazer com que o painel fique visivel caso esteja invisivel e invisivel caso esteja visivel
+// Ao clicar no botão, ele precisa fazer com que o painel fique visivel 
+// caso esteja invisivel e invisivel caso esteja visivel
 
 // Escreva o código da Questão 5 aqui:
+let botaoMostrar = document.querySelector("#btn-toggle-ajuda")
+let painelInvisivel = document.querySelector("#painel-ajuda")
 
+console.log(painelInvisivel)
 
+botaoMostrar.addEventListener(?"click", (e)=>{
+    painelInvisivel.style.display = "block"
+    if(){
 
+    }
+
+})
 
 
 </script>

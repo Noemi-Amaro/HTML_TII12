@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Aula 2: Tomando Decisões</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px;
+            background-color: #f0f0f0;
+            line-height: 1.6;
+        }
+        h1 { color: #333; }
+        h2 { color: #0056b3; border-bottom: 2px solid #ccc; padding-bottom: 10px;}
+        p { font-size: 18px; }
+        .dica {
+            background-color: #e2f0fb;
+            border-left: 5px solid #0056b3;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Aula 2: Comparação, Lógica e Decisões</h1>
+    <p>Abra o Console do navegador (F12) para ver seus resultados.</p>
+
+    <div class="dica">
+        <strong>Conceito Central:</strong><br>
+        Até agora, o computador só seguia ordens diretas (guarde isso, mostre aquilo).<br>
+        Agora, vamos ensinar o computador a fazer <strong>PERGUNTAS</strong>.<br>
+        A resposta para essas perguntas sempre será apenas uma de duas opções:<br>
+        <strong>true (Verdadeiro/Sim)</strong> ou <strong>false (Falso/Não)</strong>.
+    </div>
+
+</body>
+
+<script>
+// =================================================================
+// PARTE 1: O INSPETOR (Operadores de Comparação)
+// Imagine um inspetor de conteudo. Ele pega dois valores e compara o valor da esquerda
+// com o valor da direita fazendo uma pergunta
+// exemplo!
+
+// valorUm é maior que ValorDois?
+
+// Se a reposta para a pergunta for 'sim!' ele ira retornar 'true' (verdadeiro)
+// Se a resposta para a pergunta for 'não!' ele ira retornar 'false' (falso)
+
+// só que para agilizar o processo de perguntas, nos usamos Simbolos que representam as perguntas
+// eles são chamados "Operadores de comparação"
+
+
+// Então para expressar:
+
+// valorUm é maior que ValorDois?
+
+
+// usamos:
+
+// valorUm > valorDois
+
+
+
+// IMPORTANTISSIMO!!!
+
+// comparações tem como resultado, apenas true ou false
+
+// quando fazemos:
+
+// let valorUm = 15
+// let valorDois = 5
+
+// let resultado = valorUm > valorDois
+
+
+// a variavel 'resultado' vai receber true OU false
+// ela NUNCA vai receber os valores trabalhados em sí (nesse caso 15 ou 5)
+// porque o resultado de uma comparação traz APENAS a resposta da pergunta, nesse caso se ela é verdadeira ou falsa
+
+// então nesse caso console.log(resultado) vai mostrar pra gente "true"
+
+// =================================================================
+
+// Perguntas do Inspetor:
+// >   (Maior que)
+// <   (Menor que)
+// >=  (Maior ou Igual a)
+// <=  (Menor ou Igual a)
+// ==  (Igual a)
+// === (Exatamente igual a) (Tanto o valor quanto o TIPO de valor precisam ser iguais (' 15 === "15" ' retorna false))
+// !=  (Diferente de )
+// !== (Completamente diferente de) (ele ainda retorna true se o valor for igual, mas 
+// o TIPO de valor for diferente 
+
+// exemplo:
+//
+// (0 !== "0") //retorna true )
+
+// note que as perguntas são direcionadas para o valor da esquerda
+// valorUm > valorDois 
+// é equivalente a 'valorUm é maior que valorDois?'
+
+// EXERCÍCIO 01: Maior e Menor
+// Vamos verificar se o saldo bancário paga a conta.
+// -> Crie uma variável 'saldo' com 100.
+// -> Crie uma variável 'conta' com 200.
+// -> Pergunte ao console: saldo > conta (O saldo é maior que a conta?).
+// (O console deve responder 'false').
+
+// Resposta 01:
+let saldo = 100;
+let conta = 200;
+
+console.log(saldo > conta);
+
+
+// EXERCÍCIO 02: Igualdade (A senha confere?)
+// O símbolo de igualdade na comparação são DOIS ou TRÊS iguais ('==' e '===').
+// (Um igual '=' serve para atribuir valor a uma variavel, dois ou três iguais '===' servem para comparar).
+// -> Crie uma variavel 'senhaDigitada' com o texto "1234".
+// -> Crie uma variavel 'senhaCorreta' com o texto "1234".
+// -> Pergunte ao console: senhaDigitada == senhaCorreta
+
+// Resposta 02:
+let senhaDigitada = "1234";
+let senhaCorreta = "1234";
+
+console.log(senhaDigitada == senhaCorreta)
+
+
+// EXERCÍCIO 03: Desigualdade (Não é igual)
+// Às vezes queremos saber se algo é DIFERENTE. Usamos !==
+// -> Crie uma variavel 'frutaSecreta' com valor "Maçã".
+// -> Pergunte ao console: frutaSecreta !== "Banana"
+// (A pergunta é: frutaSecreta é DIFERENTE de Banana? Se for maçã, a resposta é true).
+
+// Resposta 03:
+let frutaSecreta = "Maça";
+
+console.log(frutaSecreta !== "Banana")
+
+
+// EXERCÍCIO 04: O limite do cartão (Maior ou Igual)
+// Você pode gastar se o valor for menor ou IGUAL ao limite.
+// -> Crie 'limite' com 1000.
+// -> Crie 'compra' com 1000.
+// -> Pergunte o limite é igual ou menor que a compra:
+
+// Resposta 04:
+let limite = 1000;
+let compra = 1000;
+
+console.log(limite <= compra)
+
+
+// =================================================================
+// PARTE 2: O GERENTE DE LÓGICA (E / OU)
+// E se precisarmos do resultado de duas perguntas para algo acontecer?
+// Usamos a Lógica.
+// && (E) -> Exige que TODAS as condições sejam verdadeiras.
+// || (OU) -> Exige que PELO MENOS UMA condição seja verdadeira.
+
+// Podemos então verificar se duas comparações são verdadeiras!
+
+// por exemplo, para uma vaga de emprego onde você precisa ter idade
+// maior ou igual a 18 anos E precise ter feito o ensino medio
+
+// podemos verificar se essas duas condições são verdadeiras usando o codigo:
+
+// let tenhoIdade = 20
+// let fizEnsinoMedio = true
+
+// tenhoIdade >= 18 && fizEnsinoMedio == true
+
+// assim verificando se ambas são verdadeiras
+
+// =================================================================
+
+// EXERCÍCIO 05: A Receita de Bolo (Operador E - &&)
+// Para fazer o bolo, preciso de Ovos E Farinha. Se faltar um, não tem bolo.
+// -> Crie 'tenhoOvos' = true;
+// -> Crie 'tenhoFarinha' = true;
+// -> Pergunte ao console: tenhoOvos && tenhoFarinha
+// -> Teste mudar um deles para false depois.
+
+// Resposta 05:
+let tenhoOvos = true;
+//let tenhoFarinha = true;
+let tenhoFarinha = false;
+
+console.log(tenhoOvos && tenhoFarinha);
+
+
+// EXERCÍCIO 06: A Entrada na Festa (Operador OU - ||)
+// Para entrar, você precisa de convite OU estar na lista VIP. Um só basta.
+// -> Crie 'tenhoConvite' = false;
+// -> Crie 'souVip' = true;
+// -> Pergunte ao console: tenhoConvite || souVip
+
+// Resposta 06:
+
+let tenhoConvite = false;
+let souVip = true;
+
+
+console.log( tenhoConvite || souVip);
+
+
+// EXERCÍCIO 07: Lógica Mista
+// Para dirigir, você precisa ser maior de 18 E ter habilitação.
+// -> Crie 'idadeMotorista' com 20.
+// -> Crie 'temCarteira' com true.
+// -> Pergunte: idadeMotorista >= 18 && temCarteira === true
+
+// Resposta 07:
+let idadeMotorista = 20;
+let temCarteira = true;
+
+console.log(idadeMotorista >=18 && temCarteira == true);
+
+// EXERCÍCIO 08: 
+// para entrar na montanha russa você precisa 
+// ter pelo menos 18 anos e 1.50 de altura
+
+// -> Crie 'idadePessoa' com 18
+// -> Crie 'alturaPessoa'com 1.70
+// Pergunte se a pessoa tem idade adequada E altura adequada
+let idadePessoa = 18;
+let alturaPessoa = 1.70;
+
+console.log(idadePessoa >=18 && alturaPessoa >= 1.70);
+// =================================================================
+// PARTE 3: A BIFURCAÇÃO (if / else)
+// Até agora o console só dizia "true" ou "false".
+// Agora vamos fazer o código TOMAR UMA ATITUDE baseado nisso.
+//
+// if (condição) {
+//    ...faça isso se for verdade...
+// } else {
+//    ...faça isso se for mentira...
+// }
+
+// if faz com que um trecho de codigo (demarcado por '{}' ) só ocorra
+// CASO a pergunta que o if fez seja verdadeira
+// do contrario o codigo ignora o codigo dentro do '{}'
+
+
+//mas e se nos quisermos que algo ocorra caso a pergunta do if esteja errada?
+//ai usamos o 'else', que roda um outro bloco de codigo para caso o if esteja enganado!
+
+//exemplo!
+
+//let produtoDentroDaValidade = false
+
+//if(produtoDentroDaValidade){
+    //console.log("deixo ele na prateleira!")
+//}
+//else{
+    //console.log("Jogo ele fora!")
+//}
+
+
+//Note que o else NÃO TEM CONDIÇÃO
+//porque ele a consequencia de quando o if deu errado!
+//você nunca vai ver um else sozinho em um codigo
+//ele existe unicamente para realizar uma ação se o if estiver errado
+
+
+
+// =================================================================
+
+// EXERCÍCIO 08: O Porteiro Simples (if)
+// Vamos fazer um código que dá bom dia, mas SÓ se o 'horario' for menor que 12.
+// -> Crie 'horaAtual' com 9.
+// -> Escreva:
+//    if (horaAtual < 12) {
+//        console.log("Bom dia!");
+//    }
+// -> Mude a hora para 15 e veja que ele para de responder.
+
+// Resposta 08:
+
+let horaAtual = 9
+
+if(horaAtual < 12){
+    console.log("Bom dia!")
+}
+
+// EXERCÍCIO 09: O Semáforo (if e else)
+// Se o sinal está verde, siga. SENÃO (else), pare.
+// -> Crie 'sinalVerde' = false;
+// -> Escreva uma estrutura if/else.
+// -> Se sinalVerde for true, imprima "Pode passar".
+// -> Else (senão), imprima "Pare o carro!".
+
+// Resposta 09:
+let sinalVerde = false
+//if (sinalVerde==true)
+if(sinalVerde){
+    console.log("Siga")
+}
+else{
+    console.log("Pare o carro!")
+}
+
+
+// EXERCÍCIO 10: Estoque da Loja
+// Verifique se temos o produto.
+// -> Crie 'qtdEstoque' = 0;
+// -> Se estoque for maior que 0, mostre "Produto disponível".
+// -> Senão (else), mostre "Produto esgotado".
+
+// Resposta 10:
+
+let qtdEstoque = 0
+if(qtdEstoque > 0){
+    console.log("Produto disponível")
+}
+else{ console.log("Produto esgotado")}
+
+// EXERCÍCIO 11: Múltiplas Decisões (else if)
+// E quando temos 3 opções? (Ex: Menor de idade, Adulto, Idoso).
+// Usamos um if depois do else ('else if()') para fazermos uma pergunta, MESMO quando o primeiro if se enganou.
+// -> Crie 'idadePessoa' = 70;
+// -> Se 'if(idadePessoa < 18)' for verdadeiro : imprima "Menor de idade".
+// -> Senão, pergunte se (else if(idadePessoa > 60)), caso seja verdadeiro : imprima "Idoso".
+// -> Senão (else): imprima "Adulto".
+
+// Resposta 11:
+
+idadePessoa = 70
+
+if(idadePessoa < 18){
+    console.log("Menor de idade")
+}
+if (idadePessoa > 60){
+    console.log("Idoso")
+}
+else{ console.log("Adulto")}
+
+// =================================================================
+// PARTE 4: DESAFIOS DE NEGÓCIOS (Escala Crescente)
+// Vamos aplicar isso em situações reais de um sistema.
+// =================================================================
+
+// EXERCÍCIO 12: Sistema de Login
+// Só entra se o usuário for "admin" E a senha for "123".
+// -> Crie variaveis para usuario e senha.
+// -> Crie um if que verifica se o valor das duas coisas é verdadeiro.
+// -> Se der certo: "Acesso permitido". Senão: "Acesso negado".
+
+// Resposta 12:
+let usuario = "admin"
+let senha = "123"
+
+if(usuario == "admin" && senha == "123"){
+    console.log("Acesso permitido");
+}
+
+
+// EXERCÍCIO 13: Calculadora de Frete
+// Se a compra for maior que 200 reais, o frete é grátis.
+// Senão, o frete custa 20 reais.
+// -> Crie 'valorCompra' = 150.
+// -> Crie 'valorFrete'.
+// -> Use if/else. Se compra > 200, valorFrete = 0. Senão valorFrete = 20.
+// -> No final, imprima: "O frete custa: " + valorFrete.
+
+// mude o valor da compra para 250 onde ele foi criado para ver como muda o resultado do console.log().
+// Resposta 13:
+
+let valorCompra = 150
+let valorFrete = 0
+
+if(valorCompra > 200){
+    console.log("Frete gratis")
+}
+
+
+// EXERCÍCIO 14: Aprovação de Empréstimo
+// Para o banco emprestar dinheiro, o cliente deve ter:
+// "nome limpo" (true) E renda maior que 2000.
+// OU... o cliente deve ser "vip" (true).
+// (Se for VIP, não importa a renda ou o nome limpo).
+//
+// -> Crie as variaveis: nomeLimpo, renda, clienteVip.
+// -> Monte o IF e se quiser o Else if.
+// -> Imprima "Empréstimo Aprovado" ou "Empréstimo Recusado" dependendo do resultado.
+
+// Resposta 14:
+
+
+
+// EXERCÍCIO 15: O Caixa Eletrônico (Desafio Final)
+// Vamos simular um saque.
+// 1. Crie 'saldoDisponivel' = 500.
+// 2. Crie 'valorSaque' = 200.
+// 3. Crie um IF.
+//    - Verifique se 'valorSaque' é menor ou igual a 'saldoDisponivel'.
+//    - Se for verdade:
+//         Diminua o valor do saque do saldo (saldoDisponivel = saldoDisponivel - valorSaque).
+//         Imprima "Saque realizado. Novo saldo: " + saldoDisponivel.
+//    - Senão (else):
+//         Imprima "Saldo insuficiente".
+
+// Resposta 15:
+
+
+
+</script>
+</html>

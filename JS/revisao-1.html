@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Aula 1: O Básico da Lógica</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px;
+            background-color: #f0f0f0;
+            line-height: 1.6;
+        }
+        h1 { color: #333; }
+        p { font-size: 18px; }
+        .dica {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Aula 1: Variáveis e Operações</h1>
+    <p>Abra o Console do navegador (F12 ou Inspecionar > Console) para ver os resultados.</p>
+
+
+
+</body>
+
+<script>
+// ======================19/11/2025===========================================
+// PARTE 1: A IMPRESSORA (console.log)
+// O computador é "mudo". Se você não mandar ele falar, ele não fala.
+// =================================================================
+
+// EXERCÍCIO 01: O primeiro comando
+// O console.log serve para "imprimir" uma mensagem na tela.
+// Texto(String) sempre deve estar entre aspas duplas "" ou simples ''.
+
+// do contrario ele vai entender que você esta tentando chamar uma variavel!
+
+// PONTO IMPORTANTE!!!!
+// Console.log é apenas para imprimir uma mensagem na console
+// como te ajudar a visualizar um valor ou um elemento
+
+// ele não serve para fazer mudanças na pagina web, ele é uma ferramenta de visualização pro desenvolvedor
+// somente isso
+
+// -> Escreva abaixo: console.log("Olá, mundo!");
+
+// Resposta 01:
+console.log("Olá, Mundo!");
+
+// EXERCÍCIO 02: Números
+// Números servem para fazer contas, então eles NÃO usam aspas.
+// Colocar aspas vai fazer com que o computador pense que você esta inserindo um texto!
+// -> Peça para o computador mostrar o número 100.
+// (Dica: console.log(100))
+
+// Resposta 02:
+console.log(100);
+
+// =================================================================
+// PARTE 2: AS CAIXAS (Variáveis - let)
+// Vamos criar caixas para guardar informações para usar depois.
+
+
+// 
+//  Imagine que a memória do computador é um Armário Cheio de Caixas.
+//  Cada caixa tem uma Etiqueta (Nome) e um Conteúdo (Valor).
+//  O comando 'let' cria a caixa.
+//  O sinal de igual '=' guarda um valor dentro da caixa.
+//  O comando console.log() mostra o conteudo que tem dentro da caixa.
+
+// =================================================================
+
+// EXERCÍCIO 03: Criando uma caixa de texto
+// Vamos criar uma caixa chamada 'nomeFuncionario' e guardar "Carlos" dentro.
+// -> Escreva: let nomeFuncionario = "Carlos";
+// -> Na linha de baixo, mande imprimir o conteudo da caixa: console.log(nomeFuncionario);
+
+// Resposta 03:
+let nomeFuncionario = "Carlos";
+console.log(nomeFuncionario);
+
+
+// EXERCÍCIO 04: Criando uma caixa de número
+// Vamos guardar a idade do Carlos.
+// -> Crie uma variável chamada 'idade' e guarde o valor 35 nela.
+// -> Mande imprimir a variável 'idade'.
+
+// Resposta 04:
+let idade = 35;
+console.log(idade);
+
+
+// EXERCÍCIO 05: Trocando o conteúdo da caixa
+// A caixa 'let' permite troca. O Carlos fez aniversário.
+// -> NÃO use 'let' de novo (a caixa já foi criada!).
+// -> Apenas escreva: idade = 36;
+// isso vai permitir que o conteudo da caixa seja MODIFICADO (tira o antigo, coloca o que esta a direita do '=')
+// -> Mande imprimir a 'idade' de novo para ver a mudança.
+
+// Resposta 05:
+idade = 36;
+console.log(idade);
+
+
+//EXERCÍCIO 6:
+//Crie uma caixa(variavel) chamada 'clima' com o valor "ensolarado"
+
+//começou a chover, mude o conteudo da caixa para ter o valor "chuvoso"!
+
+let clima = "ensolarado"
+clima = "chuvoso"
+
+// =================================================================
+// PARTE 3: A CALCULADORA (Operações Matemáticas)
+// O computador é uma calculadora gigante.
+// colocando dois valores com um simbolo matematico no meio vai realizar a operação
+// que o simbolo representa
+// por exemplo: valorUm + valorDois ira somar eles!
+// Somas (+), Subtração (-), Multiplicação (*) e Divisão (/).
+// =================================================================
+
+// EXERCÍCIO 06: Soma simples
+// -> Mande o console mostrar quanto é 10 + 5.
+
+// Resposta 06:
+
+console.log(10+5)
+
+// EXERCÍCIO 07: Subtração (Saldo)
+// Você tinha 100 reais e gastou 30.
+// -> Mande o console mostrar quanto sobrou em sua carteira!.
+
+// Resposta 07:
+console.log(100-30)
+
+
+// EXERCÍCIO 08: Multiplicação (O asterisco *)
+// Você comprou 4 caixas de leite, cada uma custa 5 reais.
+// mande o console mostrar quanto ficou no total as caixas.
+
+// Resposta 08:
+console.log(4*5);
+
+
+// EXERCÍCIO 09: Divisão (A barra /)
+// A conta do restaurante deu 200 reais por pessoa, e temos 4 pessoas.
+// mande o console mostrar a conta total do restaurante.
+
+// Resposta 09:
+console.log(200*4);
+
+
+// =================================================================
+// PARTE 4: MISTURANDO TUDO (Variáveis + Matemática)
+// Aqui é onde a mágica acontece. Usamos o conteudo de diferentes caixas
+// para fazer as contas.
+// =================================================================
+
+// EXERCÍCIO 10: Somando variáveis
+// -> Crie uma variável 'valorAlmoco' com 20.
+// -> Crie uma variável 'valorBebida' com 5.
+// -> Mande o console mostrar a soma: valorAlmoco + valorBebida.
+
+// Resposta 10:
+let valorAlmoco = 20;
+let valorBebida = 5;
+console.log(valorAlmoco + valorBebida);
+
+
+// EXERCÍCIO 11: O Texto Grudado (Concatenação)
+// O sinal de '+' também serve para juntar (colar) textos.
+// -> Crie uma variável 'primeiroNome' com "Ana".
+// -> Crie uma variável 'sobrenome' com "Silva".
+// -> Mande o console mostrar: primeiroNome + sobrenome.
+// (Observe no console que vai ficar grudado "AnaSilva", isso é normal por enquanto!)
+
+// Resposta 11:
+let primeiroNome = "Ana";
+let sobrenome = "Silva";
+console.log(primeiroNome + sobrenome);
+
+
+
+// EXERCÍCIO 12: Arrumando o texto
+// Para separar, precisamos somar um espaço em branco " " no meio OU
+// adicionar o espaço em um dos texto 
+
+// (exemplo:
+//
+//  primeiroNome = "Ana "
+// //perceba o espaço que criamos depois de 'Ana' 
+//
+//  ).
+// -> Separe "AnaSilva" e mostre no console "Ana Silva"
+
+// Resposta 12:
+
+primeiroNome = "Ana "
+console.log(primeiroNome + sobrenome);
+
+// EXERCÍCIO 13: Juntando Texto e Número
+// -> Crie uma variável 'produto' com o conteudo "Caneta".
+// -> Crie uma variável 'preco' com o conteudo 2.
+// -> Mande imprimir a frase: "O preço da " + produto + " é " + preco.
+
+// Resposta 13:
+let produto = "Caneta";
+let preco = 5 ;
+console.log("O preço da " + produto + " é " + preco);
+
+
+// =================================================================
+// PARTE 5: CONCEITOS FINAIS (Const e Atualização)
+// =================================================================
+
+// EXERCÍCIO 14: A Caixa Lacrada (const)
+// Algumas coisas nunca mudam, como o valor de Pi ou o nome da Empresa.
+// 'const' cria uma caixa que dá erro se você tentar mudar.
+// -> Crie uma const chamada 'EMPRESA' com valor "Tech Solutions".
+// -> Mande imprimir.
+// -> tente mudar o valor dela depois de declarar ela pra ver o que acontace
+
+// exemplo:
+
+// const = TAXA_DE_JUROS = 0.5
+
+// //aqui tentamos inserir um novo valor na TAXA_DE_JUROS
+// TAXA_DE_JUROS = 0.4
+
+
+// Resposta 14:
+const empresa = "Tech Solutions";
+console.log(empresa);
+
+
+// EXERCÍCIO 18: O Acumulador (Desafio Final!)
+// Imagine um cofrinho. Você tem um valor de dinheiro dentro dele, quando você adiciona mais dinheiro
+// nesse cofrinho ele MANTEM o valor que ele já tinha, e adiciona o valor novo
+// expressar isso em codigo seria algo assim!
+
+// cofrinho = cofrinho + valorAdicionado
+
+// ou seja, você vai pegar o valor antigo no cofrinho, juntar com o valor novo
+// e modificar o valor do cofre com essa soma!
+
+// -> Crie uma variável 'cofrinho' com valor 10.
+
+// -> Junte o valor do cofrinho com mais 5 reais e insira esse valor na variavel do cofrinho
+
+// -> Mande imprimir o 'cofrinho'. O resultado deve ser 15.
+
+// Resposta 15:
+let cofrinho = 10;
+console.log(cofrinho + 5);
+
+const cofrinho2 = 10;
+console.log(cofrinho2 + 5);
+
+
+</script>
+</html>

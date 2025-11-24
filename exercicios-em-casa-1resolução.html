@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Aula Prática: 20 Exercícios de Lógica</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 40px;
+            background-color: #f4f4f9;
+            line-height: 1.6;
+            color: #333;
+        }
+        h1 { color: #2c3e50; border-bottom: 3px solid #3498db; padding-bottom: 10px; }
+        p { font-size: 18px; }
+        .instrucao {
+            background-color: #e8f6f3;
+            border-left: 5px solid #1abc9c;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+        code {
+            background-color: #eee;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Lista de Exercícios: Lógica e Decisões</h1>
+    <p>Abra o Console do navegador (F12) para ver os resultados.</p>
+
+    <div class="instrucao">
+        <strong>Dica de Ouro:</strong><br>
+        Lembre-se: 
+        <code>></code> (Maior), 
+        <code><</code> (Menor), 
+        <code>===</code> (Igual), 
+        <code>!==</code> (Diferente).<br>
+        Lógica: 
+        <code>&&</code> (E - Precisa de todos), 
+        <code>||</code> (OU - Precisa de apenas um).
+    </div>
+
+</body>
+
+<script>
+// =================================================================
+// BLOCO 1: O INSPETOR (COMPARAÇÕES SIMPLES)
+// Responda com true ou false.
+// =================================================================
+
+// EXERCÍCIO 01: Temperatura do Ar Condicionado
+// O escritório deve estar abaixo de 23 graus.
+// -> Crie variavel 'temperaturaAtual' com 25.
+// -> Verifique no console: temperaturaAtual < 23
+
+// Resposta 01:
+let temperaturaAtual = 25;
+console.log(temperaturaAtual < 23);
+
+
+// EXERCÍCIO 02: Meta de Vendas
+// A meta é vender MAIOR OU IGUAL a 100 unidades.
+// -> Crie 'vendasRealizadas' com 120.
+// -> Verifique: vendasRealizadas >= 100
+
+// Resposta 02:
+let vendasRealizadas = 120;
+console.log(vendasRealizadas >= 100);
+
+
+
+// EXERCÍCIO 03: Conferência de Crachá (Igualdade)
+// O número do crachá deve ser EXATAMENTE "A-102".
+// -> Crie 'crachaLido' com "A-102".
+// -> Verifique se conteudo de crachaLido é igual a "A-102"
+
+// Resposta 03:
+let crachaLido = "A-102"
+console.log(crachaLido === "A-102")
+
+
+// EXERCÍCIO 04: Diferença de Turno
+// Queremos saber se o turno NÃO É "Noite".
+// -> Crie 'turnoAtual' com "Manhã".
+// -> Verifique se turnoAtual NÃO É noite
+
+// Resposta 04:
+let turnoAtual= "Manhã"
+console.log(turnoAtual === "Noite")
+
+// EXERCÍCIO 05: Orçamento Estourado
+// O gasto deve ser MENOR que o orçamento.
+// -> Crie 'orcamento' = 5000.
+// -> Crie 'gasto' = 5500.
+// -> Verifique se gasto é menor que orçamento
+
+// Resposta 05:
+let orcamento = 5000;
+let gasto = 5500;
+console.log( gasto < orcamento);
+
+
+// =================================================================
+// BLOCO 2: O GERENTE (LÓGICA E / OU)
+// Combinando condições.
+// =================================================================
+
+// EXERCÍCIO 06: Contratação (Operador E - &&)
+// Para contratar, precisa falar Inglês E ter Experiência.
+// -> Crie 'falaIngles' = true.
+// -> Crie 'temExperiencia' = true.
+// -> Verifique se tanto falaIngles e temExperiencia são verdadeiros
+
+// Resposta 06:
+let falaIngles = true;
+let temExperiencia = true;
+console.log(falaIngles && temExperiencia);
+
+
+// EXERCÍCIO 07: Benefício de Vale Transporte (Operador OU - ||)
+// Recebe se morar longe OU se tiver mais de 60 anos.
+// -> Crie 'moraLonge' = false.
+// -> Crie 'idade' = 65.
+// -> verifique se moraLonge é verdadeiro OU idade é maior que 60 anos
+
+// Resposta 07:
+let moraLonge = false;
+let idade = 65
+
+console.log(moraLonge = true || idade > 60);
+
+
+// EXERCÍCIO 08: Login de Segurança
+// Precisa de usuario "admin" E senha "1234".
+// -> Crie as variáveis com esses valores.
+// -> verifique se usuario é igual a admin E senha é igual a 1234
+
+// Resposta 08:
+let usuario = "admin"
+let senha = 1234
+//console.log(usuario = "admin" || senha = 1234);
+
+
+// EXERCÍCIO 09: Loja Aberta?
+// A loja abre se for dia de semana OU se for feriado especial.
+// -> Crie 'diaSemana' = true.
+// -> Crie 'feriado' = false.
+// -> Verifique se a loja abre.
+
+// Resposta 09:
+let diaSemana = true;
+let feriado = false;
+console.log(diaSemana || feriado)
+
+
+// EXERCÍCIO 10: Promoção Complexa
+// Cliente ganha desconto se for VIP OU (se comprar mais de 500 reais).
+// -> Crie 'clienteVip' = false.
+// -> Crie 'valorCompra' = 600.
+// -> Verifique se cliente vip é verdadeiro OU se o valor da compra foi maior que 500
+
+// Resposta 10:
+
+let clienteVip = false;
+let valorCompra = 600;
+
+console.log(clienteVip = true || valorCompra > 500)
+
+// =================================================================
+// BLOCO 3: O PORTEIRO (IF / ELSE)
+// Tomando atitudes baseadas nas comparações.
+// =================================================================
+
+// EXERCÍCIO 11: Interruptor de Luz
+// -> Crie 'luzAcesa' = true.
+// -> crie o if
+// -> Se (dentro da comparação do if) luzAcesa for true, imprima "A luz está ligada".
+// -> Senão (else), imprima "Está escuro aqui".
+
+// Resposta 11:
+let luzAcesa = true;
+if (luzAcesa = true){
+    console.log("A luz está ligada")
+}
+else {
+console.log(" Está escuro aqui")
+}
+
+
+// EXERCÍCIO 12: Verificador de Estoque
+// -> Crie 'qtdProduto' = 0.
+// -> crie o if
+// -> Se (dentro da comparação do if) qtdProduto for maior que 0, imprima "Venda permitida".
+// -> Senão, imprima "Produto indisponível".
+
+// Resposta 12:
+let qtdProduto = 0;
+if(qtdProduto > 0){
+    console.log("Venda permitida")
+}
+else{
+    console.log("Produto indisponível")
+}
+
+// EXERCÍCIO 13: Avaliação de Desempenho
+// -> Crie 'notaFuncionario' = 8.
+// -> crie o if
+// -> Se (dentro da comparação do if) nota for maior ou igual a 7, imprima "Bônus aprovado".
+// -> Senão, imprima "Precisa melhorar".
+
+// Resposta 13:
+let notaFuncionario = 7;
+if(notaFuncionario >= 7){
+    console.log("Bônus aprovado")
+}
+else{
+    console.log("Precisa melhorar")
+}
+
+
+// EXERCÍCIO 14: Par ou Ímpar (Conceito Novo: Resto da Divisão %)
+// O símbolo % pega o resto da divisão. Se o resto de 'numero / 2' for 0, é par.
+// -> Crie 'numero' = 10.
+// -> crie o if
+// -> Se (dentro da comparação do if) o numero for par (verifique a formula para descobrir se é par acima), imprima "É par".
+// -> Senão, imprima "É ímpar".
+
+// Resposta 14:
+let numero = 10;
+if(numero % 2 == 0){
+    console.log("É par")
+}
+else{
+    console.log("É impar")
+}
+
+// EXERCÍCIO 15: Acesso ao Servidor
+// -> Crie 'usuarioLogado' = false.
+// -> Se usuarioLogado for DIFERENTE (!==) de true, imprima "Faça login para continuar".
+// -> Senão, imprima "Bem-vindo de volta".
+
+// Resposta 15:
+let usuarioLogado = false
+if(usuarioLogado !== true){
+    console.log("Faça login para continuar")
+}
+else{
+    console.log("Bem-vindo de volta")
+}
+
+
+// =================================================================
+// BLOCO 4: SITUAÇÕES REAIS (DESAFIOS AVANÇADOS)
+// =================================================================
+
+// EXERCÍCIO 16: Calculadora de Frete Grátis
+// Frete é grátis se a compra for acima de 150.
+// -> Crie 'totalCompra' = 120.
+// -> Crie um IF. Se maior que 150, imprima "Frete Grátis".
+// -> Else: imprima "Frete: R$ 20,00".
+
+// Resposta 16:
+let totalCompra = 120;
+if(totalCompra > 150){
+    console.log("Frete Grátis")
+}
+else{
+    console.log("Frete: R$ 20,00")
+}
+
+
+// EXERCÍCIO 17: Sistema de Catraca (Lógica com &&)
+// Só entra se tiver ingresso E for maior de 18.
+// -> Crie 'temIngresso' = true;
+// -> Crie 'idadeVisitante' = 16;
+// -> IF caso você tenha ingresso e seja maior que 18 anos imprima "Pode entrar".
+// -> do contrario "Entrada bloqueada".
+
+// Resposta 17:
+let temIngresso = true;
+let idadeVisitante = 16;
+if(temIngresso = true && idadeVisitante > 18){
+    console.log("Pode entrar")
+}
+else{console.log("Entrada bloqueada")}
+
+
+// EXERCÍCIO 18: Semáforo (Usando Else If)
+// -> Crie 'corSemaforo' = "Amarelo".
+// -> If for "Verde": imprima "Siga".
+// -> Else If for "Amarelo": imprima "Atenção".
+// -> Else (qualquer outra coisa, ou seja, Vermelho): imprima "Pare".
+
+// Resposta 18:
+let corSemaforo = "Amarelo";
+if(corSemaforo = "verde"){
+    console.log("Siga")
+}
+else if (corSemaforo = "Amarelo"){
+    console.log( "Atenção")
+}
+else{
+    console.log("Pare")
+}
+
+
+// EXERCÍCIO 19: Ajuste Salarial (Matemática dentro do IF)
+// Se salario for menor que 2000, aumente em 500 o valor da variavel salario.
+// -> Crie 'salario' = 1500.
+// faça com que caso 'salario' seja menos que 2000, você aumente o valor dele em 500
+// (lembre se que para mudar o valor original de uma variavel você precisa usar atribuição '=')
+
+// Resposta 19:
+let salario = 1500
+if(salario  < 2000){
+    console.log(salario + 500)
+}
+
+
+// EXERCÍCIO 20: O Caixa Eletrônico Completo
+// 1. Crie 'saldo' = 1000;
+// 2. Crie 'saque' = 200;
+// 3. Verifique: SE o 'saque' for menor ou igual ao 'saldo':
+// caso isso seja verdade, subtraia o saque do saldo.
+// E imprima "Saque de " + saque + " realizado. Sobrou: " + saldo.
+// 4. SENÃO (Else):
+//    - Imprima "Saldo insuficiente. Você só tem: " + saldo.
+
+//crie um novo if e else embaixo do antigo com a mesma logica, mas agora, crie a variavel 'novoSaque' com 1000 reais de saque e veja se você consegue sacar a quantidade
+//que sobrou do caixa eletronico  
+
+// Resposta 20:
+let saldo = 1000;
+let saque = 200;
+if( saque <= saldo){
+    saldo = saldo -saque
+     console.log("Saque de " + saque + " realizado. Sobrou: " + saldo)
+}
+else{
+    console.log("Saldo insuficiente")
+
+    }
+    
+
+</script>
+</html>

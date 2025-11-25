@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Exercicios Rápido: Lógica de Decisão</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            padding: 40px;
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        h1 { color: #2c3e50; border-bottom: 3px solid #3498db; padding-bottom: 10px; }
+        .bloco-exercicio {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border-left: 5px solid #3498db;
+        }
+        .nivel-facil { border-left-color: #2ecc71; } /* Verde */
+        .nivel-medio { border-left-color: #f1c40f; } /* Amarelo */
+        .nivel-dificil { border-left-color: #e74c3c; } /* Vermelho */
+    </style>
+</head>
+<body>
+
+    <h1>Verificação de Aprendizado: If, Else e Lógica</h1>
+    <p>Abra o Console do navegador (F12) para realizar a Exercicios.</p>
+
+    <div class="bloco-exercicio">
+        <strong>Revisão Rápida:</strong><br>
+        <code>></code> (Maior), <code></code> (Menor), <code>===</code> (Igual).<br>
+        <code>&&</code> (E - Exige TUDO verdade).<br>
+        <code>||</code> (OU - Exige SÓ UM verdade).
+    </div>
+
+</body>
+
+<script>
+
+// QUESTÃO 01: O Ar Condicionado
+// Regra: Se a temperatura for MAIOR que 25 graus, o ar deve ligar.
+// 1. Crie uma variável 'temperaturaSala' com o valor 28.
+// 2. Crie um IF que verifique se a 'temperaturaSala' é maior que 25 graus.
+// 3. Se for verdade, imprima no console: "Ligando ar condicionado...".
+
+// Resposta 01:
+let temperaturaSala = 28;
+if(temperaturaSala > 25){
+    console.log("Ligando ar condicionado")
+}
+
+
+// QUESTÃO 02: Reposição de Papel
+// Regra: Se a quantidade de folhas for MENOR que 10, precisa comprar mais.
+// SENÃO (Else), temos o suficiente.
+// 1. Crie uma variável 'folhasRestantes' com o valor 5.
+// 2. Crie um IF/ELSE.
+// 3. Se 'folhasRestantes' for menor que 10: Imprima "Comprar papel A4".
+// 4. Senão (else): Imprima "Estoque suficiente".
+
+// Resposta 02:
+let folhasRestantes = 5;
+if(folhasRestantes < 10){
+    console.log("Comprar papel A4")
+}
+else{
+    console.log("Estoque suficiente")
+}
+
+
+// QUESTÃO 03: Processo Seletivo (O Operador 'E' - &&)
+// Regra: Para ser contratado, o candidato precisa ter Excel Avançado E Falar Inglês.
+// (As duas coisas são obrigatórias).
+// 1. Crie 'temExcelAvancado' = true.
+// 2. Crie 'falaIngles' = true.
+// 3. Crie um IF verificando se o candidato tem o excel avançado E ele fala ingles.
+// 4. Se verdade: "Candidato Aprovado".
+// 5. Else: "Candidato Reprovado".
+// -> Tente mudar uma das variáveis para false depois para testar.
+
+// Resposta 03:
+let temExcelAvancado = true;
+let falaIngles = true;
+if(temExcelAvancado && falaIngles){
+    console.log("Candidato Aprovado")
+}
+else{
+     console.log("Candidato Reprovado")
+}
+
+
+// QUESTÃO 04: Acesso ao Estacionamento VIP (O Operador 'OU' - ||)
+// Regra: Pode estacionar na vaga VIP se for 'Diretor' OU se for 'Cliente'.
+// (Basta ser um dos dois).
+// 1. Crie 'cargoPessoa' = "Gerente". (Não é Diretor)
+// 2. Crie 'tipoPessoa' = "Cliente". (É Cliente!)
+// 3. Crie um IF verificando se é um gerente OU um cliente que esta tentando estacionar.
+// 4. Se algum dos dois for verdade: "Cancela aberta".
+// 5. Else: "Estacione na vaga comum".
+
+// Resposta 04:
+let cargoPessoa = "Gerente";
+let tipoPessoa = "Cliente";
+if(cargoPessoa || tipoPessoa){
+    console.log("Cancela aberta")
+}
+else{
+    console.log("Estacione na vaga comum")
+}
+
+// QUESTÃO 05: Aprovação de Empréstimo Bancário
+// Cenário: Você trabalha em um banco. Para o empréstimo ser aprovado,
+// existem duas opções de regras (uma ou outra tem que ser verdadeira):
+//
+// REGRA A: O cliente tem que ter "nomeLimpo" como 'true'
+//  E renda maior que 2000.
+// 
+//
+// REGRA B: O cliente é "Investidor VIP" (true).
+//          (Se for VIP, ignoramos a renda e o nome sujo).
+//
+// 1. Crie as variáveis:
+//    let nomeLimpo = false;
+//    let renda = 1500;
+//    let investidorVip = true;
+//
+// 2. Monte o IF onde:
+// 3. Se alguma das regras for verdadeira: Imprima "Empréstimo Liberado".
+// 4. Senão: Imprima "Empréstimo Negado".
+
+// Resposta 05:
+
+
+
+</script>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Aula 11 - WCAG: ARIA e Gerenciamento de Foco</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; line-height: 1.6; }
+        :focus-visible {
+            outline: 3px solid blue; outline-offset: 3px;
+        }
+
+        /* --- Estilos do Acordeão (Tópico 1) --- */
+        .painel-acordeao {
+            border: 1px solid #ccc;
+            padding: 10px;
+            display: none; /* Escondido por padrão */
+        }
+        .painel-acordeao.ativo {
+            display: block; /* Visível quando 'ativo' */
+        }
+        #btn-icone-fechar {
+            font-size: 1.5rem; font-weight: bold; border: none;
+            background: none; cursor: pointer;
+        }
+
+        /* --- Estilos do Modal (Tópico 2) --- */
+        .modal-overlay {
+            position: fixed; top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: none; /* Escondido por padrão */
+        }
+        .modal {
+            position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            background: white; padding: 20px;
+            border-radius: 8px;
+        }
+        
+        /* A classe que "liga" o modal */
+        .modal-overlay.ativo {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Aula 11: ARIA e Gerenciamento de Foco</h1>
+    <p>Esta aula é sobre o que o usuário NÃO VÊ, mas que 
+        permite que ele NAVEGUE.</p>
+
+    <h2>Tópico 1: WAI-ARIA</h2>
+    <p>ARIA é o "mapa" que damos aos leitores de tela.</p>
+    
+    <button 
+        id="btn-acordeao"
+        aria-expanded="false" 
+        aria-controls="painel-acordeao-1"
+    >
+        Seção 1 (Clique para expandir)
+    </button>
+    <div 
+        id="painel-acordeao-1" 
+        class="painel-acordeao"
+        role="region"
+        aria-labelledby="btn-acordeao"
+    >
+        Este é o conteúdo que estava escondido.
+    </div>
+    
+    <hr>
+    
+    <h2>Tópico 2: Gerenciamento de Foco (Modal)</h2>
+    
+    <button id="btn-abrir-modal">Abrir Janela Modal</button>
+    
+    <div 
+        id="modal-overlay" 
+        class="modal-overlay"
+        aria-hidden="true" 
+    >
+        <div 
+            class="modal" 
+            role="dialog" 
+            aria-labelledby="titulo-modal"
+        >
+            <h3 id="titulo-modal">Este é um Modal</h3>
+            <p>Este conteúdo apareceu por cima da página.</p>
+            <input id="input-modal" type="text" placeholder="Campo de texto">
+            
+            <button id="btn-fechar-modal">
+                X
+            </button>
+        </div>
+    </div>
+
+</body>
+
+<script>
+// Nas aulas anteriores, aprendemos a reagir a eventos (click).
+// Hoje, vamos aprender a "controlar" a experiência do usuário
+// de teclado e leitores de tela.
+
+//------------------------------------------------------------
+// Tópico 1: WAI-ARIA (Accessible Rich Internet Applications)
+// O HTML é semântico (sabemos o que é <nav>, <button>).
+// Mas o que é uma <div class="menu">? O leitor de tela não sabe.
+
+// ARIA "explica" nossos componentes dinâmicos.
+// ARIA não muda o visual. ARIA não muda o comportamento.
+// ARIA SÓ MUDA a "árvore de acessibilidade" (o mapa do leitor de tela) para ajudar
+// leitores de tela de pessoas com deficiencia a interpretarem melhor o html do seu site.
+
+
+// 1. ROLES (Funções): Qual é a "função" deste elemento?
+//    Ex: role="dialog" (no modal), role="button" (numa <div> que age como botão)
+//    (Nós já usamos 'role="dialog"' e 'role="region"' no HTML!)
+
+// 2. PROPERTIES (Propriedades): Quais as características?
+//    Ex: aria-label="Fechar" (dá um nome a um botão "X")
+//    Ex: aria-controls="id-do-painel" (diz qual painel este botão controla)
+
+// 3. STATES (Estados): Qual a situação atual? (Muda com JS!)
+//    Ex: aria-expanded="false" (O menu está... fechado)
+//    Ex: aria-hidden="true" (Este elemento... está escondido E deve ser ignorado)
+
+// se quiser saber mais sobre o Aria acesse o site:
+//https://w3c.github.io/aria/
+// ele explica profundamente sobre Accessible Rich Internet Applications!
+
+
+//desafios (Tópico 1)
+
+// Desafio 1.1: 'aria-label'
+// O botão "X" (id "btn-fechar-modal") no nosso modal não tem texto.
+// Um leitor de tela vai ler "X", o que não significa nada.
+// 1. Capture o botão (id "btn-fechar-modal").
+// 2. Use .setAttribute() para adicionar um 'aria-label="Fechar modal"'.
+
+
+
+// Desafio 1.2: Mudar 'aria-expanded' (Estado)
+// O botão do acordeão (id "btn-acordeao") controla o painel.
+// Quando clicarmos nele, precisamos "avisar" o leitor de tela
+// que o estado mudou de "fechado" para "aberto".
+
+// 1. Capture o botão (id "btn-acordeao") e o painel (id "painel-acordeao-1").
+// 2. Adicione um 'click' listener no botão.
+// 3. Dentro do listener:
+//    a. Adicione/remova a classe 'ativo' do *painel* (para mostrar/esconder).
+//    b. Verifique se o painel AGORA tem a classe 'ativo'.
+//    c. Se tiver, mude o atributo do *botão* para 'aria-expanded = "true"'.
+//    d. Se não tiver, mude o atributo do *botão* para 'aria-expanded = "false"'.
+
+
+
+
+//------------------------------------------------------------
+
+//MEGA DESAFIO
+
+// O PROBLEMA:
+// Quando abrimos um Modal (popup), o modal está visualmente na FRENTE.
+// Mas o Foco do teclado continua "preso" na página lá ATRÁS.
+// O usuário vai continuar dando 'Tab' nos links *atrás* do modal.
+
+// A SOLUÇÃO (O Padrão de Modal Acessível):
+// 1. Quando o modal abre, salvamos qual elemento o abriu.
+// 2. IMEDIATAMENTE movemos o foco do teclado para dentro do modal (ex: para o botão "X").
+// 3. Impedimos o 'Tab' de escapar do modal ("Trap Focus").
+// 4. Quando o modal fecha, nós movemos o foco DE VOLTA para o elemento que o abriu.
+
+
+//desafio
+
+// Crie um sistema de modal ,que mostra a div com a classe "modal" ao clicar no botão com id "btn-abrir-modal"
+// E fecha o modal (fazendo a div sumir) ao apertar o botão "btn-fechar-modal"
+
+// implementar o Padrão de Modal Acessível (passos 1, 2 e 4, NÃO PRECISA IMPLEMENTAR O 3).
+// e testar se o funcionamento do modal é completamente operavel utilizando apenas teclado
+
+
+</script>
+</html>

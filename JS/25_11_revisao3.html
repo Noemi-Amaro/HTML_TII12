@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Aula 3: O Poder da Repetição (Loops)</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            padding: 40px;
+            color: #333;
+        }
+        h1 { color: #1a73e8; border-bottom: 2px solid #1a73e8; padding-bottom: 10px; }
+        
+        /* Área de explicação */
+        .conceito-container {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .destaque {
+            background-color: #e8f0fe;
+            padding: 15px;
+            border-left: 5px solid #1a73e8;
+            margin: 15px 0;
+            font-size: 1.1em;
+        }
+
+        /* O Palco Visual (Onde as caixas vão aparecer) */
+        #linha-de-montagem {
+            display: flex;
+            gap: 10px;
+            padding: 20px;
+            background-color: #ddd;
+            border-radius: 8px;
+            min-height: 60px;
+            align-items: center;
+            overflow-x: auto;
+        }
+
+        /* O visual das caixas criadas pelo loop */
+        .caixa {
+            width: 50px;
+            height: 50px;
+            background-color: #ff6b6b;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Aula 3: Automatizando a Linha de Montagem</h1>
+
+    <div class="conceito-container">
+        <h2>A Metáfora: O Robô Empacotador</h2>
+        <p>Imagine que você trabalha em uma fábrica de chocolates. Chegaram <strong>5 caixas vazias</strong> na esteira.</p>
+        
+        <p><strong>A Abordagem Manual (Sem Loop):</strong></p>
+        <ul>
+            <li>Você anda até a caixa 0, coloca o chocolate.</li>
+            <li>Você anda até a caixa 1, coloca o chocolate.</li>
+            <li>Você anda até a caixa 2, coloca o chocolate...</li>
+        </ul>
+        <p>Isso cansa! E se fossem 1.000 caixas?</p>
+
+        <div class="destaque">
+            <strong>A Abordagem Automática (Com Loop FOR):</strong><br>
+            Você configura um Braço Robótico com apenas <strong>3 instruções</strong>:
+            <ol>
+                <li><strong>INÍCIO:</strong> "Comece na posição 0." (<code>let i = 0</code>)</li>
+                <li><strong>CONDIÇÃO:</strong> "Continue colocando em caixas enquanto o número da posição for menor que 5." (<code>i < 5</code>)</li>
+                <li><strong>PASSO:</strong> "Quando terminar uma caixa, ande 1 passo para a direita." (<code>i++</code>)</li>
+            </ol>
+        </div>
+
+        <h3>Visualizando o Trabalho do Robô:</h3>
+        <p>O retângulo cinza abaixo é a nossa esteira. O código JavaScript vai preenchê-la automaticamente.</p>
+        <div id="linha-de-montagem">
+            </div>
+    </div>
+
+    <p><em>Abra o Console (F12) para fazer os exercícios práticos.</em></p>
+
+</body>
+
+<script>
+// =================================================================
+// EXEMPLO VISUAL (Não precisa mexer aqui, apenas observe o resultado na tela)
+// =================================================================
+// Este código abaixo é o ROBÔ criando as caixinhas vermelhas na tela.
+let esteira = document.getElementById("linha-de-montagem");
+
+for (let i = 0; i < 5; i++) {
+    // 1. O Robô cria uma caixa
+    let novaCaixa = document.createElement("div");
+    novaCaixa.className = "caixa";
+    
+    // 2. O Robô escreve o número "i" nela
+    novaCaixa.textContent = i;
+    
+    // 3. O Robô coloca na esteira
+    esteira.appendChild(novaCaixa);
+}
+// =================================================================
+
+
+// =================================================================
+// EXERCÍCIOS NO CONSOLE
+// Vamos treinar como pensar em ciclos.
+// =================================================================
+
+// -----------------------------------------------------------------
+// NÍVEL 1: CONFIGURANDO A MÁQUINA (Básico)
+// Entendendo Inicio, Fim e Passo.
+// -----------------------------------------------------------------
+
+// EXERCÍCIO 01: Contagem Simples
+// O robô precisa contar de 0 até 4.
+// Estrutura: for (inicio; condição; passo)
+// -> Copie e cole no console para testar:
+// for (let i = 0; i < 5; i++) {
+//     console.log("Contagem: " + i);
+// }
+
+// Resposta 01:
+for (let i = 0; i < 5; i++) {
+    console.log("Contagem: " + i);
+}
+
+
+// EXERCÍCIO 02: Mudando o Limite
+// Agora temos 10 caixas. Faça o robô contar de 0 até 9.
+// -> Mude a condição do meio para: i < 10
+
+// Resposta 02:
+for (let i = 0; i < 10; i++) {
+    console.log("Contagem: " + i);
+}
+
+
+
+// EXERCÍCIO 03: Começando do Meio
+// As primeiras 5 caixas já estão prontas. O robô deve começar da 5 e ir até a 9.
+// -> Mude o início para: let i = 5;
+// -> Mantenha o limite: i < 10;
+
+// Resposta 03:
+for(let i = 5; i<10; i++){
+    console.log("Contagem: " + i);
+}
+
+
+// EXERCÍCIO 04: Incluindo o último número
+// Percebeu que se colocamos "i < 10", ele para no 9?
+// E se quisermos que o 10 apareça? Usamos "MENOR OU IGUAL" (<=).
+// -> Faça um loop de 1 até 5 (incluindo o 5).
+// -> Inicio: 1. Condição: i <= 5. Passo: i++
+
+// Resposta 04:
+for(let i = 1; i<=5; i++){
+    console.log("Contagem: " + i);
+}
+
+
+// EXERCÍCIO 05: Texto Repetitivo
+// O robô deve imprimir "Etiqueta colada" 3 vezes.
+// -> Loop de 0 a < 3.
+// -> Console.log("Etiqueta colada");
+
+// Resposta 05:
+for(let i = 0; i<3; i++){
+    console.log("Etiqueta colada " + i);
+}
+
+
+// -----------------------------------------------------------------
+// NÍVEL 2: AJUSTE FINO DO MOTOR (Passos Diferentes)
+// O "i++" soma 1. Mas podemos somar 2, diminuir, multiplicar...
+// -----------------------------------------------------------------
+
+// EXERCÍCIO 06: Pulando de 2 em 2 (Pares)
+// O robô deve pegar apenas as caixas pares (0, 2, 4, 6, 8).
+// Em vez de i++, usamos: i = i + 2
+// -> Faça um loop de 0 até < 10, pulando de 2 em 2.
+
+// Resposta 06:
+for(let i = 0; i<10; i = i + 2){
+    console.log("loop " + i);
+}
+
+
+// EXERCÍCIO 07: Contagem Regressiva (O Foguete)
+// Vamos contar de 10 até 0.
+// Inicio: 10.
+// Condição: Enquanto i for MAIOR ou IGUAL a 0 (i >= 0).
+// Passo: i-- (Diminui 1).
+
+// Resposta 07:
+for(let i = 10; i>=0; i--){
+    console.log("Contagem Regressiva " + i)
+}
+
+
+// EXERCÍCIO 08: Tabuada do 2
+// Vamos gerar a tabuada. O 'i' vai de 1 a 10.
+// No console.log, mostre o resultado de (i * 2).
+
+// Resposta 08:
+for(let i = 1; i<=10; i++){
+    console.log(i * 2)
+}
+
+// EXERCÍCIO 09: O Loop Infinito (Cuidado!)
+// APENAS LEIA, NÃO EXECUTE.
+// Se você fizer: for (let i = 0; i >= 0; i++) ...
+// O 'i' começa em 0, vira 1, vira 2... ele SEMPRE será maior que 0.
+// O robô nunca para. O navegador trava.
+// Lição: Sempre verifique se sua condição de parada vai acontecer um dia!
+
+// Resposta 09 (Apenas escreva "Entendi"):
+
+
+
+// -----------------------------------------------------------------
+// NÍVEL 3: O ESTOQUISTA (Trabalhando com Variáveis Externas)
+// O loop pode alterar coisas que estão fora dele.
+// -----------------------------------------------------------------
+
+// EXERCÍCIO 10: O Cofrinho (Soma Acumulada)
+// Queremos somar os números de 1 a 5 (1+2+3+4+5).
+// 1. Crie 'let total = 0;
+// 2. Crie o loop que vai de 1 a 5.
+// 3. DENTRO do loop: some o valor 'total' com o valor do 'i' atual então pegue o resultado
+// dessa soma e atribuia a variavel 'total'
+// 4. DEPOIS do loop: console.log(total);
+
+// Resposta 10:
+let total = 0;
+for( let i = 0 ; i<=5;  i= i+1){
+    total=total+i
+         console.log(total)
+}
+
+
+// EXERCÍCIO 11: Contando itens específicos
+// Imagine que estamos contando caixas.
+// 1. Crie 'let caixasProcessadas = 0;'
+// 2. Faça um loop que rode 10 vezes.
+// 3. Dentro do loop, some 1 na variável 'caixasProcessadas'.
+// 4. APENAS no ultimo loop, imprima a variável mostrando o numero de caixas processadas.
+
+// Resposta 11:
+let caixasProcessadas = 0;
+
+for( let i = 0; i<10; i++){
+    caixasProcessadas= caixasProcessadas + 1
+    if(i===9){
+    console.log("caixas:", caixasProcessadas)
+    }
+}
+
+
+// -----------------------------------------------------------------
+// NÍVEL 4: O ANALISTA DE DADOS (Loops com Listas/Arrays)
+// O uso mais comum do For: ler uma lista de coisas.
+// Imagine o 'i' como o número da linha no Excel.
+// -----------------------------------------------------------------
+
+// PREPARAÇÃO:
+// Copie esta lista para o console:
+// let clientes = ["João", "Maria", "Pedro", "Ana", "Lucas"];
+// (Lembre-se: João é o 0, Maria é o 1...)
+
+// EXERCÍCIO 12: Chamada Oral
+// Vamos imprimir o nome de cada cliente.
+// O limite deve ser 'clientes.length' (o tamanho da lista).
+// -> for (let i = 0; i < clientes.length; i++)
+// -> console.log(clientes[i]);
+
+// Resposta 12:
+let clientes = ["João", "Maria", "Pedro", "Ana", "Lucas"]
+for (let i = 0; i < clientes.length; i++)
+console.log(clientes[i]);
+
+
+// EXERCÍCIO 13: Personalizando a mensagem
+// Use o loop acima, mas imprima: "Olá, [NOME], bem-vindo!"
+// Dica: "Olá, " + clientes[i] + ", bem-vindo!"
+
+// Resposta 13:
+for (let i = 0; i < clientes.length; i++)
+console.log("Olá, " + clientes[i] + " bem-vindo!");
+
+
+// EXERCÍCIO 14: Procurando a Ana (Busca)
+// Vamos percorrer a lista e ver se a Ana está lá.
+// -> Faça o loop na lista 'clientes'.
+// -> DENTRO do loop, coloque um IF:
+// -> if (clientes[i] === "Ana") { console.log("Achei a Ana na posição " + i); }
+
+// Resposta 14:
+if(clientes[3] === "Ana"){
+    console.log("Achei a Ana na posição " + i);
+}
+
+
+// EXERCÍCIO 15: O Gerente de Vendas (Desafio Final)
+// Temos uma lista de vendas: let vendas = [10, 20, 50, 5];
+// Queremos o VALOR TOTAL vendido.
+// 1. Crie a lista de vendas.
+// 2. Crie uma variável 'total = 0'.
+// 3. Faça o loop que vai de 0 até vendas.length.
+// 4. Dentro do loop: total = total + vendas[i];
+// 5. No final: imprima o total.
+
+// Resposta 15:
+
+
+
+</script>
+</html>

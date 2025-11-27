@@ -308,10 +308,12 @@ console.log("Olá, " + clientes[i] + " bem-vindo!");
 // -> if (clientes[i] === "Ana") { console.log("Achei a Ana na posição " + i); }
 
 // Resposta 14:
-if(clientes[3] === "Ana"){
-    console.log("Achei a Ana na posição " + i);
+for(let i=0 ; i < clientes.length; i++){
+if(clientes[i] === "Ana"){
+    let posicao = i+1
+    console.log("Achei a Ana na posição " + posicao);
 }
-
+}
 
 // EXERCÍCIO 15: O Gerente de Vendas (Desafio Final)
 // Temos uma lista de vendas: let vendas = [10, 20, 50, 5];
@@ -324,6 +326,20 @@ if(clientes[3] === "Ana"){
 
 // Resposta 15:
 
+let vendas = [10, 20, 50, 5];
+let total1 = 0
+
+for( let i = 0; i <= 3 ; i++){
+    total1 = total1 + vendas[i]
+if(i == 3 )
+    console.log(total1)
+}
+
+//for( let i = 0; i <= vendas.length -1; i++){
+//    total1 = total1 + vendas[i]
+//if(i == vendas.length - 1 )
+//    console.log(total1)
+//}
 
 
 </script>

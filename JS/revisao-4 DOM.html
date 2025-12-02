@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Revisão DOM: O Perfil do Usuário</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f0f2f5;
+            padding: 40px;
+            color: #333;
+        }
+        h1 { color: #444; border-bottom: 2px solid #ddd; padding-bottom: 10px; }
+        
+        /* O CARD (Nosso objeto de estudo) */
+        #container-principal {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            max-width: 400px;
+            margin: 20px auto;
+            text-align: center;
+            border: 1px solid #e1e1e1;
+        }
+
+        .avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #ddd;
+            object-fit: cover;
+            border: 4px solid white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .info-usuario h2 { margin: 10px 0 5px 0; color: #2c3e50; }
+        .cargo { color: #7f8c8d; font-style: italic; margin-bottom: 20px; }
+        
+        .status-box {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px dashed #ccc;
+        }
+        input { padding: 5px; border: 1px solid #ccc; border-radius: 4px; }
+        
+        /* Classe para teste de estilo */
+        .borda-destaque { border: 2px solid blue !important; }
+    </style>
+</head>
+<body>
+
+    <h1>Revisão: Seleção, Valores e Parentes</h1>
+    <p style="text-align: center;">Abra o Console (F12) para realizar a revisão.</p>
+
+    <div id="container-principal">
+        
+        <img id="foto-perfil" class="avatar" src="https://via.placeholder.com/150" alt="Foto do Usuário">
+        
+        <div class="info-usuario">
+            <h2 id="nome-usuario">Carlos Silva</h2>
+            <p class="cargo">Desenvolvedor Junior</p>
+            <a href="https://google.com" id="link-portfolio">Ver Portfólio</a>
+        </div>
+
+        <div class="status-box">
+            <label>Status atual:</label>
+            <input id="input-status" type="text" value="Trabalhando...">
+        </div>
+
+    </div>
+
+    <div>
+        <ul id="lista-de-itens">
+            <li class="item-lista">Item 1</li>
+            <li class="item-lista">Item 2</li>
+            <li class="item-lista">Item 3</li>
+        </ul>
+    </div>
+
+</body>
+
+<script>
+// =================================================================
+// BLOCO 1: SELECIONANDO ELEMENTOS (APONTANDO O 'DEDO')
+// Lembre-se:
+// getElementById -> Pega pelo RG (ID único).
+// querySelector -> Pega pelo Seletor de CSS (ID, Classe ou Tag, mas precisa
+// usar o simbolo para especificar).
+// =================================================================
+
+// EXERCÍCIO 01: O Clássico ID
+// Selecione a imagem usando o ID "foto-perfil".
+// Guarde numa variável chamada 'minhaImagem'.
+// -> const minhaImagem = document.getElementById("foto-perfil");
+
+// Resposta 01:
+const minhaImagem = document.getElementById("foto-perfil");
+
+//let minhaImagem = document.querySelector("#foto-perfil")
+
+
+// EXERCÍCIO 02: O Moderno QuerySelector (Classe)
+// Selecione o parágrafo que tem a classe ".cargo".
+// Guarde numa variável 'meuCargo'.
+// -> const meuCargo = document.querySelector(".cargo");
+
+// Resposta 02:
+const meuCargo = document.querySelector(".cargo");
+//meuCargo.textContent = "Arquiteta";
+
+// EXERCÍCIO 03: QuerySelectorAll (Seleciona multiplos elementos que cabem no criterio)
+// Selecione todos os itens com a classe "item-lista" que aparecer na página.
+// -> const itemLista = document.querySelectorAll("item-lista");
+// mostre no console.log() os elementos selecionados
+// note que ele nos traz uma LISTA (array) que pode ser navegado usando a posição do item!
+// exemplo: caso eu queira selecioar o primeiro elemento eu uso "itemLista[0]"
+// selecione o terceiro elemento
+// Resposta 03:
+const itemLista = document.querySelectorAll('.item-lista');
+console.log(itemLista[2]);
+
+// EXERCÍCIO 03.5: 
+// Selecione o input com id (input-status)
+// Guarde ele numa variável 'meuInput'
+// Mostra o valor da variavel no console.log() (serve para verificar quem você pegou!)
+
+// Resposta 03.5:
+//let meuInput = document.querySelector("#input-status");
+console.log(meuInput);
+
+
+// EXERCÍCIO 03.6: 
+// Selecione todas as divs
+// Guarde elas em uma variável 'todasDivs'
+// Mostra o valor da variavel no console.log() 
+// Mostre o valor da segunda div apenas em outro console.log()
+
+
+// Resposta 03.6:
+const todasDivs = document.querySelectorAll("div");
+console.log(todasDivs);
+console.log(todasDivs[1]);
+
+
+// =================================================================
+// BLOCO 2: LENDO E ESCREVENDO VALORES (O CONTEÚDO)
+// Lembre-se:
+// .textContent -> Para ler/mudar texto entre tags (<p>Texto</p>)
+// .value -> Para ler/mudar o que está escrito num campo de formulário (input)
+// =================================================================
+
+// EXERCÍCIO 04: Lendo Texto
+// Use a variável 'meuCargo' (do ex. 2).
+// Imprima no console o texto que está dentro dela.
+// -> console.log(meuCargo.textContent);
+
+// Resposta 04:
+console.log(meuCargo.textContent);
+
+
+// EXERCÍCIO 05: Mudando Texto
+// O Carlos foi promovido.
+// Mude o .textContent de 'meuCargo' para "Desenvolvedor Pleno".
+
+// Resposta 05:
+meuCargo.textContent = "Desenvolvedor Pleno";
+
+
+// EXERCÍCIO 06: Trabalhando com Inputs (.value)
+// Selecione o input (id "input-status").
+// Mude o valor dele (.value) para "Em reunião".
+// (Veja na tela a mudança acontecer dentro da caixinha).
+
+// Resposta 06:
+meuInput.value = "Em reunião"
+
+// =================================================================
+// BLOCO 3: MANIPULANDO ATRIBUTOS (A ETIQUETA)
+// Atributos são as configurações da tag: src, href, id, alt...
+// Podemos acessar direto (elemento.src) ou usar setAttribute.
+// desta maneira:
+// variavelEscolhida.setAttribute("nomeatributo", "valoratributo")
+
+// exemplo:
+// let meuCargo = document.querySelector("#input-status")
+// meuCargo.setAttribute("value", "tomando cafe")
+// =================================================================
+
+
+
+// EXERCÍCIO 07: Mudando a Imagem (src)
+// Selecione a imagem (id "foto-perfil").
+// Mude o .src dela para o link de uma foto da internet
+// exemplo: "https://m.media-amazon.com/images/M/MV5BMTUxNzIyODg1MF5BMl5BanBnXkFtZTcwNTcxMDYwOA@@._V1_.jpg"
+
+// Resposta 07:
+
+
+
+// EXERCÍCIO 08: Mudando Links (href)
+// Selecione o link (id "link-portfolio").
+// Mude o .href dele para "https://br.linkedin.com/".
+// Mude o .textContent dele para "Ver LinkedIn".
+
+// Resposta 08:
+
+
+
+// =================================================================
+// BLOCO 4: PARENTES E FAMÍLIA (DOM TRAVERSAL)
+// Navegando pela árvore sem usar IDs novos.
+// .parentElement -> Sobe um nível (vai para o Pai).
+// .children -> Desce um nível (pega a lista de Filhos).
+// .querySelector -> Procura um filho específico dentro do pai.
+// .nextElementSibling -> Pega o proximo irmão do elemento (proximo elemento no mesmo nivel)
+// .previousElementSibling -> Pega o irmão anterior do elemento
+// =================================================================
+// EXERCÍCIO 09: Subindo a Árvore (O Pai)
+// 1. Selecione o elemento com classe ".info-usuario".
+// 2. Descubra quem é o pai dele usando .parentElement.
+// 3. Mude a borda do pai: pai.style.border = "2px solid red";
+// (Isso deve colocar uma borda vermelha no card inteiro).
+
+// Resposta 09:
+
+
+
+// EXERCÍCIO 10: Descendo a Árvore (Procurando no filho)
+// 1. Selecione o pai de todos (id "container-principal").
+// 2. EM VEZ de procurar no document, procure DENTRO do container.
+//    (Isso é muito útil para não pegar elementos de outros cards).
+//    -> let titulo = container.querySelector("h2");
+// 3. Imprima o texto desse título.
+
+// Resposta 10:
+
+
+
+
+</script>
+</html>

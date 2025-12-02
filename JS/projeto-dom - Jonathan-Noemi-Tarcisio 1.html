@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TechSolutions Inc. - Home (Versão Beta Inacessível)</title>
+    <style>
+        /* =========================================
+           ESTILOS GERAIS (LAYOUT)
+        ========================================= */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+        }
+
+        nav a:hover,
+        nav a:focus {
+            text-decoration: underline;
+        }
+
+        main {
+            padding: 2rem;
+            max-width: 1800px;
+            margin: auto;
+        }
+
+        section {
+            margin-bottom: 3rem;
+        }
+
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        footer {
+            background: #333;
+            color: #aaa;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+
+        /* =========================================
+           ÁREAS PROBLEMÁTICAS (CSS "QUEBRADO")
+        ========================================= */
+
+        /* PROBLEMA 1: BOTÃO FALSO (Não focável via teclado) */
+        #fake-login-btn {
+            background-color: #e67e22;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            /* Nota: Falta algo aqui para torná-lo acessível via Tab */
+        }
+
+        /* PROBLEMA 2:CONTAINER QUE QUEBRA COM ZOOM
+           Este container tem altura fixa em pixels e esconde o que transborda.
+           Ao dar zoom de 200% no navegador, o texto vai sumir.
+        */
+        .zoom-problem-container {
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            padding: 15px;
+            width: 100%;
+            font-size: 22px;
+            /* O CULPADO: Altura fixa e overflow hidden */
+            height: 90px;
+            overflow: hidden;
+        }
+
+        /* PROBLEMA 4: ANIMAÇÃO QUE PISCA (Risco de convulsão)
+           WCAG proíbe mais de 3 flashes por segundo.
+           Esta animação dura 0.2s, ou seja, 5 flashes por segundo.
+        */
+        @keyframes flashPerigoso {
+
+            0%,
+            100% {
+                opacity: 1;
+                background-color: rgb(255, 187, 0);
+                color: rgb(255, 255, 255);
+            }
+
+            50% {
+                opacity: 0.1;
+                background-color: yellow;
+                color: black;
+            }
+        }
+
+        .banner-promocao {
+            padding: 20px;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border: 3px solid rgb(255, 187, 0);
+            /* Animação muito rápida! */
+            animation: flashPerigoso 0.3s infinite;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>TechSolutions Inc.</h1>
+        <nav>
+            <a href="#">Soluções</a>
+            <a href="#">Sobre Nós</a>
+            <div id="fake-login-btn">Área do Cliente (Login)</div>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Compromisso com a Inovação</h2>
+            <div class="zoom-problem-container" id="texto-quebra-zoom">
+                <p>Nossa missão é fornecer tecnologia de ponta. No entanto, nosso CSS é antigo. Se você aumentar o
+                    tamanho da fonte ou der zoom nesta página para ler melhor, este parágrafo importante será cortado
+                    porque definimos uma altura fixa irresponsável no container pai.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Nossa Equipe Global</h2>
+            <p>Conheça os líderes que impulsionam nossa visão.</p>
+            <img id="img-equipe"
+                src="https://img.freepik.com/fotos-gratis/agencia-de-marketing-autentica-pequena-e-jovem_23-2150167428.jpg?semt=ais_hybrid&w=740&q=80"
+                style="max-width: 100%; border-radius: 8px;">
+        </section>
+
+        <section>
+            <h2>Ofertas Especiais</h2>
+            <div class="banner-promocao" id="banner-pisca">
+                ATENÇÃO! DESCONTO DE 50% SÓ HOJE! APROVEITE!
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 TechSolutions Inc. Todos os direitos reservados (mas nem todos acessíveis).</p>
+    </footer>
+
+</body>
+
+<script>
+    // =================================================================
+    // ÁREA DE TRABALHO DOS ALUNOS (JS)
+    // Utilize o DOM para corrigir os 4 problemas de acessibilidade desta página.
+    // =================================================================
+
+    // DICA GERAL: Use o Inspecionar Elemento (F12) para descobrir os IDs e Classes.
+
+    // --- CORREÇÃO 1: Navegação por Teclado (Fake Button) ---
+    // O elemento <div id="fake-login-btn"> não recebe foco do teclado (Tab).
+    // MISSÃO: Use JS para tornar essa div "focável".
+    // Dica: Pesquise sobre o atributo HTML 'tabindex'.
+
+    // Seu código aqui:
+    // ...
+        
+
+    let idtabindex = document.querySelector("#fake-login-btn")
+
+
+    idtabindex.setAttribute("tabindex", "0")
+
+    // --- CORREÇÃO 2: Texto quebra com Zoom ---
+    // O <div id="texto-quebra-zoom"> tem altura fixa no CSS, cortando o texto no zoom 200%.
+    // MISSÃO: Use JS para remover a restrição de altura e o overflow.
+    // Dica: Altere as propriedades de estilo 'height' e 'overflow' para 'auto' e 'visible' respectivamente.
+
+    // Seu código aqui:
+    // ...
+
+    let textQuebra = document.querySelector("#texto-quebra-zoom")
+
+    textQuebra.style.height = '200%';
+
+    textQuebra.style.overflow = "auto";
+
+    textQuebra.style.overflow = "visible";
+
+
+
+    // --- CORREÇÃO 3: Descrição de Imagem (Alt Text) ---
+    // A imagem <img id="img-equipe"> não tem o atributo 'alt', impedindo que um leitor de tela possa explicar o que ela é.
+    // MISSÃO: Use JS para adicionar um texto alternativo descritivo.
+    // Dica: Use setAttribute para adicionar o atributo ao elemento!.
+
+    // Seu código aqui:
+    // ...
+
+
+    let imgEquipe = document.querySelector("#img-equipe")
+
+
+    imgEquipe.setAttribute("alt", "Comemorando o novo contrato com o cliente todos sorrindo e em pé levantando as mãos")
+
+
+
+
+    // --- CORREÇÃO 4: Animação que Pisca Muito Rápido ---
+    // O banner <div id="banner-pisca"> pisca mais de 3 vezes por segundo (risco de convulsão para pessoas com epilepsia).
+    // MISSÃO: Use JS para tornar a animação segura ou removê-la, faça ambas as opções, então escolha uma e deixe a outra
+    // comentada!.
+
+    // Opção A (Segura): Mude a duração da animação para algo lento (ex: '3s').
+
+    let banner = document.querySelector('#banner-pisca')
+
+    //banner.style.animationDuration = "15s";
+
+
+    // Opção B (Ideal): Verifique se o usuário prefere movimento reduzido e remova a animação.
+    // Dica: veja a aula 10 como referencia.
+
+    //banner.remove("animation")
+
+    // Seu código aqui:
+    // ...
+    let usuarioPrefereMenosMovimento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let banners = document.querySelector('#banner-pisca')
+
+
+    if (usuarioPrefereMenosMovimento) {
+        banners.style.animationDuration = "15s";
+    } else {
+        banners.style.removeProperty("animation");
+    }
+
+
+</script>
+
+</html>

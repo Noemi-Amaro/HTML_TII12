@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aula: Requisições HTTP (Fetch API)</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; padding: 40px; background-color: #f4f7f6; color: #333; }
+        h1 { color: #2c3e50; border-bottom: 3px solid #3498db; padding-bottom: 10px; }
+        
+        .conceito {
+            background: white; padding: 20px; margin-bottom: 20px;
+            border-radius: 8px; border-left: 5px solid #2ecc71;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        code { background-color: #eee; padding: 2px 5px; border-radius: 3px; font-weight: bold; color: #c7254e; }
+        pre { background: #2c3e50; color: #ecf0f1; padding: 15px; border-radius: 5px; overflow-x: auto; }
+
+        .btn-teste {
+            padding: 10px 20px; background: #3498db; color: white; border: none; 
+            border-radius: 4px; cursor: pointer; font-size: 1rem; margin-top: 10px;
+        }
+        .btn-teste:hover { background: #2980b9; }
+
+        #resultado-tela {
+            margin-top: 20px; padding: 15px; background: #fff; 
+            border: 1px dashed #ccc; min-height: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Aula: Comunicando com o Back-End</h1>
+    <p>Abra o <strong>Console (F12)</strong> para ver os detalhes das requisições.</p>
+<div class="conceito" style="border-left-color: #3498db;">
+        <h3>O Conceito: Cliente vs. Servidor</h3>
+        <p>Um site moderno é dividido em duas partes que vivem em lugares diferentes:</p>
+        <ul>
+            <li><strong>Front-End (Cliente):</strong> É o navegador do usuário. É onde o site "aparece".</li>
+            <li><strong>Back-End (Servidor):</strong> É um computador distante onde o Banco de Dados vive.</li>
+        </ul>
+        
+        <p>Para o seu site mostrar dados reais (como produtos ou usuários), o Front-End precisa mandar uma mensagem de texto (chamada <strong>Requisição HTTP</strong>) para o Back-End pedindo essas informações.</p>
+
+        
+        <p>No JavaScript, a ferramenta que usamos para "viajar" até o servidor e buscar esses dados se chama <strong>fetch()</strong> (que significa "buscar" em inglês).</p>
+    </div>
+    <div class="conceito">
+        <h3>1. O Garçom (fetch) e a Espera (async/await)</h3>
+        <p>Pedir dados ao Back-End demora. Pode levar 0.1s ou 5s. O JavaScript não pode travar o site esperando.</p>
+        <p>Por isso usamos <code>async</code> (avisar que a função vai esperar algo) e <code>await</code> (o comando de "espere aqui até o garçom voltar").</p>
+    </div>
+
+    <div class="conceito" style="border-left-color: #e67e22;">
+        <h3>2. Verbos HTTP (O Tipo de Pedido)</h3>
+        <ul>
+            <li><strong>GET:</strong> Apenas buscar dados (Ler o cardápio). É o padrão do <code>fetch</code>.</li>
+            <li><strong>POST:</strong> Enviar dados novos (Fazer um pedido para a cozinha).</li>
+            <li><strong>PUT/PATCH:</strong> Atualizar algo existente. (put substitui o recurso inteiro enquanto patch so substitui o recurso especificado)</li>
+            <li><strong>DELETE:</strong> Remover algo.</li>
+        </ul>
+    </div>
+
+    <h3>Área de Teste</h3>
+    <button id="btn-carregar" class="btn-teste">Carregar Usuário 1 (GET)</button>
+    <button id="btn-enviar" class="btn-teste" style="background-color: #e67e22;">Criar Post (POST)</button>
+    
+    <br>
+    <button id="btn-patch" class="btn-teste" style="background-color: #f1c40f; color: #333;">Mudar Email (PATCH)</button>
+    <button id="btn-put" class="btn-teste" style="background-color: #f39c12;">Trocar Tudo (PUT)</button>
+    <button id="btn-delete" class="btn-teste" style="background-color: #c0392b;">Deletar (DELETE)</button>
+    
+    <div id="resultado-tela">Os dados aparecerão aqui...</div>
+
+</body>
+
+<script>
+// =================================================================
+// EXEMPLO TEÓRICO: COMO SE FAZ
+// =================================================================
+
+/*
+    // 1. Função Assíncrona (Async)
+
+    async function buscarDados() {
+        
+        // 2. O Pedido (Fetch) - "Await" significa: ESPERE o servidor responder, isso permite que possamos pegar a resposta do servidor
+        // e lidar com ela.
+        const resposta = await fetch('https://api.exemplo.com/dados');
+        
+        // 3. Tradução (JSON) - Os dados chegam como texto puro, precisamos converter para Objeto JS
+        const dados = await resposta.json();
+        
+        console.log(dados);
+    }
+*/
+
+
+// =================================================================
+// EXERCÍCIOS PRÁTICOS
+// Complete o código abaixo dos comentários.
+// =================================================================
+
+// URL DO BACK-END (API Fake): https://jsonplaceholder.typicode.com
+
+
+// --- EXERCÍCIO 1: Fazendo um GET simples ---
+// Vamos buscar as informações do usuário de ID 1.
+
+fetch("https://jsonplaceholder.typicode.com/users/1")
+
+const url = 'https://jsonplaceholder.typicode.com/users/1'
+
+const informacao = fetch("https://jsonplaceholder.typicode.com/users/1")
+console.log(informacao)
+
+//async faz uma função podendo ser renderizada depois dela ser chamada 
+async function puxarInformacoes(){
+    //a fetchAPI realiza uma requisição http para uma API na internet
+    //await faz com que o codigo espere um valor ser retornado
+    const informacao = await fetch("https://jsonplaceholder.typicode.com/users/1")
+
+    //.json() converte a resposta do fetch em um json, ele precisa ter um await porque 
+    //ele precisa esperar a resposta do fetch para poder ele converter em json
+
+    const dadosConvertidos = await informacao.json()
+    console.log(dadosConvertidos)
+}
+
+puxarInformacoes()
+
+// 1. Crie uma função assíncrona chamada 'pegarUsuario'.
+// 2. Dentro dela, use 'await fetch(url)'.
+// 3. Converta a resposta com '.json()'.
+// 4. Mostre o resultado no console.
+// 5. (Opcional) Chame a função para testar.
+
+// Resposta 1:
+async function pegarUsuario(){
+const usuario = await fetch("https://jsonplaceholder.typicode.com/users/1")
+const dadosConvertidos2 = await usuario.json()
+console.log(dadosConvertidos2)
+}
+    
+pegarUsuario()
+
+
+
+
+// --- EXERCÍCIO 2: Exibindo na Tela (DOM + Fetch) ---
+// O botão "Carregar Usuário 1" já existe no HTML (id="btn-carregar").
+// 1. Adicione um evento de 'click' nesse botão.
+// 2. A função do evento DEVE SER 'async'.
+// 3. Faça o fetch da mesma URL do exercício 1.
+// 4. Pegue o NOME do usuário (dados.name).
+// 5. Jogue esse nome dentro da div (id="resultado-tela").
+
+// Resposta 2:
+let carregarUsuario1 = document.querySelector("#btn-carregar")
+carregarUsuario1.addEventListener("click", 
+    async function pegarUsuario1(){
+        const  usuario2 = await fetch ("https://jsonplaceholder.typicode.com/users/1")
+        const dadosConvertidos3 = await usuario2.json()
+        console.log(dadosConvertidos3.name)
+    }
+)
+
+
+// --- EXERCÍCIO 3: Fazendo um POST (Enviando dados) ---
+// Agora vamos enviar um novo "Post" para o servidor.
+// O botão "Criar Post" tem id="btn-enviar".
+//
+// PARA FAZER POST, O FETCH MUDA!
+// fetch(https://jsonplaceholder.typicode.com/posts, {
+//     method: 'POST',
+//     headers: { 'Content-Type': 'application/json' }, // Avisa que estamos enviando JSON
+//     body: JSON.stringify( { titulo: 'Meu Post', texto: 'Olá' } ) // Transforma Objeto JS em Texto JSON
+// })
+
+// PS: estamos fazendo isso numa API Fake, então nada realmente será criado no servidor, apenas simulado.
+//
+// Tarefa:
+// 1. Adicione click listener no botão "btn-enviar".
+// 2. Faça o fetch com method POST enviando um objeto com { title: 'Aprendendo Fetch', body: 'Conteúdo teste', userId: 1 }.
+// 3. Pegue a resposta, converta para json e mostre no console (O servidor vai devolver o ID do novo post).
+
+// Resposta 3:
+
+//try{
+//async function enviarInformacao(){
+//    const informacao = await fetch("jsonplaceholder.typicode.com/posts",{
+//        method: 'POST',
+//        headers: {'Content-Type' : 'application/json' },
+//        body: JSON.stringify({ titulo: 'Meu Post', Texto: "Olá" })
+//    })
+//dados= await informacao.json()
+//return dados
+//}
+//catch
+
+
+//enviarInformacao().then(dados => console.log(dados))
+
+// const dados = await puxar();
+// puxar().then( usuario => console.log(usuario) );
+
+// console.log(dados)
+
+
+
+
+// --- EXERCÍCIO 4: Tratamento de Erros (Try / Catch) ---
+// E se a internet cair? Ou a URL estiver errada? O código quebra se não protegermos.
+// O bloco 'try { ... } catch (erro) { ... }' serve para isso.
+//
+// 1. Crie uma função assíncrona 'buscarComErro'.
+// 2. Abra um bloco 'try'. Dentro dele, tente fazer fetch numa URL que não existe (ex: 'https://site-que-nao-existe.com').
+// 3. Logo após o try, abra o bloco 'catch (erro)'.
+// 4. Dentro do catch, dê um alert("Ops, deu erro: " + erro).
+// 5. Chame a função.
+
+// Resposta 4:
+
+
+// --- EXERCÍCIO 5: Atualização Parcial (PATCH) ---
+// Queremos mudar APENAS o email do usuário 1, sem perder o nome ou endereço.
+// URL: 'https://jsonplaceholder.typicode.com/users/1' 
+// Botão: id="btn-patch"
+//
+// Sintaxe do PATCH:
+// fetch(https://jsonplaceholder.typicode.com/users/1, {
+//     method: 'PATCH',
+//     headers: { 'Content-Type': 'application/json' },
+//     body: JSON.stringify({ email: "novo@email.com" }) // Só mando o que muda
+// })
+//
+// Tarefa:
+// 1. Adicione listener no botão "btn-patch".
+// 2. Faça o fetch PATCH mudando o email para "aluno@escola.com".
+// 3. Mostre o resultado no console (veja se o email mudou e o nome continuou igual).
+
+// Resposta 5:
+
+
+
+// --- EXERCÍCIO 6: Substituição Completa (PUT) ---
+// Queremos TROCAR COMPLETAMENTE o Post 1 por um novo. O antigo é apagado e o novo entra no lugar.
+const url3 = 'https://jsonplaceholder.typicode.com/posts/1' 
+// Botão: id="btn-put"
+//
+// Sintaxe do PUT:
+// fetch(https://jsonplaceholder.typicode.com/posts/1, {
+//     method: 'PUT',
+//     headers: { 'Content-Type': 'application/json' },
+//     body: JSON.stringify({ id: 1, title: "Post Novo", body: "Texto novo", userId: 1 }) // Mando o objeto inteiro
+// })
+//
+// Tarefa:
+// 1. Adicione listener no botão "btn-put".
+// 2. Faça o fetch PUT substituindo o post 1 por um novo título e texto.
+// 3. Mostre o resultado no console.
+
+// Resposta 6:
+
+
+
+// --- EXERCÍCIO 7: Removendo Dados (DELETE) ---
+// Vamos apagar o Post 1.
+// URL: 'https://jsonplaceholder.typicode.com/posts/1' (TEM QUE TER O ID!)
+// Botão: id="btn-delete"
+//
+// Sintaxe do DELETE (Geralmente não precisa de body nem headers):
+// fetch(https://jsonplaceholder.typicode.com/posts/1, {
+//     method: 'DELETE'
+// })
+//
+// Tarefa:
+// 1. Adicione listener no botão "btn-delete".
+// 2. Faça o fetch com method DELETE.
+// 3. Mostre o resultado no console (Geralmente retorna um objeto vazio {} confirmando).
+
+// Resposta 7:
+
+
+
+
+
+</script>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aula Prática: Bootstrap (Guiado pelo Script)</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body { padding: 40px; background-color: #f0f2f5; }
+        .area-desafio {
+            background: white;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            border-left: 5px solid #0d6efd;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        h2 { color: #555; font-size: 1.2rem; margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 5px;}
+        
+        /* Apenas para visualizar as colunas nos exercicios de grid */
+        .visual-coluna {
+            background-color: #e9ecef;
+            border: 1px solid #ced4da;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Treinamento Bootstrap</h1>
+        <p>Leia as instruções no <strong>SCRIPT</strong> (final do arquivo) e escreva o HTML nas áreas indicadas abaixo.</p>
+
+        <div class="area-desafio" id="area-1">
+            <h2>1. Cores e Texto</h2>
+            </div>
+
+        <div class="area-desafio" id="area-2">
+            <h2>2. Botões Profissionais</h2>
+            </div>
+
+        <div class="area-desafio" id="area-3">
+            <h2>3. Margens e Padding</h2>
+            <div style="border: 1px solid black; display: inline-block;">Referência</div>
+            </div>
+
+        <div class="area-desafio" id="area-4">
+            <h2>4. Sistema de Grid</h2>
+            </div>
+
+        <div class="area-desafio" id="area-5">
+            <h2>5. Alertas</h2>
+            </div>
+
+        <div class="area-desafio" id="area-6">
+            <h2>6. Layout Responsivo</h2>
+            </div>
+        
+        <div class="area-desafio" id="area-7">
+            <h2>7. Visibilidade</h2>
+            </div>
+
+    </div>
+
+</body>
+
+<script>
+// =================================================================
+// INSTRUÇÕES DO TREINAMENTO BOOTSTRAP
+// Leia o desafio aqui e escreva o HTML na área correspondente acima.
+// SEMPRE QUE REALIZAR UMA MUDANÇA NO HTML PEÇO PARA VEREM A MUDANÇA
+// SENDO APLICADA NO NAVEGADOR!!!
+// =================================================================
+
+
+// --- DESAFIO 1: Cores e Texto (Vai na div #area-1) ---
+// O Bootstrap usa classes como 'text-cor' e 'bg-cor'.
+// Tarefa:
+// 1. Crie um parágrafo <p> com o texto: "Operação realizada com sucesso".
+// 2. Adicione a classe 'text-success' (para ficar verde).
+// 3. Adicione a classe 'fw-bold' (para ficar negrito).
+// 4. Adicione a classe 'text-center' (para centralizar).
+// 5. Crie uma div com texto "Erro de Sistema", fundo vermelho (classe 'bg-danger') e texto branco (classe 'text-white')
+// e o 'text-center' denovo.
+
+
+
+// --- DESAFIO 2: Botões (Vai na div #area-2) ---
+// Botões usam a classe base 'btn' seguida do estilo.
+// Tarefa:
+// 1. Crie um <button> com texto "Salvar". Use as classes 'btn' e 'btn-primary' (Azul).
+// 2. Crie um <button> com texto "Cancelar". Use 'btn' e 'btn-outline-secondary' (Cinza, apenas borda).
+// 3. Crie um <button> com texto "GRANDE". Adicione a classe 'btn-lg' para aumentar o tamanho.
+
+
+
+// --- DESAFIO 3: Espaçamentos (Vai na div #area-3) ---
+// Formato: {propriedade}{lado}-{tamanho} (ex: mt-5, p-3).
+// m = margin, p = padding.
+// t = top, s = start(esquerda), e = end(direita), b = bottom.
+// Tarefa:
+// 1. Crie uma <div> com texto "Estou afastado".
+// 2. Coloque uma cor de fundo nela (ex: 'bg-info').
+// 3. Adicione 'mt-4' (Margem no Topo nível 4) para desgrudar da caixa de referência.
+// 4. Adicione 'p-3' (Padding nível 3) para dar espaço interno no texto.
+
+
+
+// --- DESAFIO 4: Grid System (Vai na div #area-4) ---
+// O Grid divide a tela em 12 colunas. Estrutura: container > row > col.
+// Tarefa:
+// 1. Crie uma <div class="row">.
+// 2. Dentro dela, crie 3 divs.
+// 3. Cada div deve ter a classe 'col-4' (4+4+4 = 12).
+// 4. Para conseguir ver as divs, adicione também a classe 'visual-coluna' (que eu criei no CSS, esse visual colunas
+//    não é nativo do bootstrap) em cada uma.
+// 5. Escreva "Coluna" dentro de cada uma.
+
+
+
+// --- DESAFIO 5: Alertas (Vai na div #area-5) ---
+// Alertas são caixas de aviso coloridas.
+// Tarefa:
+// 1. Crie uma <div class="alert alert-warning">.
+// 2. Dentro dela, coloque o texto: "Atenção: Sua senha vai expirar."
+// 3. (Opcional) Tente criar outro alerta com 'alert-info' (Azul).
+
+
+
+// --- DESAFIO 6: Responsividade (Vai na div #area-6) ---
+// Podemos mudar o tamanho da coluna dependendo da tela (sm, md, lg).
+// Tarefa:
+// 1. Crie uma <div class="row">.
+// 2. Crie DUAS divs dentro dela (com a classe 'visual-coluna' para ver).
+// 3. O COMPORTAMENTO:
+//    - No celular (padrão), elas devem empilhar (ocupar tudo): use 'col-12'.
+//    - No computador (md), elas devem ficar lado a lado (metade): use 'col-md-6'.
+//    (A classe final fica: class="col-12 col-md-6 visual-coluna").
+
+
+
+// --- DESAFIO 7: Ocultando Elementos (Vai na div #area-7) ---
+// Às vezes precisamos esconder coisas sem usar JS complexo.
+// Tarefa:
+// 1. Crie um botão com texto "Botão Secreto".
+// 2. Adicione a classe 'btn btn-dark'.
+// 3. Adicione a classe 'd-none'.
+// 4. Verifique na tela: O botão não deve aparecer! (Display None).
+
+
+</script>
+</html>

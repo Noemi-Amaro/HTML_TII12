@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercícios Extras: Fetch API (URLs Prontas)</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; padding: 40px; background-color: #f8f9fa; color: #333; }
+        h1 { color: #2c3e50; border-bottom: 3px solid #e74c3c; padding-bottom: 10px; }
+        .box-exercicio {
+            background: white; padding: 20px; margin-bottom: 30px;
+            border-radius: 8px; border-left: 5px solid #3498db;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        button {
+            padding: 10px 15px; background: #2c3e50; color: white; 
+            border: none; border-radius: 4px; cursor: pointer; margin-top: 10px;
+        }
+        button:hover { background: #34495e; }
+        input { padding: 8px; border: 1px solid #ccc; border-radius: 4px; }
+    </style>
+</head>
+<body>
+
+    <h1>Lista de Treino: Fetch API</h1>
+    <p>Abra o <strong>Console (F12)</strong> e a aba <strong>Network (Rede)</strong> para acompanhar.</p>
+
+    <div class="box-exercicio">
+        <h3>1. Listagem de Tarefas (GET com Loop)</h3>
+        <p>Busque todas as tarefas (todos) e mostre apenas as 3 primeiras no console.</p>
+    </div>
+
+    <div class="box-exercicio">
+        <h3>2. Busca Dinâmica (GET com ID Variável)</h3>
+        <label>ID do Comentário:</label>
+        <input type="number" id="input-id" placeholder="Ex: 5">
+        <button id="btn-buscar">Buscar Comentário</button>
+    </div>
+
+    <div class="box-exercicio">
+        <h3>3. Postagem Real (POST com Input)</h3>
+        <input type="text" id="input-titulo" placeholder="Digite o título do post">
+        <button id="btn-publicar">Publicar Post</button>
+    </div>
+
+    <div class="box-exercicio">
+        <h3>4. Marcar como Feito (PATCH Booleano)</h3>
+        <button id="btn-concluir">Concluir Tarefa 1</button>
+    </div>
+
+    <div class="box-exercicio">
+        <h3>5. Deletar com Confirmação (DELETE)</h3>
+        <button id="btn-remover">Remover Post 10</button>
+    </div>
+
+    <div class="box-exercicio">
+        <h3>6. O Detetive de Erros (Try/Catch)</h3>
+        <button id="btn-erro">Testar Link Quebrado</button>
+    </div>
+
+    <div class="box-exercicio">
+        <h3>7. O Combo (Async/Await Sequencial)</h3>
+        <p>Busque o Usuário 1, espere chegar, e DEPOIS busque os posts dele.</p>
+        <button id="btn-combo">Executar Combo</button>
+    </div>
+
+    <div class="box-exercicio sucesso-visual">
+        <h3>8. Melhoria de UX (Feedback de Carregamento)</h3>
+        <p>O usuário clica e acha que travou. Adicione um aviso de "Carregando...".</p>
+        <button id="btn-melhoria">Buscar Posts (Lento)</button>
+        <div id="status-loading" style="margin-top: 10px; color: gray; font-style: italic;">Status da requisição</div>
+    </div>
+</body>
+
+<script>
+// =================================================================
+// NOTA: As URLs já estão prontas nas variáveis 'url'. 
+// Use-as dentro do seu fetch(url).
+// =================================================================
+
+
+// --- EXERCÍCIO 1 ---
+const url1 = 'https://jsonplaceholder.typicode.com/todos';
+
+// 1. Faça um GET usando a variável 'url1'.
+// 2. Receba a lista completa (array).
+// 3. Use um loop (for) ou slice para mostrar no console APENAS os 3 primeiros itens.
+// 4. Execute a função assim que a página carregar (auto-executável ou chamando ela no final).
+
+// Resposta 1:
+
+
+
+// --- EXERCÍCIO 2 ---
+// Atenção: Esta URL é apenas a BASE. Você deve adicionar o ID no final.
+const url2 = 'https://jsonplaceholder.typicode.com/comments/';
+
+// 1. Selecione o input (id="input-id") e o botão (id="btn-buscar").
+// 2. No click do botão, pegue o valor do input.
+// 3. Monte a URL final: const urlFinal = url2 + valorInput;
+// 4. Faça a requisição e Mostre o email do usuario puxado no console.
+
+// Resposta 2:
+
+
+
+// --- EXERCÍCIO 3 ---
+const url3 = 'https://jsonplaceholder.typicode.com/posts';
+
+// 1. Selecione o input (id="input-titulo") e o botão (id="btn-publicar").
+// 2. No click, pegue o texto do input.
+// 3. Faça um POST em 'url3'.
+// 4. No body, envie: { title: VALOR_DO_INPUT, body: "Teste", userId: 1 }.
+// 5. Mostre o que foi enviado no console (se tiver duvidas me chame (Luigi), pode ser que 
+// vocês enpaquem em como pegar o valor que o Post enviou).
+
+// Resposta 3:
+
+
+
+// --- EXERCÍCIO 4 ---
+const url4 = 'https://jsonplaceholder.typicode.com/todos/1';
+
+// Vamos marcar a Tarefa 1 (Todo 1) como concluída.
+// 1. Adicione listener no botão "btn-concluir".
+// 2. Faça PATCH em 'url4'.
+// 3. Envie no body apenas: { completed: true }.
+// 4. Confirme no console se o objeto voltou com "completed: true".
+
+// Resposta 4:
+
+
+
+// --- EXERCÍCIO 5 ---
+const url5 = 'https://jsonplaceholder.typicode.com/posts/10';
+
+// 1. Adicione listener no botão "btn-remover".
+// 2. Pergunte ao usuário: if (confirm("Tem certeza?")) { ... }
+// 3. Se ele aceitar, faça um requisição com o metodo "DELETE" no link da 'url5'.
+// 4. Quando a resposta chegar, dê um alert("Post removido com sucesso!").
+
+// Resposta 5:
+
+
+
+// --- EXERCÍCIO 6 ---
+const url6 = 'https://jsonplaceholder.typicode.com/pagina-fantasma';
+
+// 1. Adicione um listener no botão "btn-erro".
+// 2. Tente fazer GET na 'url6' (que não existe).
+// 3. Use try/catch.
+// 4. No catch, mostre um alert avisando que a página não foi encontrada.
+
+// Resposta 6:
+
+
+
+// --- EXERCÍCIO 7 ---
+const urlUsuario = 'https://jsonplaceholder.typicode.com/users/1';
+const urlPosts = 'https://jsonplaceholder.typicode.com/posts?userId=1';
+
+// 1. Adicione listener no "btn-combo".
+// 2. Crie uma função async.
+// 3. Passo A: Faça fetch em 'urlUsuario'. Mostre no console "Usuário carregado".
+// 4. Passo B: LOGO EM SEGUIDA (na linha de baixo), faça fetch em 'urlPosts'.
+// 5. Mostre a lista de posts no console.
+
+// Resposta 7:
+
+
+
+
+// --- EXERCÍCIO 8 ---
+// O código abaixo funciona, mas a requisição pode demorar e o usuário não sabe.
+// SUA MISSÃO: Adicionar um feedback visual.
+// 1. Selecione a div de status (id="status-loading").
+// 2. ANTES do fetch começar: mude o texto da div para "Carregando dados...".
+// 3. DEPOIS que o fetch terminar (após o await): mude o texto para "Sucesso!".
+// 4. BÔNUS: Use try/catch. Se der erro, mude o texto para "Erro na conexão".
+
+const url8 = 'https://jsonplaceholder.typicode.com/photos';
+const btnMelhoria = document.getElementById('btn-melhoria');
+
+// Resposta 8:
+
+btnMelhoria.addEventListener('click', async () => {
+    // Escreva sua melhoria AQUI (Antes do fetch)
+    
+
+    const resp = await fetch(url8);
+    const dados = await resp.json();
+    console.log("Fotos carregadas:", dados.length);
+
+    // Escreva sua melhoria AQUI (Depois do fetch)
+    
+});
+
+
+</script>
+</html>

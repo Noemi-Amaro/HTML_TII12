@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio: Lista Telefônica (Com Segurança)</title>
+    
+    <style>
+        body { padding: 40px; background-color: #f0f2f5; }
+        .area-exemplo {
+            background: white; border: 1px solid #ddd; padding: 20px; 
+            margin-bottom: 30px; border-radius: 8px; min-height: 50px;
+        }
+        h2 { font-size: 1.3rem; color: #198754; margin-bottom: 15px; border-bottom: 2px solid #198754; padding-bottom: 5px;}
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="text-center mb-5">Projeto: Lista Telefônica Segura</h1>
+        <p class="text-center">Siga as instruções no script.</p>
+
+        <h2>Etapa 1: Lista de Nomes (Simples)</h2>
+        <div id="area-nomes" class="area-exemplo"></div>
+
+        <h2>Etapa 2: Cartões de Contato (Complexo)</h2>
+        <div id="area-contatos" class="area-exemplo row"></div>
+
+    </div>
+
+</body>
+
+<script>
+// URL DA API (Usuários com telefone)
+// Dica: Tente escrevar uma versão errada dessa URL depois para testar o CATCH
+const urlAPI = 'https://jsonplaceholder.typicode.com/users';
+
+// SELETORES 
+const divNomes = document.getElementById('area-nomes');
+const divContatos = document.getElementById('area-contatos');
+
+
+async function gerarListaTelefonica() {
+
+
+        // --- PASSO 0: Inserir Framewor ---
+        // 1. Faça o Bootstrap funcionar nesse projeto
+        // (aqui o href da CDN : "https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" 
+        // use também o rel="stylesheet" no link que vai chamar o bootstrap)
+        // NÃO É NECESSARIO USAR O FETCH PARA O BOOTRSTRAP FUNCIONAR, qualquer duvida reveja as aulas de framework
+
+
+        // --- PASSO 1: Buscar os Dados (Fetch) ---
+        // 1. Faça o fetch na 'urlAPI'.
+        // 2. Converta para JSON.
+        // 3. Guarde numa variável 'listaUsuarios'.
+        
+        // Seu código aqui:
+        try {
+       
+            const usuario = await fetch('https://jsonplaceholder.typicode.com/users')
+            const listaUsuarios = await usuario.json()
+            console.log(listaUsuarios)
+
+
+
+            // --- PASSO 2: Lista Simples ---
+            // Vamos listar os nomes na primeira div.
+            // 1. Crie um Loop percorrendo a 'listaUsuarios'.
+            // 2. Crie um elemento <p>.
+            // 3. Coloque o nome do usuário nele (dica, atribua no .textContent do p criado)
+            // 4. Adicione a classe Bootstrap: 'border-bottom'.
+            // 5. Jogue dentro da 'divNomes'.
+
+            // Seu código aqui:
+            for(let i = 0; i < listaUsuarios.length; i++) {
+                const usuario = listaUsuarios[i];
+                const p = document.createElement('p');
+                p.textContent = usuario.name;
+                p.classList.add('border-bottom');
+                divNomes.appendChild(p);
+                // console.log(listaUsuarios);
+            }
+
+
+
+            // --- PASSO 3: O Cartão de Contato  ---
+            // 1. Crie um Loop percorrendo a listaUsuarios.
+            //
+            // 2. Crie a DIV PAI (Coluna).
+            //    - Classes: 'col-md-4', 'mb-3'.
+            //
+            // 3. Crie a DIV CARD (Visual branco).
+            //    - Classes: 'card', 'p-3', 'shadow-sm', 'h-100'.
+            //
+            // 4. Crie o NOME (h5).
+            //    - Texto: "Nome: " + usuario.name
+            //    - Classe: 'fw-bold'.
+            //
+            // 5. Crie o TELEFONE (p).
+            //    - Texto: "Telefone: " + usuario.phone
+            //    - Classe: 'text-success'.
+            //
+            // 6. MONTAGEM:
+            //    - Coloque Nome dentro de um h5 e Telefone dentro de um p, então ambos dentro do Card.
+            //    - Coloque o Card dentro da Div Pai.
+            //    - Coloque a Div Pai dentro da 'divContatos'.
+            //    - Não se esqueça de colocar as variaveis
+            //     (dica! use .appendChild() )
+
+            // Seu código aqui:
+            for(let i = 0; i < listaUsuarios.length; i++){
+            const usuario1 = listaUsuarios[i];
+        
+                    
+            const divPai = document.createElement('div');
+            divPai.classList.add('col-md-4', 'mb-3');
+    
+            const divCard = document.createElement('div');
+            divCard.classList.add('card', 'p-3', 'shadow-sm', 'h-100');
+    
+            const nomeH5 = document.createElement('h5');    
+            nomeH5.textContent = 'Nome: ' + usuario1.name;
+            nomeH5.classList.add('fw-bold');
+    
+            const telefoneP = document.createElement('p');
+            telefoneP.textContent = 'Telefone: ' + usuario1.phone;
+            telefoneP.classList.add('text-success');
+
+            divCard.appendChild(nomeH5);
+            divCard.appendChild(telefoneP);
+            divPai.appendChild(divCard);
+            divContatos.appendChild(divPai);
+        }
+    
+
+
+            // --- PASSO 4: Prevenção de Erros (Depuração) ---
+            // 1. Faça com que caso algum erro aconteça na requisição, o código não quebre, ao invez disso
+            // Caso ele de erro, mostre uma mensagem de erro com alert() para o usuário, mostrando o erro que o catch pegou
+            
+        
+         
+    }catch (error) {
+        console.log("não foi")
+        alert('Ocorreu um erro ao buscar os dados: ' + error);
+ 
+    }
+
+    } 
+
+
+// Executar
+gerarListaTelefonica();
+
+</script>
+</html>

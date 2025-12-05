@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Aula 5 - Introdução ao DOM</title>
+    <style>
+        .destaque {
+            background-color: yellow;
+            font-weight: bold;
+        }
+
+        .texto-azul {
+            color: blue;
+        }
+        @keyframes flashPerigoso {
+            0%, 100% { opacity: 1; background-color: rgb(255, 187, 0); color: rgb(255, 255, 255); }
+            50% { opacity: 0.1; background-color: yellow; color: black;}
+        }
+
+        .banner-promocao {
+            padding: 20px;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border: 3px solid rgb(255, 187, 0);
+            /* Animação muito rápida! */
+            animation: flashPerigoso 0.5s infinite;
+        }
+
+    </style>
+</head>
+<body>
+
+
+    <div>
+        <label>Nome:</label>
+        <input id="campo-nome" placeholder="Digite seu nome">
+        <p>Campo Preenchido</p>
+        <h3 id="campo-preenchido">Tem texto aqui</h3>
+        <p>Campo Vazio:</p>
+        <h3 id="campo-vazio"></h3>
+    </div>
+
+
+    <ul id="lista-desafio"></ul>
+    <button id="botao-clique">Clique em Mim!</button>
+
+    <section>   
+            <h2>Ofertas Especiais</h2>
+            <div class="banner-promocao" id="banner-pisca">
+                ATENÇÃO! DESCONTO DE 50% SÓ HOJE! APROVEITE!
+            </div>
+    </section>
+</body>
+
+<script>
+
+// DESAFIO 1 : Crie um for, que conte de 5 a 10
+for(let i=5 ; i<=10; i++){
+    console.log("contagem" + i)
+}
+
+
+// DESAFIO 2 : Pegue o texto inserido no campo com id "campo-preenchido" e mostre no console o texto dele
+let campo = document.querySelector("#campo-preenchido")
+console.log(campo)
+
+// DESAFIO 3 : Pegue o texto inserido no campo com id "campo-nome" e insira no o valor no campo com id "campo-vazio" quando o botão com id "botao-clique" for clicado
+let campoNome = document.querySelector("#campo-nome")
+let campoVazio = document.querySelector("#campo-vazio")
+
+campoVazio.textContent = campoNome.value
+campoNome.value = "Noemi"
+
+// DESAFIO 4 : desative a animação da div com id= "banner-pisca"
+let animacaoDiv = document.querySelector("#banner-pisca")
+animacaoDiv.style.animation = 'none'
+
+</script>
+</html>

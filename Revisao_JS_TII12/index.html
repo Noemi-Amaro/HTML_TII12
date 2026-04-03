@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projeto de Revisão JavaScript</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Overlay escuro para quando o menu abrir no mobile -->
+  <div class="overlay" id="overlay"></div>
+
+  <div class="app" id="app">
+    <!-- MENU LATERAL -->
+    <aside class="sidebar" id="sidebar">
+      <!-- Topo do menu -->
+      <div class="sidebar-top">
+        <div class="brand">
+          <div class="brand-badge">JS</div>
+
+          <div class="brand-text">
+            <h1>Revisão de Interações</h1>
+            <p>Projeto base para aula</p>
+          </div>
+        </div>
+
+        <!-- Botão para fechar no mobile -->
+        <button class="icon-btn mobile-close-btn" id="closeSidebarBtn" aria-label="Fechar menu">
+          ×
+        </button>
+      </div>
+
+      <!-- Navegação simples -->
+      <nav class="sidebar-nav">
+        <a href="#heroSection" class="nav-link active">Início</a>
+        <a href="#cardsSection" class="nav-link">Conteúdos</a>
+      </nav>
+
+      <div class="sidebar-section">
+        <h2>Recursos praticados</h2>
+
+        <ul>
+          <li>
+            <strong>Barra de busca</strong>
+            <span>Filtro simples usando input + includes().</span>
+          </li>
+
+          <li>
+            <strong>Modal</strong>
+            <span>Abrir e fechar com clique em botões e fundo.</span>
+          </li>
+
+          <li>
+            <strong>Menu lateral</strong>
+            <span>Mostrar e esconder com classList.toggle().</span>
+          </li>
+
+          <li>
+            <strong>Carrossel</strong>
+            <span>Navegar entre slides usando array e índice.</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="tip-box">
+        <strong>Dica para a aula</strong>
+        <span>
+          Vocês poderão sempre utilizar estes recursos de forma reutilizável para suas aplicações.
+        </span>
+      </div>
+    </aside>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="content" id="content">
+      <!-- TOPO DA PÁGINA -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <div class="topbar-title-line">
+            <!-- Botão do menu -->
+            <button class="icon-btn menu-toggle" id="menuToggleBtn" aria-label="Abrir ou fechar menu">
+              ☰
+            </button>
+
+            <div>
+              <h2>Projeto simples e reaproveitável</h2>
+              <p>Com estrutura visual melhor e interações feitas com JavaScript puro.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="topbar-actions">
+          <button class="btn btn-secondary" id="openGeneralModalBtn">Abrir modal</button>
+        </div>
+      </header>
+
+      <!-- CARROSSEL / HERO -->
+      <section class="hero" id="heroSection">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <span class="hero-tag">Slide em destaque</span>
+
+            <h3 id="carouselTitle">Título do slide</h3>
+            <p id="carouselText">Descrição do slide.</p>
+
+            <div class="hero-controls">
+              <button class="btn btn-secondary" id="prevBtn">Anterior</button>
+              <button class="btn btn-primary" id="nextBtn">Próximo</button>
+            </div>
+          </div>
+
+          <div class="hero-visual">
+            <img id="carouselImage" src="" alt="Imagem do carrossel" />
+          </div>
+        </div>
+      </section>
+
+      <!-- PAINEL DE BUSCA E CARDS -->
+      <section class="panel" id="cardsSection">
+        <div class="panel-header">
+          <div>
+            <h3>Galeria de conteúdos</h3>
+            <p>Digite para filtrar os cards pelo título.</p>
+          </div>
+        </div>
+
+        <div class="search-box">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Buscar conteúdo, por exemplo: modal"
+          />
+        </div>
+
+        <div class="cards" id="cardsContainer">
+          <article class="card">
+            <img
+              src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80"
+              alt="Código em uma tela"
+            />
+
+            <div class="card-body">
+              <h4>Barra de Busca</h4>
+              <p>
+                Filtra elementos na tela a partir do texto digitado pelo usuário
+                no campo input.
+              </p>
+              <button class="btn btn-primary open-card-modal">Ver detalhes</button>
+            </div>
+          </article>
+
+          <article class="card">
+            <img
+              src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80"
+              alt="Pessoa estudando programação"
+            />
+
+            <div class="card-body">
+              <h4>Modal</h4>
+              <p>
+                Janela sobreposta para destacar avisos, ações, formulários ou
+                mais detalhes de um item.
+              </p>
+              <button class="btn btn-primary open-card-modal">Ver detalhes</button>
+            </div>
+          </article>
+
+          <article class="card">
+            <img
+              src="https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?auto=format&fit=crop&w=1200&q=80"
+              alt="Notebook aberto em mesa de trabalho"
+            />
+
+            <div class="card-body">
+              <h4>Menu Lateral</h4>
+              <p>
+                Painel lateral que pode abrir e fechar, muito usado em dashboards
+                e sistemas administrativos.
+              </p>
+              <button class="btn btn-primary open-card-modal">Ver detalhes</button>
+            </div>
+          </article>
+
+          <article class="card">
+            <img
+              src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80"
+              alt="Circuitos e tecnologia"
+            />
+
+            <div class="card-body">
+              <h4>Carrossel</h4>
+              <p>
+                Estrutura para exibir diferentes conteúdos em sequência usando
+                botões de navegação.
+              </p>
+              <button class="btn btn-primary open-card-modal">Ver detalhes</button>
+            </div>
+          </article>
+        </div>
+
+        <div class="empty-state" id="emptyState">
+          Nenhum card foi encontrado para essa busca.
+        </div>
+      </section>
+
+  <!-- ACCORDEON -->
+   <!-- PERGUNTAS FREQUENTES -->
+      <section class="panel faq-section" id="faqSection">
+        <div class="panel-header">
+          <div>
+            <h3>Perguntas Frequentes</h3>
+            <p>Clique nas perguntas para ver as respostas.</p>
+          </div>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-question">
+              O que é manipulação de DOM?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>É a forma como o JavaScript interage com o HTML, permitindo alterar textos, estilos, adicionar ou remover elementos da página dinamicamente.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              Como funcionam os eventos?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Eventos são ações do usuário (como cliques, digitação ou rolagem). Usamos métodos como <code>addEventListener</code> para "ouvir" e reagir a essas ações.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              Para que serve o let e const?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>São formas de declarar variáveis no JavaScript moderno. O <code>let</code> permite reatribuir valores, enquanto o <code>const</code> cria uma variável com valor constante que não pode ser reatribuída.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- MODAL -->
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modalTitle">Título do modal</h3>
+        <button class="close-btn" id="closeModalBtn" aria-label="Fechar modal">×</button>
+      </div>
+
+      <div class="modal-body">
+        <p id="modalText">Texto do modal.</p>
+      </div>
+
+      <div class="modal-actions">
+        <button class="btn btn-secondary" id="closeModalFooterBtn">Fechar</button>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
